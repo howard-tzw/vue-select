@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/howard-tzw/vue3-select/compare/v0.0.7...v0.0.8) (2023-06-21)
+
+
+### Features
+
+* added a new customizable property for aria-label ([160bef3](https://github.com/howard-tzw/vue3-select/commit/160bef30148ad5f80c98d73ba88fbb70ef7ffeac))
+
 ### [0.0.7](https://github.com/howard-tzw/vue3-select/compare/v0.0.6...v0.0.7) (2023-06-21)
 
 
