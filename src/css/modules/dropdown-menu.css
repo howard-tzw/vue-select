@@ -14,7 +14,7 @@
   top: calc(100% - var(--vs-border-width));
   left: 0;
   z-index: var(--vs-dropdown-z-index);
-  padding: 5px;
+  padding: var(--vs-dropdown-padding);
   margin: 0;
   margin-top: 5px;
   overflow: var(--vs-dropdown-overflow-x) var(--vs-dropdown-overflow-y);
@@ -47,6 +47,12 @@
 .vs__dropdown-option--highlight {
   background: var(--vs-dropdown-option--active-bg);
   color: var(--vs-dropdown-option--active-color);
+}
+
+/* should be after .vs__dropdown-option--highlight to cover */
+.vs__dropdown-option--selected {
+  background: var(--vs-dropdown-option--selected-bg);
+  color: var(--vs-dropdown-option--selected-color);
 }
 
 .vs__dropdown-option--deselect {
