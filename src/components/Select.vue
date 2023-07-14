@@ -102,13 +102,15 @@
           :id="`vs${uid}__option-${index}`"
           :key="getOptionKey(option)"
           role="option"
-          class="vs__dropdown-option"
           :class="{
+            'vs__dropdown-option': !isOptGroupOption(option),
+            'vs__dropdown-optgroup-option': isOptGroupOption(option),
             'vs__dropdown-option--deselect':
               isOptionDeselectable(option) && index === typeAheadPointer,
             'vs__dropdown-option--selected': isOptionSelected(option),
             'vs__dropdown-option--highlight':
-              index === typeAheadPointer || isOptionSelected(option),
+              (!isOptGroupOption(option) && index === typeAheadPointer) ||
+              isOptionSelected(option),
             'vs__dropdown-option--disabled': !selectable(option),
           }"
           :aria-selected="index === typeAheadPointer ? true : null"
@@ -118,7 +120,10 @@
             selectable(option) ? updateTypeAheadPointer(index) : null
           "
         >
-          <slot name="option" v-bind="normalizeOptionForSlot(option)">
+          <div v-if="option.optgroup" class="">
+            {{ option.optgroup }}
+          </div>
+          <slot v-else name="option" v-bind="normalizeOptionForSlot(option)">
             {{ getOptionLabel(option) }}
           </slot>
         </li>
@@ -904,7 +909,9 @@ export default {
      * @return {array}
      */
     filteredOptions() {
-      const optionList = Array.prototype.concat(this.optionList)
+      const optionList = this.normalizeOptGroups(
+        Array.prototype.concat(this.optionList)
+      )
 
       if (!this.filterable && !this.taggable) {
         return optionList
@@ -1163,6 +1170,15 @@ export default {
     },
 
     /**
+     * Check if the given option is optgroup label
+     * @param  {Object|String}  option
+     * @return {Boolean}
+     */
+    isOptGroupOption(option) {
+      return !!option.optgroup
+    },
+
+    /**
      *  Can the current option be removed via the dropdown?
      */
     isOptionDeselectable(option) {
@@ -1374,6 +1390,27 @@ export default {
       if (typeof handlers[e.keyCode] === 'function') {
         return handlers[e.keyCode](e)
       }
+    },
+    /**
+     * optgroups
+     * @param {*} options
+     */
+    normalizeOptGroups(options) {
+      return options
+        .map((item) => {
+          if (
+            item.groupLabel &&
+            item.groupOptions &&
+            item.groupOptions instanceof Array
+          ) {
+            return [{ optgroup: item.groupLabel }].concat(item.groupOptions)
+          } else {
+            return [item]
+          }
+        })
+        .reduce((arr, group) => {
+          return arr.concat(group)
+        }, [])
     },
   },
 }

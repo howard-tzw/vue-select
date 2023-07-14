@@ -1,14 +1,39 @@
 <template>
   <div>
     <div class="section">
-      <h2 class="title">feat: optgroups</h2>
+      <h2 class="title">optgroups</h2>
       <ul>
-        <li>searchable: false</li>
         <li>clearable: false</li>
       </ul>
       <v-select
         v-model="selected"
-        :options="computedOptions"
+        :options="optgroups"
+        :clearable="false"
+        :searchable="false"
+      />
+    </div>
+
+    <div class="section">
+      <h2 class="title">optgroups (searchable)</h2>
+      <ul>
+        <li>clearable: false</li>
+      </ul>
+      <v-select
+        v-model="selected"
+        :options="optgroups"
+        :clearable="false"
+        searchable
+      />
+    </div>
+
+    <div class="section">
+      <h2 class="title">optgroups mix</h2>
+      <ul>
+        <li>clearable: false</li>
+      </ul>
+      <v-select
+        v-model="selected"
+        :options="optgroupsMix"
         :clearable="false"
         :searchable="false"
       />
@@ -18,12 +43,58 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import countries from '../../docs/.vuepress/data/countryCodes.js'
 
 const selected = ref(null)
-const options = ref(countries)
+// const options = ref([
+//   { value: 'AF', label: 'Afghanistan' },
+//   { value: 'AX', label: 'Åland Islands' },
+//   { value: 'AL', label: 'Albania' },
+//   { value: 'DZ', label: 'Algeria' },
+//   { value: 'AS', label: 'American Samoa' },
+//   { value: 'AD', label: 'Andorra' },
+// ])
 
-const computedOptions = computed(() => countries)
+const optgroups = [
+  {
+    groupLabel: 'Germany',
+    groupOptions: [
+      { label: 'Berlin', value: 'BE' },
+      { label: 'Frankfurt', value: 'FFM' },
+    ],
+  },
+  {
+    groupLabel: 'USA',
+    groupOptions: [
+      { label: 'Chicago', value: 'CHI' },
+      { label: 'Los Angeles', value: 'LA' },
+    ],
+  },
+  {
+    groupLabel: 'Taiwan',
+    groupOptions: [
+      { label: 'Taipei', value: 'TPE' },
+      { label: 'Kaohsiung', value: 'KHH' },
+      { label: 'Taichung', value: 'TXG' },
+    ],
+  },
+]
+
+const optgroupsMix = [
+  'one',
+  {
+    groupLabel: 'Opt Group',
+    groupOptions: [
+      {
+        label: 'Test',
+        value: 'test',
+      },
+      {
+        label: 'Test 2',
+        value: 'test2',
+      },
+    ],
+  },
+]
 </script>
 
 <style scoped></style>
