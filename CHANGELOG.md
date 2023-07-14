@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* added a new customizable property for aria-label ([160bef3](https://github.com/howard-tzw/vue3-select/commit/160bef30148ad5f80c98d73ba88fbb70ef7ffeac))
+* added a new customizable property for aria-label, thanks to the original [PR#1765](https://github.com/sagalbot/vue-select/pull/1765) ([160bef3](https://github.com/howard-tzw/vue3-select/commit/160bef30148ad5f80c98d73ba88fbb70ef7ffeac))
 
 ### [0.0.7](https://github.com/howard-tzw/vue3-select/compare/v0.0.6...v0.0.7) (2023-06-21)
 
