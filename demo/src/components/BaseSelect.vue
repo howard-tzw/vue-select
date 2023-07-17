@@ -75,9 +75,9 @@ function selectedOptionNameClass(name: string) {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-:deep(.vs__dropdown-toggle
-    .vs__selected-options
-    .vs__selected::-webkit-scrollbar) {
+:deep(
+    .vs__dropdown-toggle .vs__selected-options .vs__selected::-webkit-scrollbar
+  ) {
   display: none;
 }
 

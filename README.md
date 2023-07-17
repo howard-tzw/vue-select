@@ -1,9 +1,13 @@
 # vue3-select
 
-This is a forked and maintained version of [sagalbot/vue-select](https://github.com/sagalbot/vue-select), which is no longer maintained. As the name suggests, this project is specifically designed to work with the Vue 3.
+This is a forked and maintained version of
+[sagalbot/vue-select](https://github.com/sagalbot/vue-select), which is no
+longer maintained. As the name suggests, this project is specifically designed
+to work with the Vue 3.
 
-**Notes**: At the moment, most of the features of vue3-select are the same as the original vue-select project. As such, users can refer to the original documentation for usage instructions.
-
+**Notes**: At the moment, most of the features of vue3-select are the same as
+the original vue-select project. As such, users can refer to the original
+documentation for usage instructions.
 
 ## Documentation
 
@@ -27,12 +31,13 @@ npm install vue3-select
 Then, import and register the component:
 
 ```js
-import Vue from "vue";
+import Vue from 'vue'
 import VueSelect from 'vue3-select'
 import 'vue3-select/dist/vue3-select.css'
 
 app.component('VSelect', VueSelect)
 ```
+
 ## License
 
 [MIT](https://github.com/howard-tzw/vue3-select/blob/main/LICENSE.md)

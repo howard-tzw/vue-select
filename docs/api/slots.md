@@ -1,7 +1,6 @@
-::: tip
-Vue Select leverages scoped slots to allow for total customization of the presentation layer.
-Slots can be used to change the look and feel of the UI, or to simply swap out text.
-:::
+::: tip Vue Select leverages scoped slots to allow for total customization of
+the presentation layer. Slots can be used to change the look and feel of the UI,
+or to simply swap out text. :::
 
 <style>
   .slot-docs h2 {
@@ -22,8 +21,9 @@ Slots can be used to change the look and feel of the UI, or to simply swap out t
 
 Displayed at the bottom of the component, below `.vs__dropdown-toggle`.
 
-When implementing this slot, you'll likely need to use `appendToBody` to position the dropdown.
-Otherwise content in this slot will affect it's positioning.
+When implementing this slot, you'll likely need to use `appendToBody` to
+position the dropdown. Otherwise content in this slot will affect it's
+positioning.
 
 - `search {string}` - the current search query
 - `loading {boolean}` - is the component loading
@@ -49,8 +49,8 @@ Displayed at the top of the component, above `.vs__dropdown-toggle`.
 
 ## `list-footer` <Badge text="3.8.0+" />
 
-Displayed as the last item in the dropdown. No content by default. Parent element is the `<ul>`,
-so this slot should contain a root `<li>`.
+Displayed as the last item in the dropdown. No content by default. Parent
+element is the `<ul>`, so this slot should contain a root `<li>`.
 
 - `search {string}` - the current search query
 - `loading {boolean}` - is the component loading
@@ -62,8 +62,8 @@ so this slot should contain a root `<li>`.
 
 ## `list-header` <Badge text="3.8.0+" />
 
-Displayed as the first item in the dropdown. No content by default. Parent element is the `<ul>`,
-so this slot should contain a root `<li>`.
+Displayed as the first item in the dropdown. No content by default. Parent
+element is the `<ul>`, so this slot should contain a root `<li>`.
 
 - `search {string}` - the current search query
 - `loading {boolean}` - is the component loading
@@ -87,7 +87,8 @@ The no options slot is displayed above `list-footer` in the dropdown when
 
 ## `open-indicator`
 
-The open indicator is the caret icon on the component used to indicate dropdown status.
+The open indicator is the caret icon on the component used to indicate dropdown
+status.
 
 ```js
 attributes: {
@@ -111,10 +112,12 @@ The current option within the dropdown, contained within `<li>`.
 
 ## `search`
 
-The search input has a lot of bindings, but they're grouped into `attributes` and `events`. Most
-of the time, you will just be binding those two with `v-on="events"` and `v-bind="attributes"`.
+The search input has a lot of bindings, but they're grouped into `attributes`
+and `events`. Most of the time, you will just be binding those two with
+`v-on="events"` and `v-bind="attributes"`.
 
-If you want the default styling, you'll need to add `.vs__search` to the input you provide.
+If you want the default styling, you'll need to add `.vs__search` to the input
+you provide.
 
 ```js
   /**
@@ -166,14 +169,16 @@ This slot doesn't exist if `selected-option-container` is implemented.
 
 ## `selected-option-container`
 
-This is the root element where `v-for="option in selectedValue"`. Most of the time you'll want to
-use `selected-option`, but this container is useful if you want to disable the deselect button,
-or have fine grain control over the markup.
+This is the root element where `v-for="option in selectedValue"`. Most of the
+time you'll want to use `selected-option`, but this container is useful if you
+want to disable the deselect button, or have fine grain control over the markup.
 
 - `option {Object}` - Currently iterated selected option
-- `deselect {Function}` - Method used to deselect a given option when `multiple` is true
+- `deselect {Function}` - Method used to deselect a given option when `multiple`
+  is true
 - `disabled {Boolean}` - Determine if the component is disabled
-- `multiple {Boolean}` - If the component supports the selection of multiple values
+- `multiple {Boolean}` - If the component supports the selection of multiple
+  values
 
 <SlotSelectedOptionContainer />
 <<< @/.vuepress/components/SlotSelectedOptionContainer.vue

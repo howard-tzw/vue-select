@@ -1,12 +1,8 @@
 export default {
   mounted(el, { instance }) {
     if (instance.appendToBody) {
-      const {
-        height,
-        top,
-        left,
-        width,
-      } = instance.$refs.toggle.getBoundingClientRect()
+      const { height, top, left, width } =
+        instance.$refs.toggle.getBoundingClientRect()
       let scrollX = window.scrollX || window.pageXOffset
       let scrollY = window.scrollY || window.pageYOffset
       el.unbindPosition = instance.calculatePosition(el, instance, {

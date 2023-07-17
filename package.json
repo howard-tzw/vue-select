@@ -74,7 +74,7 @@
     "jsdom": "^20.0.0",
     "postcss": "^8.4.24",
     "postcss-nested": "^5.0.6",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "standard-version": "^9.5.0",
     "tailwindcss": "^3.3.2",
@@ -108,5 +108,12 @@
         "maxSize": "2 KB"
       }
     ]
-  }
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "select",
+    "component",
+    "dropdown"
+  ]
 }

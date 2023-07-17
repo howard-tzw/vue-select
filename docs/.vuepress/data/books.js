@@ -3,162 +3,162 @@ export default [
   {
     title: "Old Man's War",
     author: {
-      firstName: "John",
-      lastName: "Scalzi"
-    }
+      firstName: 'John',
+      lastName: 'Scalzi',
+    },
   },
   {
-    title: "The Lock Artist",
+    title: 'The Lock Artist',
     author: {
-      firstName: "Steve",
-      lastName: "Hamilton"
-    }
+      firstName: 'Steve',
+      lastName: 'Hamilton',
+    },
   },
   {
-    title: "HTML5",
+    title: 'HTML5',
     author: {
-      firstName: "Remy",
-      lastName: "Sharp"
-    }
+      firstName: 'Remy',
+      lastName: 'Sharp',
+    },
   },
   {
-    title: "Right Ho Jeeves",
+    title: 'Right Ho Jeeves',
     author: {
-      firstName: "P.D",
-      lastName: "Woodhouse"
-    }
+      firstName: 'P.D',
+      lastName: 'Woodhouse',
+    },
   },
   {
-    title: "The Code of the Wooster",
+    title: 'The Code of the Wooster',
     author: {
-      firstName: "P.D",
-      lastName: "Woodhouse"
-    }
+      firstName: 'P.D',
+      lastName: 'Woodhouse',
+    },
   },
   {
-    title: "Thank You Jeeves",
+    title: 'Thank You Jeeves',
     author: {
-      firstName: "P.D",
-      lastName: "Woodhouse"
-    }
+      firstName: 'P.D',
+      lastName: 'Woodhouse',
+    },
   },
   {
-    title: "The DaVinci Code",
+    title: 'The DaVinci Code',
     author: {
-      firstName: "Dan",
-      lastName: "Brown"
-    }
+      firstName: 'Dan',
+      lastName: 'Brown',
+    },
   },
   {
-    title: "Angels & Demons",
+    title: 'Angels & Demons',
     author: {
-      firstName: "Dan",
-      lastName: "Brown"
-    }
+      firstName: 'Dan',
+      lastName: 'Brown',
+    },
   },
   {
-    title: "The Silmarillion",
+    title: 'The Silmarillion',
     author: {
-      firstName: "J.R.R",
-      lastName: "Tolkien"
-    }
+      firstName: 'J.R.R',
+      lastName: 'Tolkien',
+    },
   },
   {
-    title: "Syrup",
+    title: 'Syrup',
     author: {
-      firstName: "Max",
-      lastName: "Barry"
-    }
+      firstName: 'Max',
+      lastName: 'Barry',
+    },
   },
   {
-    title: "The Lost Symbol",
+    title: 'The Lost Symbol',
     author: {
-      firstName: "Dan",
-      lastName: "Brown"
-    }
+      firstName: 'Dan',
+      lastName: 'Brown',
+    },
   },
   {
-    title: "The Book of Lies",
+    title: 'The Book of Lies',
     author: {
-      firstName: "Brad",
-      lastName: "Meltzer"
-    }
+      firstName: 'Brad',
+      lastName: 'Meltzer',
+    },
   },
   {
-    title: "Lamb",
+    title: 'Lamb',
     author: {
-      firstName: "Christopher",
-      lastName: "Moore"
-    }
+      firstName: 'Christopher',
+      lastName: 'Moore',
+    },
   },
   {
-    title: "Fool",
+    title: 'Fool',
     author: {
-      firstName: "Christopher",
-      lastName: "Moore"
-    }
+      firstName: 'Christopher',
+      lastName: 'Moore',
+    },
   },
   {
-    title: "Incompetence",
+    title: 'Incompetence',
     author: {
-      firstName: "Rob",
-      lastName: "Grant"
-    }
+      firstName: 'Rob',
+      lastName: 'Grant',
+    },
   },
   {
-    title: "Fat",
+    title: 'Fat',
     author: {
-      firstName: "Rob",
-      lastName: "Grant"
-    }
+      firstName: 'Rob',
+      lastName: 'Grant',
+    },
   },
   {
-    title: "Colony",
+    title: 'Colony',
     author: {
-      firstName: "Rob",
-      lastName: "Grant"
-    }
+      firstName: 'Rob',
+      lastName: 'Grant',
+    },
   },
   {
-    title: "Backwards, Red Dwarf",
+    title: 'Backwards, Red Dwarf',
     author: {
-      firstName: "Rob",
-      lastName: "Grant"
-    }
+      firstName: 'Rob',
+      lastName: 'Grant',
+    },
   },
   {
-    title: "The Grand Design",
+    title: 'The Grand Design',
     author: {
-      firstName: "Stephen",
-      lastName: "Hawking"
-    }
+      firstName: 'Stephen',
+      lastName: 'Hawking',
+    },
   },
   {
-    title: "The Book of Samson",
+    title: 'The Book of Samson',
     author: {
-      firstName: "David",
-      lastName: "Maine"
-    }
+      firstName: 'David',
+      lastName: 'Maine',
+    },
   },
   {
-    title: "The Preservationist",
+    title: 'The Preservationist',
     author: {
-      firstName: "David",
-      lastName: "Maine"
-    }
+      firstName: 'David',
+      lastName: 'Maine',
+    },
   },
   {
-    title: "Fallen",
+    title: 'Fallen',
     author: {
-      firstName: "David",
-      lastName: "Maine"
-    }
+      firstName: 'David',
+      lastName: 'Maine',
+    },
   },
   {
-    title: "Monster 1959",
+    title: 'Monster 1959',
     author: {
-      firstName: "David",
-      lastName: "Maine"
-    }
-  }
+      firstName: 'David',
+      lastName: 'Maine',
+    },
+  },
 ]

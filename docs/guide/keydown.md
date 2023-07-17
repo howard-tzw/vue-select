@@ -1,20 +1,22 @@
 ### Customizing Keydown Behaviour
+
 ---
 
 ## selectOnKeyCodes <Badge text="v3.3.0+" />
 
-`selectOnKeyCodes {Array}` is an array of keyCodes that will trigger a typeAheadSelect. Any keyCodes
- in this array will prevent the default event action and trigger a typeahead select. By default, 
- it's just `[13]` for return. For example, maybe you want to tag on a comma keystroke:
- 
+`selectOnKeyCodes {Array}` is an array of keyCodes that will trigger a
+typeAheadSelect. Any keyCodes in this array will prevent the default event
+action and trigger a typeahead select. By default, it's just `[13]` for return.
+For example, maybe you want to tag on a comma keystroke:
+
 <TagOnComma /> 
  
 <<< @/.vuepress/components/TagOnComma.vue
 
 ## mapKeyDown <Badge text="v3.3.0+" />
 
-Vue Select provides the `map-keydown` Function prop to allow for customizing the components response to 
-keydown events while the search input has focus.
+Vue Select provides the `map-keydown` Function prop to allow for customizing the
+components response to keydown events while the search input has focus.
 
 ```js
 /**
@@ -25,12 +27,13 @@ keydown events while the search input has focus.
 (map, vm) => map,
 ```
 
-By default, the prop is a no–op returning the same object `map` object it receives. This object
-maps keyCodes to handlers: `{ <keyCode>: <callback> }`. Modifying this object can override default
-functionality, or add handlers for different keys that the component doesn't normally listen for.
+By default, the prop is a no–op returning the same object `map` object it
+receives. This object maps keyCodes to handlers: `{ <keyCode>: <callback> }`.
+Modifying this object can override default functionality, or add handlers for
+different keys that the component doesn't normally listen for.
 
-Note that any keyCodes you've added to `selectOnKeyCodes` will be passed to `map-keydown` as well,
-so `map-keydown` will always take precedence.
+Note that any keyCodes you've added to `selectOnKeyCodes` will be passed to
+`map-keydown` as well, so `map-keydown` will always take precedence.
 
 **Default Handlers**
 
@@ -65,9 +68,9 @@ so `map-keydown` will always take precedence.
 
 ### Example: Autocomplete Email Addresses
 
-This is example listens for the `@` key, and autocompletes an email address with `@gmail.com`.
+This is example listens for the `@` key, and autocompletes an email address with
+`@gmail.com`.
 
 <CustomHandlers />
 
 <<< @/.vuepress/components/CustomHandlers.vue
-
