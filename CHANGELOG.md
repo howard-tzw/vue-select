@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/howard-tzw/vue3-select/compare/v0.0.8...v0.1.0) (2023-07-17)
+
+
+### Features
+
+* optgroups, resolve [#4](https://github.com/howard-tzw/vue3-select/issues/4) ([36e283d](https://github.com/howard-tzw/vue3-select/commit/36e283d804d6ac9159ebff6a12d19a0c8ce289e1))
+
+
+### Chores
+
+* add github action for testing ([c5a1107](https://github.com/howard-tzw/vue3-select/commit/c5a1107a340a1fb721eb2626cd958ba2a5edb766))
+* migrate to pnpm workspaces ([bad802f](https://github.com/howard-tzw/vue3-select/commit/bad802f20a885634471abbfb3caf27f8bb4b3bf5))
+
 ### [0.0.8](https://github.com/howard-tzw/vue3-select/compare/v0.0.7...v0.0.8) (2023-06-21)
 
 
