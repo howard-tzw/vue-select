@@ -424,6 +424,44 @@ options: {
 },
 ```
 
+### optgroups
+
+- [issue#4](https://github.com/howard-tzw/vue3-select/issues/4)
+
+```vue
+<v-select
+  v-model="selected"
+  :options="optgroups"
+/>
+```
+
+```js
+const optgroups = [
+  {
+    groupLabel: 'Germany',
+    groupOptions: [
+      { label: 'Berlin', value: 'BE' },
+      { label: 'Frankfurt', value: 'FFM' },
+    ],
+  },
+  {
+    groupLabel: 'USA',
+    groupOptions: [
+      { label: 'Chicago', value: 'CHI' },
+      { label: 'Los Angeles', value: 'LA' },
+    ],
+  },
+  {
+    groupLabel: 'Taiwan',
+    groupOptions: [
+      { label: 'Taipei', value: 'TPE' },
+      { label: 'Kaohsiung', value: 'KHH' },
+      { label: 'Taichung', value: 'TXG' },
+    ],
+  },
+]
+```
+
 ## placeholder
 
 Equivalent to the `placeholder` attribute on an `<input>`.

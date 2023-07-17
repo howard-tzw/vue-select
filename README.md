@@ -16,6 +16,7 @@ New documentation specific to vue3-select will be available soon...
 ### New in vue3-select
 
 - **[CSS variables](https://github.com/howard-tzw/vue3-select/blob/main/src/css/global/variables.css)**
+- [optgroups](https://github.com/howard-tzw/vue3-select/blob/main/docs/api/props.md#options)
 
 ### Original documentation and examples
 
