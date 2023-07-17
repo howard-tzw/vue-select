@@ -1,10 +1,11 @@
 import { createApp, h } from 'vue'
-import VueSelect from '@/index'
-import '@/css/vue-select.css'
+import VueSelect from 'vue3-select'
 import App from './app.vue' // must be imported after VueSelect
 import IconDown from './components/IconDown.vue'
-import './index.css'
 import router from './router'
+
+import '../../src/css/vue-select.css'
+import './style.css'
 
 VueSelect.props.components.default = () => ({
   // Deselect: {
