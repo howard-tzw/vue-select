@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div class="section">
       <h2 class="title">Basic</h2>
       <v-select v-model="selected" :options="options" />
@@ -66,8 +66,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import countries from '../docs/.vuepress/data/countryCodes.js'
-import BaseSelect from './BaseSelect.vue'
+import countries from '../mocks/countryCodes.js'
+import BaseSelect from '../components/BaseSelect.vue'
 
 const selected = ref(null)
 const options = ref(countries)
@@ -87,20 +87,4 @@ setTimeout(() => {
 }, 500)
 </script>
 
-<style lang="scss">
-html,
-body {
-  margin: 0;
-  height: 1000px;
-  font-family: -apple-system, sans-serif;
-  background-color: #fafafa;
-}
-
-.title {
-  @apply text-lg;
-}
-
-.section {
-  @apply p-5;
-}
-</style>
+<style scoped></style>

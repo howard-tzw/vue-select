@@ -58,12 +58,17 @@
   --vs-dropdown-overflow-y: auto;
   --vs-dropdown-border-radius: 4px;
   --vs-dropdown-options-gap: 2px;
-  --vs-dropdown-padding: 5px;
+  --vs-dropdown-padding: 5px 0px;
 
   /* Dropdown Option */
   --vs-dropdown-option-color: var(--vs-dropdown-color);
   --vs-dropdown-option-padding: 5px 15px;
+  --vs-dropdown-option-margin: 0px 5px;
   --vs-dropdown-option-border-radius: var(--vs-border-radius);
+
+  /* optgroup option */
+  --vs-dropdown-optgroup-option-bg: #dfdfdf;
+  --vs-dropdown-optgroup-option-padding: 5px;
 
   /* Option */
   --vs-dropdown-option--active-bg: #5897fb;
