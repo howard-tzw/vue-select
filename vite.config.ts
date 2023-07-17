@@ -34,6 +34,7 @@ export default defineConfig({
       },
     },
   },
+  // @ts-ignore
   test: {
     coverage: {
       reporter: ['lcov'],

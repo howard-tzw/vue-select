@@ -2,7 +2,7 @@ import { createApp, h } from 'vue'
 import VueSelect from '@/index'
 import '@/css/vue-select.css'
 import App from './app.vue' // must be imported after VueSelect
-import IconDown from './IconDown.vue'
+import IconDown from './components/IconDown.vue'
 import './index.css'
 import router from './router'
 

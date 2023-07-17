@@ -66,7 +66,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import countries from '../../docs/.vuepress/data/countryCodes.js'
+import countries from '../mocks/countryCodes.js'
 import BaseSelect from '../components/BaseSelect.vue'
 
 const selected = ref(null)
