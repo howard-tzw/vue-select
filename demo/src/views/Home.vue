@@ -1,3 +1,34 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import countries from '../mocks/countryCodes.js'
+import { useRouter } from 'vue-router'
+
+const selected = ref(null)
+const options = ref(countries)
+
+const computedOptions = computed(() => countries)
+
+const baseSelectOptions = ref(
+  countries.map((country) => ({
+    name: country.label,
+    value: country.value,
+  }))
+)
+const selectedOption = ref()
+
+setTimeout(() => {
+  selectedOption.value = baseSelectOptions.value[0]
+}, 500)
+
+const links = computed(() => {
+  const router = useRouter()
+  const excludes = ['Home', '404']
+  return router.options.routes.filter(
+    (r) => r.path.startsWith('/') && !excludes.includes(r.name as string)
+  )
+})
+</script>
+
 <template>
   <div>
     <div class="section">
@@ -9,14 +40,9 @@
       <div>
         <h2 class="title">Use Cases</h2>
         <ul class="list-disc">
-          <li>
-            <router-link class="text-blue-400" to="/optgroups">
-              Optgroups
-            </router-link>
-          </li>
-          <li>
-            <router-link class="text-blue-400" to="/infinite-scroll">
-              Infinite Scroll
+          <li v-for="link in links" :key="link.name">
+            <router-link class="text-blue-400" :to="link.path">
+              {{ link.name }}
             </router-link>
           </li>
         </ul>
@@ -36,73 +62,7 @@
         :searchable="false"
       />
     </div>
-
-    <div class="section">
-      <h2 class="title">BaseSelect</h2>
-      <BaseSelect v-model="selectedOption" :options="baseSelectOptions" />
-    </div>
-
-    <div class="section">
-      <h2 class="title">BaseSelect</h2>
-      <ul>
-        <li>no-drop: true</li>
-      </ul>
-      <BaseSelect
-        v-model="selectedOption"
-        :options="baseSelectOptions"
-        no-drop
-      />
-    </div>
-
-    <div class="section">
-      <h2 class="title">BaseSelect</h2>
-      <ul>
-        <li>disabled: true</li>
-      </ul>
-      <BaseSelect
-        v-model="selectedOption"
-        :options="baseSelectOptions"
-        disabled
-      />
-    </div>
-
-    <div class="section">
-      <h2 class="title">BaseSelect</h2>
-      <ul>
-        <li>no-drop: true</li>
-        <li>disabled: true</li>
-      </ul>
-      <BaseSelect
-        v-model="selectedOption"
-        :options="baseSelectOptions"
-        no-drop
-        disabled
-      />
-    </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, computed } from 'vue'
-import countries from '../mocks/countryCodes.js'
-import BaseSelect from '../components/BaseSelect.vue'
-
-const selected = ref(null)
-const options = ref(countries)
-
-const computedOptions = computed(() => countries)
-
-const baseSelectOptions = ref(
-  countries.map((country) => ({
-    name: country.label,
-    value: country.value,
-  }))
-)
-const selectedOption = ref()
-
-setTimeout(() => {
-  selectedOption.value = baseSelectOptions.value[0]
-}, 500)
-</script>
 
 <style scoped></style>
