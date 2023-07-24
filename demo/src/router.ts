@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from './views/Home.vue'
+import Test from './views/Test.vue'
 import BaseSelect from './views/BaseSelect.vue'
 import Optgroups from './views/Optgroups.vue'
 import InfiniteScroll from './views/InfiniteScroll.vue'
@@ -10,6 +11,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: Test,
   },
   {
     path: '/base-select',
