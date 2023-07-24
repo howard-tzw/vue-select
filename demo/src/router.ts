@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from './views/Home.vue'
 import Optgroups from './views/Optgroups.vue'
+import InfiniteScroll from './views/InfiniteScroll.vue'
+
 const routes = [
   {
     path: '/',
@@ -12,6 +14,11 @@ const routes = [
     path: '/optgroups',
     name: 'Optgroups',
     component: Optgroups,
+  },
+  {
+    path: '/infinite-scroll',
+    name: 'InfiniteScroll',
+    component: InfiniteScroll,
   },
   // Fallback route for handling 404s
   {

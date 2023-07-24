@@ -5,6 +5,24 @@
       <v-select v-model="selected" :options="options" />
     </div>
 
+    <div class="section w-full flex flex-col items-center">
+      <div>
+        <h2 class="title">Use Cases</h2>
+        <ul class="list-disc">
+          <li>
+            <router-link class="text-blue-400" to="/optgroups">
+              Optgroups
+            </router-link>
+          </li>
+          <li>
+            <router-link class="text-blue-400" to="/infinite-scroll">
+              Infinite Scroll
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <div class="section">
       <h2 class="title">Custom</h2>
       <ul>
