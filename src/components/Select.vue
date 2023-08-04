@@ -115,6 +115,7 @@
           }"
           :aria-selected="index === typeAheadPointer ? true : null"
           @mouseover="selectable(option) ? updateTypeAheadPointer(index) : null"
+          @mouseout="updateTypeAheadPointer(-1)"
           @click.prevent.stop="selectable(option) ? select(option) : null"
           @touchstart="
             selectable(option) ? updateTypeAheadPointer(index) : null
