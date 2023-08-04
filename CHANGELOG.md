@@ -1,8 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version)
-for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.1.1](https://github.com/howard-tzw/vue3-select/compare/v0.1.0...v0.1.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* option should not highlighted when the mouse is moved away ([30e1811](https://github.com/howard-tzw/vue3-select/commit/30e1811d89ecae94b99121576d2d51cbf43294ea))
 
 ## [0.1.0](https://github.com/howard-tzw/vue3-select/compare/v0.0.8...v0.1.0) (2023-07-17)
 
