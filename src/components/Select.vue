@@ -10,7 +10,7 @@
       ref="toggle"
       class="vs__dropdown-toggle"
       role="combobox"
-      :aria-expanded="dropdownOpen.toString()"
+      :aria-expanded="isDropdownOpen.toString()"
       :aria-owns="`vs${uid}__listbox`"
       :aria-label="ariaLabel"
       v-click-outside="clickOutside"
@@ -742,13 +742,6 @@ export default {
         this.updateValue(newVal)
       },
     },
-    isDropdownOpen() {
-      if (!this.showNoOptions && !this.filteredOptions.length) {
-        return false
-      }
-
-      return this.dropdownOpen
-    },
     isReducingValues() {
       return this.$props.reduce !== this.$options.props.reduce.default
     },
@@ -829,7 +822,8 @@ export default {
             type: 'search',
             autocomplete: this.autocomplete,
             value: this.search,
-            ...(this.dropdownOpen && this.filteredOptions[this.typeAheadPointer]
+            ...(this.isDropdownOpen &&
+            this.filteredOptions[this.typeAheadPointer]
               ? {
                   'aria-activedescendant': `vs${this.uid}__option-${this.typeAheadPointer}`,
                 }
@@ -886,7 +880,7 @@ export default {
      */
     stateClasses() {
       return {
-        'vs--open': this.dropdownOpen,
+        'vs--open': this.isDropdownOpen,
         'vs--single': !this.multiple,
         'vs--multiple': this.multiple,
         'vs--searching': this.searching && !this.noDrop,
@@ -912,7 +906,10 @@ export default {
      * dropdown menu.
      * @return {Boolean} True if open
      */
-    dropdownOpen() {
+    isDropdownOpen() {
+      if (!this.showNoOptions && !this.filteredOptions.length) {
+        return false
+      }
       return this.dropdownShouldOpen(this)
     },
 
@@ -962,7 +959,7 @@ export default {
      * @return {Boolean}
      */
     isValueEmpty() {
-      return this.selectedValue.length === 0
+      return this.selectedValue.length === 0 && !this.search
     },
 
     /**
@@ -970,9 +967,7 @@ export default {
      * @return {Boolean}
      */
     showClearButton() {
-      return (
-        !this.multiple && this.clearable && !this.open && !this.isValueEmpty
-      )
+      return !this.multiple && this.clearable && !this.isValueEmpty
     },
   },
 
@@ -1374,7 +1369,10 @@ export default {
     onMouseUp() {
       this.mousedown = false
     },
-
+    onEnter() {
+      this.open = false
+      this.searchEl.blur()
+    },
     /**
      * Search <input> KeyBoardEvent handler.
      * @param e {KeyboardEvent}
@@ -1391,6 +1389,8 @@ export default {
         8: (e) => this.maybeDeleteValue(),
         //  tab
         9: (e) => this.onTab(),
+        // enter
+        13: (e) => this.onEnter(),
         //  esc
         27: (e) => this.onEscape(),
         //  up.prevent
@@ -1405,9 +1405,11 @@ export default {
         },
       }
 
-      this.selectOnKeyCodes.forEach(
-        (keyCode) => (defaults[keyCode] = preventAndSelect)
-      )
+      if (this.isDropdownOpen) {
+        this.selectOnKeyCodes.forEach(
+          (keyCode) => (defaults[keyCode] = preventAndSelect)
+        )
+      }
 
       const handlers = this.mapKeydown(defaults, this)
 
