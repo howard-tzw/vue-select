@@ -17,6 +17,7 @@
       @mousedown="toggleDropdown($event)"
     >
       <div ref="selectedOptions" class="vs__selected-options">
+        <!-- @note selected value -->
         <slot
           v-for="(option, i) in selectedValue"
           name="selected-option-container"
@@ -47,8 +48,10 @@
           </span>
         </slot>
 
+        <!-- @note input -->
         <slot name="search" v-bind="scope.search">
           <input
+            v-model="search"
             class="vs__search"
             v-bind="scope.search.attributes"
             v-on="scope.search.events"
@@ -83,9 +86,11 @@
         </slot>
       </div>
     </div>
+
+    <!-- @note dropdown -->
     <transition :name="transition">
       <ul
-        v-if="dropdownOpen"
+        v-if="isDropdownOpen"
         :id="`vs${uid}__listbox`"
         ref="dropdownMenu"
         :key="`vs${uid}__listbox`"
@@ -188,6 +193,7 @@ export default {
     'option:deselected',
   ],
 
+  // @note props
   props: {
     /**
      * Contains the currently selected value. Very similar to a
@@ -197,6 +203,15 @@ export default {
      */
     // eslint-disable-next-line vue/require-default-prop,vue/require-prop-types
     modelValue: {},
+
+    /**
+     * Extend the functionality of the Select component to preserve user-entered values in the input field,
+     * even if no matching options are found in the dropdown list.
+     */
+    preservable: {
+      type: Boolean,
+      default: false,
+    },
 
     /**
      * An object with any custom components that you'd like to overwrite
@@ -564,6 +579,7 @@ export default {
     clearSearchOnBlur: {
       type: Function,
       default: function ({ clearSearchOnSelect, multiple }) {
+        if (this.preservable) return false
         return clearSearchOnSelect && !multiple
       },
     },
@@ -710,9 +726,9 @@ export default {
     },
   },
 
+  // @note data
   data() {
     return {
-      search: '',
       open: false,
       isComposing: false,
       pushedTags: [],
@@ -722,7 +738,29 @@ export default {
     }
   },
 
+  // @note computed
   computed: {
+    /**
+     * Display modelValue if it's a value within the available options;
+     * otherwise, show the content entered by the user.
+     */
+    search: {
+      get() {
+        if (this.modelValue && typeof this.modelValue !== 'string') {
+          return this.selectedValue?.[this.label]
+        }
+        return this.modelValue
+      },
+      set(newVal) {
+        if (!newVal && !this.modelValue) {
+          return
+        }
+        this.updateValue(newVal)
+      },
+    },
+    isDropdownOpen() {
+      return this.dropdownOpen
+    },
     isReducingValues() {
       return this.$props.reduce !== this.$options.props.reduce.default
     },
@@ -918,10 +956,10 @@ export default {
         return optionList
       }
 
-      const options = this.search.length
+      const options = this.search?.length
         ? this.filter(optionList, this.search, this)
         : optionList
-      if (this.taggable && this.search.length) {
+      if (this.taggable && this.search?.length) {
         const createdOption = this.createOption(this.search)
         if (!this.optionExists(createdOption)) {
           options.unshift(createdOption)
@@ -949,6 +987,7 @@ export default {
     },
   },
 
+  // @note watch
   watch: {
     /**
      * Maybe reset the value
@@ -1290,7 +1329,7 @@ export default {
      * @return {void}
      */
     onEscape() {
-      if (!this.search.length) {
+      if (!this.search?.length) {
         this.searchEl.blur()
       } else {
         this.search = ''
@@ -1315,7 +1354,7 @@ export default {
         return
       }
       // Fixed bug where no-options message could not be closed
-      if (this.search.length === 0 && this.options.length === 0) {
+      if (this.search?.length === 0 && this.options.length === 0) {
         this.$emit('search:blur')
         return
       }
