@@ -14,7 +14,7 @@
 
   /* Search Input */
   --vs-search-input-color: inherit;
-  --vs-search-input-placeholder-color: inherit;
+  --vs-search-input-placeholder-color: var(--vs-colors--light);
 
   /* State - No drop */
   --vs-state-no-drop-bg: inherit;

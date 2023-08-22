@@ -13,8 +13,12 @@ watch(selected, () => {
 <template>
   <div>
     <div class="section">
-      <h2 class="title">Preservable</h2>
-      <v-select v-model="selected" :options="options" />
+      <h2 class="title">Placeholder</h2>
+      <v-select
+        v-model="selected"
+        placeholder="Hello World"
+        :options="options"
+      />
     </div>
   </div>
 </template>
