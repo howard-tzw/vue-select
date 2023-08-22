@@ -204,9 +204,20 @@ export default {
     // eslint-disable-next-line vue/require-default-prop,vue/require-prop-types
     modelValue: {},
 
+    /**
+     * to display no options description or not
+     */
     showNoOptions: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * To preserve user-entered values in the input field,
+     * even if no matching options are found in the dropdown list.
+     */
+    preservable: {
+      type: Boolean,
+      default: true,
     },
 
     /**
@@ -973,6 +984,20 @@ export default {
 
   // @note watch
   watch: {
+    /**
+     * @feat preservable
+     */
+    isDropdownOpen() {
+      if (!this.preservable) {
+        if (!this.filteredOptions.length && this.search) {
+          this.search = this.search.slice(0, -1)
+        }
+
+        if (!this.isDropdownOpen && this.search) {
+          this.search = null
+        }
+      }
+    },
     /**
      * Maybe reset the value
      * when options change.
