@@ -58,10 +58,3 @@
     cursor: pointer;
   }
 }
-
-/* Single, when searching but not loading or open */
-.vs--single.vs--searching:not(.vs--open):not(.vs--loading) {
-  .vs__search {
-    opacity: 0.2;
-  }
-}

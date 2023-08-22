@@ -204,11 +204,7 @@ export default {
     // eslint-disable-next-line vue/require-default-prop,vue/require-prop-types
     modelValue: {},
 
-    /**
-     * Extend the functionality of the Select component to preserve user-entered values in the input field,
-     * even if no matching options are found in the dropdown list.
-     */
-    preservable: {
+    showNoOptions: {
       type: Boolean,
       default: false,
     },
@@ -573,18 +569,6 @@ export default {
     },
 
     /**
-     * If search text should clear on blur
-     * @return {Boolean} True when single and clearSearchOnSelect
-     */
-    clearSearchOnBlur: {
-      type: Function,
-      default: function ({ clearSearchOnSelect, multiple }) {
-        if (this.preservable) return false
-        return clearSearchOnSelect && !multiple
-      },
-    },
-
-    /**
      * Disable the dropdown entirely.
      * @type {Boolean}
      */
@@ -752,13 +736,17 @@ export default {
         return this.modelValue
       },
       set(newVal) {
-        if (!newVal && !this.modelValue) {
+        if (!newVal && !this.modelValue && this.selectedValue) {
           return
         }
         this.updateValue(newVal)
       },
     },
     isDropdownOpen() {
+      if (!this.showNoOptions && !this.filteredOptions.length) {
+        return false
+      }
+
       return this.dropdownOpen
     },
     isReducingValues() {
@@ -940,6 +928,7 @@ export default {
     },
 
     /**
+     * @note filteredOptions
      * The currently displayed options, filtered
      * by the search elements value. If tagging
      * true, the search text will be prepended
@@ -1120,6 +1109,7 @@ export default {
     },
 
     /**
+     * @note onAfterSelect
      * Called from this.select after each selection.
      * @param  {Object|String} option
      * @return {void}
@@ -1128,10 +1118,6 @@ export default {
       if (this.closeOnSelect) {
         this.open = !this.open
         this.searchEl.blur()
-      }
-
-      if (this.clearSearchOnSelect) {
-        this.search = ''
       }
     },
 
@@ -1337,19 +1323,17 @@ export default {
     },
 
     /**
+     * @note onSearchBlur
      * Close the dropdown on blur.
      * @emits  {search:blur}
      * @return {void}
      */
     onSearchBlur() {
       this.open = false
+
       if (this.mousedown && !this.searching) {
         this.mousedown = false
       } else {
-        const { clearSearchOnSelect, multiple } = this
-        if (this.clearSearchOnBlur({ clearSearchOnSelect, multiple })) {
-          this.search = ''
-        }
         this.$emit('search:blur')
         return
       }

@@ -6,7 +6,7 @@ const selected = ref(null)
 const options = ref(countries)
 
 watch(selected, () => {
-  console.log('preservable watch: ', selected.value)
+  console.log('watch model: ', selected.value)
 })
 </script>
 
@@ -14,7 +14,7 @@ watch(selected, () => {
   <div>
     <div class="section">
       <h2 class="title">Preservable</h2>
-      <v-select preservable v-model="selected" :options="options" />
+      <v-select v-model="selected" :options="options" />
     </div>
   </div>
 </template>
