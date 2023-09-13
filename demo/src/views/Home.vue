@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import countries from '../mocks/countryCodes.js'
 import { useRouter } from 'vue-router'
+import packageJson from '../../../package.json'
 
 const selected = ref(null)
 const options = ref(countries)
@@ -31,6 +32,10 @@ const links = computed(() => {
 
 <template>
   <div>
+    <div class="flex justify-center py-2">
+      <p>v{{ packageJson.version }}</p>
+    </div>
+
     <div class="section">
       <h2 class="title">Basic</h2>
       <v-select v-model="selected" :options="options" />

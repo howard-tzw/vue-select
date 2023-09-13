@@ -738,6 +738,8 @@ export default {
     /**
      * Display modelValue if it's a value within the available options;
      * otherwise, show the content entered by the user.
+     *
+     * @note 搜尋 (vs--searching) 與選項選擇混淆於以下的 search 導致部分功能難以實現
      */
     search: {
       get() {
