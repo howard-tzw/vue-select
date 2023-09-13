@@ -401,7 +401,7 @@ export default {
       type: Function,
       default(option) {
         if (typeof option === 'object') {
-          if (!option.hasOwnProperty(this.label)) {
+          if (!Object.prototype.hasOwnProperty.call(option, this.label)) {
             return console.warn(
               `[vue-select warn]: Label key "option.${this.label}" does not` +
                 ` exist in options object ${JSON.stringify(option)}.\n` +
@@ -438,7 +438,7 @@ export default {
         }
 
         try {
-          return option.hasOwnProperty('id')
+          return Object.prototype.hasOwnProperty.call(option, 'id')
             ? option.id
             : sortAndStringify(option)
         } catch (e) {
@@ -741,6 +741,9 @@ export default {
      */
     search: {
       get() {
+        if (!this.preservable) {
+          return undefined
+        }
         if (this.modelValue && typeof this.modelValue !== 'string') {
           return this.selectedValue?.[this.label]
         }
@@ -956,6 +959,7 @@ export default {
       const options = this.search?.length
         ? this.filter(optionList, this.search, this)
         : optionList
+
       if (this.taggable && this.search?.length) {
         const createdOption = this.createOption(this.search)
         if (!this.optionExists(createdOption)) {
@@ -1051,6 +1055,7 @@ export default {
     },
   },
 
+  // @note created
   created() {
     this.mutableLoading = this.loading
   },

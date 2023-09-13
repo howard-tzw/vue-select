@@ -1,35 +1,45 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
-const selected = ref({
-  name: 'Bar',
-  id: 1,
-})
-
-const options = ref([
+const options = [
   {
-    name: 'Foo',
-    id: 0,
+    label: 'foo',
   },
   {
-    name: 'Bar',
-    id: 1,
+    label: 'bar',
   },
-])
+]
+const selected = ref(options[0])
+
+const optionList = ['foo', 'bar']
+const selectedOption = ref(optionList[0])
 </script>
 
 <template>
   <div>
     <div class="section">
-      <h2 class="title">Test</h2>
+      <h2 class="title">Good</h2>
       <v-select
+        :preservable="false"
+        :clearable="false"
         v-model="selected"
         :options="options"
-        :get-option-label="(option: any) => option.name"
       >
-        <template #option="{ code, name }">
+      </v-select>
+
+      <div class="h-5"></div>
+
+      <h2 class="title">NG (fixed)</h2>
+
+      <v-select
+        :preservable="false"
+        :clearable="false"
+        v-model="selectedOption"
+        :options="optionList"
+      >
+        <!-- <template #option="{ code, name }">
           {{ name }} with code: {{ code }}
-        </template>
+        </template> -->
       </v-select>
     </div>
   </div>
