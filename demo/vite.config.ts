@@ -4,7 +4,13 @@ import { fileURLToPath, URL } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      script: {
+        defineModel: true,
+      },
+    }),
+  ],
   build: {
     target: 'esnext',
   },

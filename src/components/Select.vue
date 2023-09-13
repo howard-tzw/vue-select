@@ -10,13 +10,14 @@
       ref="toggle"
       class="vs__dropdown-toggle"
       role="combobox"
-      :aria-expanded="dropdownOpen.toString()"
+      :aria-expanded="isDropdownOpen.toString()"
       :aria-owns="`vs${uid}__listbox`"
       :aria-label="ariaLabel"
       v-click-outside="clickOutside"
       @mousedown="toggleDropdown($event)"
     >
       <div ref="selectedOptions" class="vs__selected-options">
+        <!-- @note selected value -->
         <slot
           v-for="(option, i) in selectedValue"
           name="selected-option-container"
@@ -47,8 +48,10 @@
           </span>
         </slot>
 
+        <!-- @note input -->
         <slot name="search" v-bind="scope.search">
           <input
+            v-model="search"
             class="vs__search"
             v-bind="scope.search.attributes"
             v-on="scope.search.events"
@@ -83,9 +86,11 @@
         </slot>
       </div>
     </div>
+
+    <!-- @note dropdown -->
     <transition :name="transition">
       <ul
-        v-if="dropdownOpen"
+        v-if="isDropdownOpen"
         :id="`vs${uid}__listbox`"
         ref="dropdownMenu"
         :key="`vs${uid}__listbox`"
@@ -188,6 +193,7 @@ export default {
     'option:deselected',
   ],
 
+  // @note props
   props: {
     /**
      * Contains the currently selected value. Very similar to a
@@ -197,6 +203,22 @@ export default {
      */
     // eslint-disable-next-line vue/require-default-prop,vue/require-prop-types
     modelValue: {},
+
+    /**
+     * to display no options description or not
+     */
+    showNoOptions: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * To preserve user-entered values in the input field,
+     * even if no matching options are found in the dropdown list.
+     */
+    preservable: {
+      type: Boolean,
+      default: true,
+    },
 
     /**
      * An object with any custom components that you'd like to overwrite
@@ -379,7 +401,7 @@ export default {
       type: Function,
       default(option) {
         if (typeof option === 'object') {
-          if (!option.hasOwnProperty(this.label)) {
+          if (!Object.prototype.hasOwnProperty.call(option, this.label)) {
             return console.warn(
               `[vue-select warn]: Label key "option.${this.label}" does not` +
                 ` exist in options object ${JSON.stringify(option)}.\n` +
@@ -416,7 +438,7 @@ export default {
         }
 
         try {
-          return option.hasOwnProperty('id')
+          return Object.prototype.hasOwnProperty.call(option, 'id')
             ? option.id
             : sortAndStringify(option)
         } catch (e) {
@@ -555,17 +577,6 @@ export default {
     resetOnOptionsChange: {
       default: false,
       validator: (value) => ['function', 'boolean'].includes(typeof value),
-    },
-
-    /**
-     * If search text should clear on blur
-     * @return {Boolean} True when single and clearSearchOnSelect
-     */
-    clearSearchOnBlur: {
-      type: Function,
-      default: function ({ clearSearchOnSelect, multiple }) {
-        return clearSearchOnSelect && !multiple
-      },
     },
 
     /**
@@ -710,9 +721,9 @@ export default {
     },
   },
 
+  // @note data
   data() {
     return {
-      search: '',
       open: false,
       isComposing: false,
       pushedTags: [],
@@ -722,7 +733,29 @@ export default {
     }
   },
 
+  // @note computed
   computed: {
+    /**
+     * Display modelValue if it's a value within the available options;
+     * otherwise, show the content entered by the user.
+     */
+    search: {
+      get() {
+        if (!this.preservable) {
+          return undefined
+        }
+        if (this.modelValue && typeof this.modelValue !== 'string') {
+          return this.selectedValue?.[this.label]
+        }
+        return this.modelValue
+      },
+      set(newVal) {
+        if (!newVal && !this.modelValue && this.selectedValue) {
+          return
+        }
+        this.updateValue(newVal)
+      },
+    },
     isReducingValues() {
       return this.$props.reduce !== this.$options.props.reduce.default
     },
@@ -803,7 +836,8 @@ export default {
             type: 'search',
             autocomplete: this.autocomplete,
             value: this.search,
-            ...(this.dropdownOpen && this.filteredOptions[this.typeAheadPointer]
+            ...(this.isDropdownOpen &&
+            this.filteredOptions[this.typeAheadPointer]
               ? {
                   'aria-activedescendant': `vs${this.uid}__option-${this.typeAheadPointer}`,
                 }
@@ -860,7 +894,7 @@ export default {
      */
     stateClasses() {
       return {
-        'vs--open': this.dropdownOpen,
+        'vs--open': this.isDropdownOpen,
         'vs--single': !this.multiple,
         'vs--multiple': this.multiple,
         'vs--searching': this.searching && !this.noDrop,
@@ -886,7 +920,10 @@ export default {
      * dropdown menu.
      * @return {Boolean} True if open
      */
-    dropdownOpen() {
+    isDropdownOpen() {
+      if (!this.showNoOptions && !this.filteredOptions.length) {
+        return false
+      }
       return this.dropdownShouldOpen(this)
     },
 
@@ -902,6 +939,7 @@ export default {
     },
 
     /**
+     * @note filteredOptions
      * The currently displayed options, filtered
      * by the search elements value. If tagging
      * true, the search text will be prepended
@@ -918,10 +956,11 @@ export default {
         return optionList
       }
 
-      const options = this.search.length
+      const options = this.search?.length
         ? this.filter(optionList, this.search, this)
         : optionList
-      if (this.taggable && this.search.length) {
+
+      if (this.taggable && this.search?.length) {
         const createdOption = this.createOption(this.search)
         if (!this.optionExists(createdOption)) {
           options.unshift(createdOption)
@@ -935,7 +974,7 @@ export default {
      * @return {Boolean}
      */
     isValueEmpty() {
-      return this.selectedValue.length === 0
+      return this.selectedValue.length === 0 && !this.search
     },
 
     /**
@@ -943,13 +982,26 @@ export default {
      * @return {Boolean}
      */
     showClearButton() {
-      return (
-        !this.multiple && this.clearable && !this.open && !this.isValueEmpty
-      )
+      return !this.multiple && this.clearable && !this.isValueEmpty
     },
   },
 
+  // @note watch
   watch: {
+    /**
+     * @feat preservable
+     */
+    isDropdownOpen() {
+      if (!this.preservable) {
+        if (!this.filteredOptions.length && this.search) {
+          this.search = this.search.slice(0, -1)
+        }
+
+        if (!this.isDropdownOpen && this.search) {
+          this.search = null
+        }
+      }
+    },
     /**
      * Maybe reset the value
      * when options change.
@@ -1003,6 +1055,7 @@ export default {
     },
   },
 
+  // @note created
   created() {
     this.mutableLoading = this.loading
   },
@@ -1081,6 +1134,7 @@ export default {
     },
 
     /**
+     * @note onAfterSelect
      * Called from this.select after each selection.
      * @param  {Object|String} option
      * @return {void}
@@ -1089,10 +1143,6 @@ export default {
       if (this.closeOnSelect) {
         this.open = !this.open
         this.searchEl.blur()
-      }
-
-      if (this.clearSearchOnSelect) {
-        this.search = ''
       }
     },
 
@@ -1290,7 +1340,7 @@ export default {
      * @return {void}
      */
     onEscape() {
-      if (!this.search.length) {
+      if (!this.search?.length) {
         this.searchEl.blur()
       } else {
         this.search = ''
@@ -1298,24 +1348,22 @@ export default {
     },
 
     /**
+     * @note onSearchBlur
      * Close the dropdown on blur.
      * @emits  {search:blur}
      * @return {void}
      */
     onSearchBlur() {
       this.open = false
+
       if (this.mousedown && !this.searching) {
         this.mousedown = false
       } else {
-        const { clearSearchOnSelect, multiple } = this
-        if (this.clearSearchOnBlur({ clearSearchOnSelect, multiple })) {
-          this.search = ''
-        }
         this.$emit('search:blur')
         return
       }
       // Fixed bug where no-options message could not be closed
-      if (this.search.length === 0 && this.options.length === 0) {
+      if (this.search?.length === 0 && this.options.length === 0) {
         this.$emit('search:blur')
         return
       }
@@ -1351,7 +1399,10 @@ export default {
     onMouseUp() {
       this.mousedown = false
     },
-
+    onEnter() {
+      this.open = false
+      this.searchEl.blur()
+    },
     /**
      * Search <input> KeyBoardEvent handler.
      * @param e {KeyboardEvent}
@@ -1368,6 +1419,8 @@ export default {
         8: (e) => this.maybeDeleteValue(),
         //  tab
         9: (e) => this.onTab(),
+        // enter
+        13: (e) => this.onEnter(),
         //  esc
         27: (e) => this.onEscape(),
         //  up.prevent
@@ -1382,9 +1435,11 @@ export default {
         },
       }
 
-      this.selectOnKeyCodes.forEach(
-        (keyCode) => (defaults[keyCode] = preventAndSelect)
-      )
+      if (this.isDropdownOpen) {
+        this.selectOnKeyCodes.forEach(
+          (keyCode) => (defaults[keyCode] = preventAndSelect)
+        )
+      }
 
       const handlers = this.mapKeydown(defaults, this)
 

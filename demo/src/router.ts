@@ -32,6 +32,16 @@ const routes = [
     name: 'InfiniteScroll',
     component: InfiniteScroll,
   },
+  {
+    path: '/placeholder',
+    name: 'Placeholder',
+    component: () => import('./views/Placeholder.vue'),
+  },
+  {
+    path: '/preservable',
+    name: 'Preservable',
+    component: () => import('./views/Preservable.vue'),
+  },
   // Fallback route for handling 404s
   {
     path: '/:pathMatch(.*)*',
