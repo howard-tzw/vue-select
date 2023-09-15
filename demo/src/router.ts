@@ -32,6 +32,11 @@ const routes = [
     name: 'InfiniteScroll',
     component: InfiniteScroll,
   },
+  {
+    path: '/vselect',
+    name: 'VSelect',
+    component: () => import('./views/VSelect.vue'),
+  },
   // Fallback route for handling 404s
   {
     path: '/:pathMatch(.*)*',
