@@ -13,6 +13,10 @@
   transition-timing-function: var(--vs-transition-timing-function);
 }
 
+svg.vs__open-indicator > path {
+  fill: var(--vs-open-indicator-color);
+}
+
 /* Open State */
 
 .vs--open .vs__open-indicator {

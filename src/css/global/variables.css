@@ -36,6 +36,7 @@
   --vs-actions-padding: 0px 6px 0 3px;
 
   /* Component Controls: Clear, Open Indicator */
+  --vs-open-indicator-color: var(--vs-colors--dark);
   --vs-controls-color: var(--vs-colors--light);
   --vs-controls-size: 1;
   --vs-controls--deselect-text-shadow: 0 1px 0 #fff;

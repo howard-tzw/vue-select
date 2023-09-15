@@ -18,4 +18,7 @@
   /* dropdown option */
   --vs-dropdown-option--active-bg: black;
   --vs-dropdown-option--selected-bg: gray;
+
+  /* open indicator */
+  /* --vs-open-indicator-color: red; */
 }
