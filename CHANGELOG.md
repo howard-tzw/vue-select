@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/howard-tzw/vue3-select/compare/v0.1.1...v0.1.2) (2023-09-15)
+
+
+### Features
+
+* export open indicator color variable ([c241ac7](https://github.com/howard-tzw/vue3-select/commit/c241ac7d6dfd0bdf3daed1e99db4ed7b29bc41e3))
+
 ### [0.1.1](https://github.com/howard-tzw/vue3-select/compare/v0.1.0...v0.1.1) (2023-08-04)
 
 
