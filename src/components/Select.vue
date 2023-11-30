@@ -1009,7 +1009,7 @@ export default {
 
   methods: {
     clickOutside() {
-      if (this.open && !this.searchable) {
+      if (this.open) {
         this.open = false
       }
     },
