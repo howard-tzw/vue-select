@@ -1,48 +1,48 @@
 /* Selected Tags */
 .vs__selected {
-  max-width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  z-index: 0;
-  white-space: nowrap;
-  overflow: hidden;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+    white-space: nowrap;
+    overflow: hidden;
 
-  background-color: var(--vs-selected-bg);
-  border: var(--vs-selected-border-width) var(--vs-selected-border-style)
-    var(--vs-selected-border-color);
-  border-radius: var(--vs-border-radius);
-  color: var(--vs-selected-color);
-  line-height: var(--vs-line-height);
+    background-color: var(--vs-selected-bg);
+    border: var(--vs-selected-border-width) var(--vs-selected-border-style) var(--vs-selected-border-color);
+    border-radius: var(--vs-border-radius);
+    color: var(--vs-selected-color);
+    line-height: var(--vs-line-height);
 }
 
 .vs__deselect {
-  display: inline-flex;
-  appearance: none;
-  margin-left: 4px;
-  padding: 0;
-  border: 0;
-  cursor: pointer;
-  background: none;
-  fill: var(--vs-controls-color);
-  text-shadow: var(--vs-controls--deselect-text-shadow);
+    display: inline-flex;
+    appearance: none;
+    margin-left: 4px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background: none;
+    fill: var(--vs-controls-color);
+    text-shadow: var(--vs-controls--deselect-text-shadow);
 }
 
 /* States */
 
-.vs--single {
-  .vs__selected {
+.vs--single .vs__selected {
     background-color: transparent;
     border-color: transparent;
-  }
-  &.vs--open .vs__selected,
-  &.vs--loading .vs__selected {
+}
+
+.vs--single.vs--open .vs__selected,
+.vs--single.vs--loading .vs__selected {
     position: relative;
     opacity: 0.4;
-  }
-  &.vs--searching .vs__selected {
-    display: none;
-  }
 }
+
+.vs--single.vs--searching .vs__selected {
+    display: none;
+}
+

@@ -10,32 +10,29 @@
  */
 
 :root {
-  --vs-disabled-bg: var(--vs-state-disabled-bg);
-  --vs-disabled-color: var(--vs-state-disabled-color);
-  --vs-disabled-cursor: var(--vs-state-disabled-cursor);
+    --vs-disabled-bg: var(--vs-state-disabled-bg);
+    --vs-disabled-color: var(--vs-state-disabled-color);
+    --vs-disabled-cursor: var(--vs-state-disabled-cursor);
 }
 
-.vs--no-drop {
-  .vs__dropdown-toggle,
-  .vs__clear,
-  .vs__search,
-  .vs__selected,
-  .vs__open-indicator {
+.vs--no-drop .vs__dropdown-toggle,
+.vs--no-drop .vs__clear,
+.vs--no-drop .vs__search,
+.vs--no-drop .vs__selected,
+.vs--no-drop .vs__open-indicator {
     background-color: var(--vs-state-no-drop-bg);
     cursor: var(--vs-state-no-drop-cursor);
-  }
 }
 
+
 /* If both "no-drop" and "disabled" are enabled simultaneously, .vs--disabled will overwrite .vs--no-drop */
-.vs--disabled {
-  .vs__dropdown-toggle,
-  .vs__clear,
-  .vs__search,
-  .vs__selected,
-  .vs__open-indicator {
+.vs--disabled .vs__dropdown-toggle,
+.vs--disabled .vs__clear,
+.vs--disabled .vs__search,
+.vs--disabled .vs__selected,
+.vs--disabled .vs__open-indicator {
     background-color: var(--vs-disabled-bg);
     cursor: var(--vs-disabled-cursor);
-  }
 }
 
 /*
@@ -46,22 +43,21 @@
  *  rearranging the child elements visually.
  */
 
-.v-select[dir='rtl'] {
-  .vs__actions {
+.v-select[dir='rtl'] .vs__actions {
     padding: 0 3px 0 6px;
-  }
+}
 
-  .vs__clear {
+.v-select[dir='rtl'] .vs__clear {
     margin-left: 6px;
     margin-right: 0;
-  }
+}
 
-  .vs__deselect {
+.v-select[dir='rtl'] .vs__deselect {
     margin-left: 0;
     margin-right: 2px;
-  }
-
-  .vs__dropdown-menu {
-    text-align: right;
-  }
 }
+
+.v-select[dir='rtl'] .vs__dropdown-menu {
+    text-align: right;
+}
+

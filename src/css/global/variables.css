@@ -40,6 +40,7 @@
   --vs-controls-color: var(--vs-colors--light);
   --vs-controls-size: 1;
   --vs-controls--deselect-text-shadow: 0 1px 0 #fff;
+  --vs-controls--spinner-size:1;
 
   /* Selected */
   --vs-selected-bg: #f0f0f0;
@@ -84,4 +85,5 @@
   /* Transitions */
   --vs-transition-timing-function: cubic-bezier(1, -0.115, 0.975, 0.855);
   --vs-transition-duration: 150ms;
+
 }
