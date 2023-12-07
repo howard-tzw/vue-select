@@ -9,13 +9,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    selected: ['Canada'],
-    Deselect: {
-      render: (createElement) => createElement('span', '❌'),
-    },
-  }),
-}
+<script setup>
+import {ref} from "vue";
+
+const selected = ref(['Canada']);
+
+const Deselect = {
+  template: '<span>❌</span>',
+};
 </script>

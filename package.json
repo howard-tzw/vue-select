@@ -9,11 +9,13 @@
     "test": "tests"
   },
   "scripts": {
+    "docs:dev": "cd docs && pnpm docs:dev && cd ..",
+    "docs:build": "cd docs && pnpm docs:build && cd ..",
     "build": "vue-tsc --noEmit && vite build",
     "dev": "pnpm -r --filter demo dev",
     "build:demo": "pnpm -r --filter demo build",
     "preview": "pnpm -r --filter demo preview",
-    "dev:docs": "pnpm -r --filter docs serve",
+    "dev:docs1": "pnpm --filter docs docs:dev",
     "build:docs": "pnpm -r --filter docs build",
     "commit": "git-cz",
     "test": "vitest --environment jsdom",
@@ -115,5 +117,8 @@
     "select",
     "component",
     "dropdown"
-  ]
+  ],
+  "dependencies": {
+    "vue-fuse": "^4.1.1"
+  }
 }
