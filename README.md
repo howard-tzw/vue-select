@@ -1,5 +1,7 @@
 # vs-vue3-select
 
+The project is in the process of preparing documentation and examples.
+
 This is a forked and maintained version of [sagalbot/vue-select](https://github.com/sagalbot/vue-select).
 
 Forks tree:
@@ -13,11 +15,6 @@ documentation for usage instructions.
 ## Documentation
 
 New documentation specific to vue3-select will be available soon...
-
-### New in vue3-select
-
-- **[CSS variables](https://github.com/howard-tzw/vue3-select/blob/main/src/css/global/variables.css)**
-- [optgroups](https://github.com/howard-tzw/vue3-select/blob/main/docs/api/props.md#options)
 
 ### Original documentation and examples
 
@@ -34,12 +31,13 @@ Then, import and register the component:
 
 ```js
 import Vue from 'vue'
-import VueSelect from 'vue3-select'
-import 'vue3-select/dist/vue3-select.css'
+import VueSelect from 'vs-vue3-select'
+import 'vs-vue3-select/dist/vs-vue3-select.css'
 
-app.component('VSelect', VueSelect)
+app.component('v-select', VueSelect)
 ```
 
 ## License
 
-[MIT](https://github.com/howard-tzw/vue3-select/blob/main/LICENSE.md)
+[MIT](https://github.com/Voral/vs-vue3-select/blob/main/LICENSE.md)
+
