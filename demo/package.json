@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue3-select": "workspace:^"
+    "vs-vue3-select": "workspace:^"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

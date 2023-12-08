@@ -25,7 +25,7 @@ fetchOptions (search, loading) {
 ```
 
 The `loading` function accepts a boolean parameter that will be assigned to the
-vue-select internal `loading` property. Call `loading(true)` to set the
+`vs-vue3-select` internal `loading` property. Call `loading(true)` to set the
 `loading` property to `true` - toggling the loading spinner. After your
 asynchronous operation completes, call `loading(false)` to toggle it off.
 

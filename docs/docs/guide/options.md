@@ -1,6 +1,6 @@
 ## Options Prop
 
-`vue-select` accepts arrays of primitive values or objects to use as options
+`vs-vue3-select` accepts arrays of primitive values or objects to use as options
 through the `options` prop:
 
 ```html
@@ -27,7 +27,7 @@ option within the component. No further configuration is necessary.
 #### Options as Objects
 
 When `options` is an array of objects, the component must generate a label to be
-shown as the options text. By default, `vue-select` will attempt to render
+shown as the options text. By default, `vs-vue3-select` will attempt to render
 `option.label` as the option label. You might not have a `label` key in your
 objects, so you can set your own label to match your source data using the
 `label {String}` prop.
@@ -52,7 +52,7 @@ key:
 
 ## Null / Empty Options
 
-`vue-select` requires the `options` prop to be an `array`. If you are using Vue
+`vs-vue3-select` requires the `options` prop to be an `array`. If you are using Vue
 in development mode, you will get warnings attempting to pass anything other
 than an `array` to the `options` prop. If you need a `null`/`empty` value, use
 an empty array `[]`.

@@ -25,29 +25,11 @@ Check the MDN docs for more info about
 
 <CssVariables style="margin-top: 1rem;" />
 
-<<< @/.vuepress/components/CssVariables.vue
+@[code](../.vuepress/components/CssVariables.vue)
 
 ### Available CSS Variables <Badge type="primary">3.18+</Badge>
 
-<<< @/../src/css/global/variables.css
-
-## SCSS <Badge type="warning">Deprecated in v3.18</Badge>
-
-::: warning Deprecation Notice The SCSS build been deprecated for the `v3.x`
-release, and will be removed in `v4.0.0`. The files will remain in the v3
-codebase if you really need them, but the recommended approach is to leverage
-the included CSS variables instead. :::
-
-Variables are leveraged in as much of the component styles as possible. If you
-really want to dig into the SCSS, the files are located in `src/scss`. The
-variables listed below can be found at
-[`src/scss/global/_variables`](https://github.com/sagalbot/vue-select/blob/master/src/scss/global/_variables.scss)
-.
-
-All variables are implemented with `!default` in order to make them easier to
-override in your application.
-
-<<< @/../src/scss/global/\_variables.scss
+@[code](../../../src/css/global/variables.css)
 
 ## Overriding Default Styles
 
@@ -66,7 +48,7 @@ own classname if you just want to affect one.
 
 <CssSpecificity />
 
-<<< @/.vuepress/components/CssSpecificity.vue
+@[code](../.vuepress/components/CssSpecificity.vue)
 
 ## Dropdown Transition
 

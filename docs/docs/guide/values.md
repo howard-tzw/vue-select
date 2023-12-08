@@ -2,8 +2,8 @@
 
 ### `v-model`
 
-The most common use case for vue-select is to have the chosen value synced with
-a parent component. vue-select takes advantage of the `v-model` syntax to sync
+The most common use case for `vs-vue3-select` is to have the chosen value synced with
+a parent component. `vs-vue3-select` takes advantage of the `v-model` syntax to sync
 values with a parent. The `v-model` syntax works with primitives and objects.
 
 ```html
@@ -20,13 +20,13 @@ Sometimes `v-model` might not fit your use case. For example, when working with
 mutating a value directly. In that case, maybe you need to bind a pre-selected
 value, and trigger a mutation when it changes.
 
-vue-select exposes the `value` prop and an `input` event to enable this. This
+`vs-vue3-select` exposes the `value` prop and an `input` event to enable this. This
 combo of props and events is also how Vue wires up the `v-model` syntax
 internally.
 
 #### Prop: `value`
 
-The `value` prop lets vue-select know what value is currently selected. It will
+The `value` prop lets `vs-vue3-select` know what value is currently selected. It will
 accept strings, numbers or objects. If you're using a `multiple` v-select,
 you'll want to pass an array.
 
@@ -64,7 +64,7 @@ methods: {
 
 ## Single/Multiple
 
-By default, vue-select supports choosing a single value. If you need multiple
+By default, `vs-vue3-select` supports choosing a single value. If you need multiple
 values, use the `multiple` boolean prop, much the same way you would on an HTML
 `<select>` element. When `multiple` is true, `v-model` and `value` must be an
 array.
@@ -77,7 +77,7 @@ array.
 
 ## Transforming Selections
 
-When the `options` array contains objects, vue-select returns the whole object
+When the `options` array contains objects, `vs-vue3-select` returns the whole object
 as dropdown value upon selection. This approach makes no assumptions about the
 data you need, and provides a lot of flexibility. However, there will be
 situations where you just need to return a single key from an object.
@@ -85,7 +85,7 @@ situations where you just need to return a single key from an object.
 ### Returning a single key with `reduce`
 
 If you need to return a single key, or transform the selection before it is
-synced, vue-select provides a `reduce` callback that allows you to transform a
+synced, `vs-vue3-select` provides a `reduce` callback that allows you to transform a
 selected option before it is passed to the `@input` event. Consider this data
 structure:
 

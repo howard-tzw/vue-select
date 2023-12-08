@@ -42,7 +42,7 @@ simple as swapping the prop you were using for an event.
 ### `onChange` & `onInput`
 
 In v2.x, Overwriting `onChange` in an application was more likely to break
-vue-select's internals and cause issues. The `input` event provides identical
+`vs-vue3-select`'s internals and cause issues. The `input` event provides identical
 functionality and can be swapped out in your application.
 
 ```html
@@ -121,9 +121,9 @@ been hooking into vue-select internal values.
 [@owenconti!](https://github.com/owenconti)) introduced a number of
 optimizations to the way that the component handles internal state.
 
-- `value`: the `value` prop is undefined by default. vue-select no longer
+- `value`: the `value` prop is undefined by default. `vs-vue3-select` no longer
   maintains an internal `mutableValue` state when a `value` prop has been
-  passed. When `:value` or `v-model` is not used, vue-select will maintain
+  passed. When `:value` or `v-model` is not used, `vs-vue3-select` will maintain
   internal state using the `_value` property.
 - `mutableOptions` has been removed in favor of an `optionList` computed
   property.

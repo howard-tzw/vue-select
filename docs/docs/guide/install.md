@@ -1,23 +1,30 @@
-## Yarn / NPM
+## Package manager
 
-Install with yarn or npm:
+Install with package manager:
 
+:::: code-group
+::: code-group-item Pnpm
 ```bash
-# vue 2
-yarn add vue-select
-
-# vue 3
-yarn add vue-select@beta
-
-# or, using NPM
-npm install vue-select
+pnpm add vs-vue3-select
 ```
+:::
+::: code-group-item Yarn
+```bash
+yarn add vs-vue3-select
+```
+:::
+::: code-group-item Npm
+```bash
+yarn add vs-vue3-select
+```
+:::
+::::
 
 Then, import and register the component:
 
 ```js
 import Vue from 'vue'
-import vSelect from 'vue-select'
+import vSelect from 'vs-vue3-select'
 
 Vue.component('v-select', vSelect)
 ```
@@ -26,31 +33,31 @@ The component itself does not include any CSS. You'll need to include it
 separately:
 
 ```js
-import 'vue-select/dist/vue-select.css'
+import 'vs-vue3-select/dist/vs-vue3-select.css'
 ```
 
 ## In the Browser
 
-vue-select ships as an UMD module that is accessible in the browser. When loaded
+vs-vue3-select ships as an UMD module that is accessible in the browser. When loaded
 in the browser, you can access the component through the `VueSelect.VueSelect`
-global variable. You'll need to load Vue.js, vue-select JS & vue-select CSS.
+global variable. You'll need to load Vue.js, `vs-vue3-select` JS & `vs-vue3-select` CSS.
 
 ```html
 <!-- include VueJS first -->
 <script src="https://unpkg.com/vue@latest"></script>
 
-<!-- use the latest vue-select release -->
-<script src="https://unpkg.com/vue-select@latest"></script>
+<!-- use the latest release -->
+<script src="https://unpkg.com/vs-vue3-select@latest"></script>
 <link
-  rel="stylesheet"
-  href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+        rel="stylesheet"
+        href="https://unpkg.com/vs-vue3-select@latest/dist/vs-vue3-select.css"
 />
 
-<!-- or point to a specific vue-select release -->
-<script src="https://unpkg.com/vue-select@3.0.0"></script>
+<!-- or point to a specific release -->
+<script src="https://unpkg.com/vs-vue3-select@3.0.0"></script>
 <link
-  rel="stylesheet"
-  href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css"
+        rel="stylesheet"
+        href="https://unpkg.com/vs-vue3-select@3.0.0/dist/vue-select.css"
 />
 ```
 
@@ -61,8 +68,3 @@ Vue.component('v-select', VueSelect.VueSelect)
 ```
 
 <CodePen url="dJjzeP" />
-
-## Vue Compatibility
-
-- Vue `2.x`, use vue-select `3.x`.
-- Vue `3.x`, use vue-select `3.x@beta`.

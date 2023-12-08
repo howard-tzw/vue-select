@@ -1,9 +1,10 @@
-# vue3-select
+# vs-vue3-select
 
-This is a forked and maintained version of
-[sagalbot/vue-select](https://github.com/sagalbot/vue-select), which is no
-longer maintained. As the name suggests, this project is specifically designed
-to work with the Vue 3.
+This is a forked and maintained version of [sagalbot/vue-select](https://github.com/sagalbot/vue-select).
+
+Forks tree:
+    [sagalbot/vue-select](https://github.com/sagalbot/vue-select),
+    [howard-tzw/vue3-select](https://github.com/howard-tzw/vue3-select),
 
 **Notes**: At the moment, most of the features of vue3-select are the same as
 the original vue-select project. As such, users can refer to the original

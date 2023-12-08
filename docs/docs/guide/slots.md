@@ -5,7 +5,7 @@ guide is put together. :::
 
 ### Scoped Slot `option`
 
-vue-select provides the scoped `option` slot in order to create custom dropdown
+`vs-vue3-select` provides the scoped `option` slot in order to create custom dropdown
 templates.
 
 ```html

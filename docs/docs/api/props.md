@@ -130,7 +130,7 @@ closeOnSelect: {
 
 ## components <Badge text="v3.1.0+" />
 
-API to overwrite default vue-select components with your own. This can be used
+API to overwrite default `vs-vue3-select` components with your own. This can be used
 to change the clear button or select chevron with your own markup.
 
 The object provided to the components prop will be merged with Vue Select's
@@ -208,7 +208,7 @@ disabled: {
 ## dropdownShouldOpen <Badge text="v3.12.0+" />
 
 Determines whether the dropdown should open. Used for overriding the default
-dropdown behaviour. Receives the vue-select instance as the single argument to
+dropdown behaviour. Receives the `vs-vue3-select` instance as the single argument to
 the function.
 
 ```js
@@ -335,7 +335,7 @@ inputId: {
 
 ## label
 
-Tells vue-select what key to use when generating option labels when each
+Tells `vs-vue3-select` what key to use when generating option labels when each
 `option` is an object.
 
 ```js
@@ -411,7 +411,7 @@ onTab: {
 ## options
 
 An array of strings or objects to be used as dropdown choices. If you are using
-an array of objects, vue-select will look for a `label` key (ex.
+an array of objects, `vs-vue3-select` will look for a `label` key (ex.
 `[{label: 'Canada', value: 'CA'}]`). A custom label key can be set with the
 `label` prop.
 
@@ -583,7 +583,7 @@ taggable: {
 
 ## transition
 
-Sets a Vue transition property on the `.dropdown-menu`. vue-select does not
+Sets a Vue transition property on the `.dropdown-menu`. `vs-vue3-select` does not
 include CSS for transitions, you'll need to add them yourself.
 
 ```js

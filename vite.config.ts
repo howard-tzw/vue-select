@@ -18,8 +18,8 @@ export default defineConfig({
     target: 'es2015',
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'vue3-select',
-      fileName: (format) => `vue3-select.${format}.js`,
+      name: 'vs-vue3-select',
+      fileName: (format) => `vs-vue3-select.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],
@@ -27,7 +27,7 @@ export default defineConfig({
         globals: { vue: 'Vue' },
         assetFileNames(chunk): string {
           if (chunk.name === 'style.css') {
-            return 'vue3-select.css'
+            return 'vs-vue3-select.css'
           }
           return chunk.name || ''
         },

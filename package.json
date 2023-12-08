@@ -1,8 +1,8 @@
 {
-  "name": "vue3-select",
-  "version": "0.1.2",
+  "name": "vs-vue3-select",
+  "version": "0.1.0",
   "description": "A maintained fork of vue-select for Vue 3",
-  "author": "Howard Chen <howard.tzw@gmail.com>",
+  "author": "Alexander Vorobyev <alex@va-soft.ru>",
   "homepage": "",
   "directories": {
     "doc": "docs",
@@ -23,22 +23,21 @@
     "release:patch": "standard-version --release-as patch --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'",
     "release:minor": "standard-version --release-as minor --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'",
     "release:major": "standard-version --release-as major --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'"
-
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/vue3-select.umd.js",
-  "module": "./dist/vue3-select.es.js",
+  "main": "./dist/vs-vue3-select.umd.js",
+  "module": "./dist/vs-vue3-select.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue3-select.es.js",
-      "require": "./dist/vue3-select.umd.js"
+      "import": "./dist/vs-vue3-select.es.js",
+      "require": "./dist/vs-vue3-select.umd.js"
     },
-    "./dist/vue3-select.css": {
-      "import": "./dist/vue3-select.css",
-      "require": "./dist/vue3-select.css",
-      "style": "./dist/vue3-select.css"
+    "./dist/vs-vue3-select.css": {
+      "import": "./dist/vs-vue3-select.css",
+      "require": "./dist/vs-vue3-select.css",
+      "style": "./dist/vs-vue3-select.css"
     }
   },
   "private": false,
@@ -46,7 +45,7 @@
   "prepare": "npm run build",
   "repository": {
     "type": "git",
-    "url": "https://github.com/howard-tzw/vue3-select.git"
+    "url": "https://github.com/voral/vs-vue3-select.git"
   },
   "packageManager": "pnpm@8.6.7",
   "peerDependencies": {
@@ -69,7 +68,6 @@
     "commitizen": "^4.2.5",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
-    "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.20.0",
     "eslint-plugin-vue": "^9.2.0",
     "jsdom": "^20.0.0",
@@ -86,25 +84,20 @@
     "vue-router": "^4.2.4",
     "vue-tsc": "^1.6.5"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "bundlewatch": {
     "files": [
       {
-        "path": "./dist/vue3-select.es.js",
+        "path": "./dist/vs-vue3-select.es.js",
         "compression": "gzip",
         "maxSize": "8 KB"
       },
       {
-        "path": "./dist/vue3-select.umd.js",
+        "path": "./dist/vs-vue3-select.umd.js",
         "compression": "gzip",
         "maxSize": "7 KB"
       },
       {
-        "path": "./dist/vue3-select.css",
+        "path": "./dist/vs-vue3-select.css",
         "compression": "gzip",
         "maxSize": "2 KB"
       }

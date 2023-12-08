@@ -1,4 +1,4 @@
-declare module 'vue3-select' {
+declare module 'vs-vue3-select' {
   import { Component } from 'vue'
 
   const VueSelect: Component & {
