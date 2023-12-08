@@ -1,6 +1,6 @@
 {
   "name": "vs-vue3-select",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A maintained fork of vue-select for Vue 3",
   "author": "Alexander Vorobyev <alex@va-soft.ru>",
   "homepage": "",
@@ -19,10 +19,10 @@
     "coverage": "vitest --run --coverage --environment jsdom --silent",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "release": "standard-version --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'",
-    "release:patch": "standard-version --release-as patch --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'",
-    "release:minor": "standard-version --release-as minor --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'",
-    "release:major": "standard-version --release-as major --header '^(\\\\w+)(\\\\[\\\\w+\\\\])? (.*)$'"
+    "release": "standard-version --header",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "files": [
     "dist"
