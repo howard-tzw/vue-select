@@ -66,5 +66,13 @@ export default defaultTheme({
                 ],
             },
         ],
-    }
+    },
+    locales: {
+        '/': {
+            selectLanguageName: 'English',
+        },
+        '/ru/': {
+            selectLanguageName: 'Русский',
+        },
+    },
 })
