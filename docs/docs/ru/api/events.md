@@ -1,10 +1,6 @@
-::: warning
-Site under construction
-:::
-
 ## `input`
 
-Triggered when the selected value changes. Used internally for `v-model`.
+Срабатывает при изменении выбранного значения. Используется внутри для `v-model`.
 
 ```js
 /**
@@ -15,7 +11,7 @@ this.$emit('input', val)
 
 ## `open`
 
-Triggered when the dropdown is open.
+Срабатывает тогда, когда раскрывается выпадающий список.
 
 ```js
 this.$emit('open')
@@ -23,43 +19,39 @@ this.$emit('open')
 
 ## `close`
 
-Triggered when the dropdown is closed.
+Срабатывает тогда, когда закрывается выпадающий список.
 
 ```js
 this.$emit('close')
 ```
 
-## `option:selecting` <Badge text="v3.11.0+" />
+## `option:selecting`
 
-Triggered after an option has been selected, <strong>before</strong> updating
-internal state.
+Срабатывает после выбора опции, <strong>перед</strong> обновлением внутреннего состояния.
 
 ```js
 this.$emit('option:selecting', selectedOption)
 ```
 
-## `option:selected` <Badge text="v3.11.0+" />
+## `option:selected`
 
-Triggered when an option has been selected, <strong>after</strong> updating
-internal state.
+Срабатывает после выбора опции, <strong>после</strong> обновления внутреннего состояния.
 
 ```js
 this.$emit('option:selected', selectedOption)
 ```
 
-## `option:deselecting` <Badge text="v3.11.0+" />
+## `option:deselecting`
 
-Triggered when an option has been deselected, <strong>before</strong> updating
-internal state.
+Срабатывает после отмены опции, <strong>перед</strong> обновлением внутреннего состояния.
 
 ```js
 this.$emit('option:deselecting', selectedOption)
 ```
 
-## `option:deselected` <Badge text="v3.11.0+" />
+## `option:deselected`
 
-Triggered when an option has been deselected, <strong>after</strong> updating
-internal state.
+Срабатывает после отмены опции, <strong>после</strong> обновления внутреннего состояния.
 
 ```js
 this.$emit('option:deselected', deselectedOption)
@@ -67,7 +59,7 @@ this.$emit('option:deselected', deselectedOption)
 
 ## `option:created`
 
-Triggered when `taggable` is `true` and a new option has been created.
+Срабатывает, когда `taggable` имеет значение `true` и была создана новая опция.
 
 ```js
 /**
@@ -78,17 +70,15 @@ this.$emit('option:created', newOption)
 
 ## `search`
 
-Anytime the search string changes, emit the 'search' event. The event is passed
-with two parameters: the search string, and a function that accepts a boolean
-parameter to toggle the loading state.
+Срабатывает всякий раз, когда строка поиска изменяется, генерируйте событие 'search'. Событие передается с двумя параметрами:
+строкой поиска и функцией, которая принимает логический параметр для переключения состояния загрузки.
 
-See the [AJAX Guide](/guide/ajax.html#loading-options-with-ajax) for a complete
-example.
+Полный пример смотрите в [руководстве по AJAX](/ru/guide/ajax.html#loading-options-with-ajax).
 
 ```js
 /**
- * @param {String} searchString - the search string
- * @param {Function} toggleLoading - function to toggle loading state, accepts true or false boolean
+ * @param {String} searchString - строка поиска
+ * @param {Function} toggleLoading - функция переключающая состояние загрузки, принимает логические true или false
  */
 this.$emit('search', this.search, this.toggleLoading)
 ```
@@ -96,7 +86,7 @@ this.$emit('search', this.search, this.toggleLoading)
 ```vue
 <!-- example usage -->
 <v-select
-  @search="
+    @search="
     (search, loading) => {
       loading(true)
       fetchOptions(search).then(() => loading(false))
@@ -107,8 +97,7 @@ this.$emit('search', this.search, this.toggleLoading)
 
 ## `search:blur`
 
-Triggered when the text input loses focus. The dropdown will close immediately
-before this event is triggered.
+Срабатывает, когда ввод текста теряет фокус. Выпадающий список закроется непосредственно перед запуском этого события.
 
 ```js
 this.$emit('search:blur')
@@ -116,26 +105,8 @@ this.$emit('search:blur')
 
 ## `search:focus`
 
-Triggered when the text input gains focus. The dropdown will open immediately
-before this event is triggered.
+Срабатывает, когда ввод текста получает фокус. Выпадающий список откроется непосредственно перед запуском этого события.
 
 ```js
 this.$emit('search:focus')
-```
-
-## `search`
-
-Triggered when the search text changes.
-
-```js
-/**
- * Anytime the search string changes, emit the
- * 'search' event. The event is passed with two
- * parameters: the search string, and a function
- * that accepts a boolean parameter to toggle the
- * loading state.
- *
- * @emits search
- */
-this.$emit('search', newSearchString, toggleLoading)
 ```
