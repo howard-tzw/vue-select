@@ -1,3 +1,8 @@
+---
+prev:
+  text: Slots
+  link: /api/slots
+---
 ## `input`
 
 Triggered when the selected value changes. Used internally for `v-model`.

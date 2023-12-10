@@ -1,32 +1,23 @@
-::: warning
-Site under construction
+---
+prev:
+  text: Props
+  link: /api/props
+next:
+  text: Events
+  link: /api/events
+---
+::: tip
+Vs Vue Select leverages scoped slots to allow for total customization of
+the presentation layer. Slots can be used to change the look and feel of the UI,
+or to simply swap out text.
 :::
 
-::: tip Vue Select leverages scoped slots to allow for total customization of
-the presentation layer. Slots can be used to change the look and feel of the UI,
-or to simply swap out text. :::
-
-<style>
-  .slot-docs h2 {
-    border-top: 1px solid #f0f0f0;
-    border-bottom: none;
-    margin-top: 2rem;
-    padding-top: 2rem;
-  }
-  .slot-docs h2:first-child {
-    border-top: none;
-    margin-top: 0;
-  }
-</style>
-
-<div class="slot-docs">
-
-## `footer` <Badge text="3.8.0+" />
+## `footer`
 
 Displayed at the bottom of the component, below `.vs__dropdown-toggle`.
 
 When implementing this slot, you'll likely need to use `appendToBody` to
-position the dropdown. Otherwise content in this slot will affect it's
+position the dropdown. Otherwise, content in this slot will affect it's
 positioning.
 
 - `search {string}` - the current search query
@@ -36,9 +27,10 @@ positioning.
 - `deselect {function}` - function to deselect an option
 
 <SlotFooter />
-<<< @/.vuepress/components/SlotFooter.vue
 
-## `header` <Badge text="3.8.0+" />
+@[code](../.vuepress/components/SlotFooter.vue)
+
+## `header`
 
 Displayed at the top of the component, above `.vs__dropdown-toggle`.
 
@@ -49,9 +41,10 @@ Displayed at the top of the component, above `.vs__dropdown-toggle`.
 - `deselect {function}` - function to deselect an option
 
 <SlotHeader />
-<<< @/.vuepress/components/SlotHeader.vue
 
-## `list-footer` <Badge text="3.8.0+" />
+@[code](../.vuepress/components/SlotHeader.vue)
+
+## `list-footer`
 
 Displayed as the last item in the dropdown. No content by default. Parent
 element is the `<ul>`, so this slot should contain a root `<li>`.
@@ -62,9 +55,10 @@ element is the `<ul>`, so this slot should contain a root `<li>`.
 - `filteredOptions {array}` - options filtered by the search text
 
 <SlotListFooter />
-<<< @/.vuepress/components/SlotListFooter.vue
 
-## `list-header` <Badge text="3.8.0+" />
+@[code](../.vuepress/components/SlotListFooter.vue)
+
+## `list-header`
 
 Displayed as the first item in the dropdown. No content by default. Parent
 element is the `<ul>`, so this slot should contain a root `<li>`.
@@ -75,7 +69,8 @@ element is the `<ul>`, so this slot should contain a root `<li>`.
 - `filteredOptions {array}` - options filtered by the search text
 
 <SlotListHeader />
-<<< @/.vuepress/components/SlotListHeader.vue
+
+@[code](../.vuepress/components/SlotListHeader.vue)
 
 ## `no-options`
 
@@ -87,7 +82,8 @@ The no options slot is displayed above `list-footer` in the dropdown when
 - `searching {boolean}` - is the component searching
 
 <SlotNoOptions />
-<<< @/.vuepress/components/SlotNoOptions.vue
+
+@[code](../.vuepress/components/SlotNoOptions.vue)
 
 ## `open-indicator`
 
@@ -95,15 +91,16 @@ The open indicator is the caret icon on the component used to indicate dropdown
 status.
 
 ```js
-attributes: {
-  'ref': 'openIndicator',
-  'role': 'presentation',
-  'class': 'vs__open-indicator',
+attributes = {
+    ref: 'openIndicator',
+    role: 'presentation',
+    class: 'vs__open-indicator'
 }
 ```
 
 <SlotOpenIndicator />
-<<< @/.vuepress/components/SlotOpenIndicator.vue
+
+@[code](../.vuepress/components/SlotOpenIndicator.vue)
 
 ## `option`
 
@@ -112,7 +109,8 @@ The current option within the dropdown, contained within `<li>`.
 - `option {Object}` - The currently iterated option from `filteredOptions`
 
 <SlotOption />
-<<< @/.vuepress/components/SlotOption.vue
+
+@[code](../.vuepress/components/SlotOption.vue)
 
 ## `search`
 
@@ -124,41 +122,42 @@ If you want the default styling, you'll need to add `.vs__search` to the input
 you provide.
 
 ```js
-  /**
-   * Attributes to be bound to a search input.
-   */
-  attributes: {
-    'disabled': this.disabled,
-    'placeholder': this.searchPlaceholder,
-    'tabindex': this.tabindex,
-    'readonly': !this.searchable,
-    'id': this.inputId,
+/**
+ * Attributes to be bound to a search input.
+ */
+attributes = {
+    disabled: this.disabled,
+    placeholder: this.searchPlaceholder,
+    tabindex: this.tabindex,
+    readonly: !this.searchable,
+    id: this.inputId,
     'aria-autocomplete': 'list',
     'aria-labelledby': `vs${this.uid}__combobox`,
     'aria-controls': `vs${this.uid}__listbox`,
     'aria-activedescendant': this.typeAheadPointer > -1
-      ? `vs${this.uid}__option-${this.typeAheadPointer}`
-      : '',
-    'ref': 'search',
-    'type': 'search',
-    'autocomplete': this.autocomplete,
-    'value': this.search,
-  },
-  /**
-   * Events that this element should handle.
-   */
-  events: {
-    'compositionstart': () => this.isComposing = true,
-    'compositionend': () => this.isComposing = false,
-    'keydown': this.onSearchKeyDown,
-    'blur': this.onSearchBlur,
-    'focus': this.onSearchFocus,
-    'input': (e) => this.search = e.target.value,
-  }
+        ? `vs${this.uid}__option-${this.typeAheadPointer}`
+        : '',
+    ref: 'search',
+    type: 'search',
+    autocomplete: this.autocomplete,
+    value: this.search,
+},
+    /**
+     * Events that this element should handle.
+     */
+    events = {
+        'compositionstart': () => this.isComposing = true,
+        'compositionend': () => this.isComposing = false,
+        'keydown': this.onSearchKeyDown,
+        'blur': this.onSearchBlur,
+        'focus': this.onSearchFocus,
+        'input': (e) => this.search = e.target.value,
+    }
 ```
 
 <SlotSearch />
-<<< @/.vuepress/components/SlotSearch.vue{5-6}
+
+@[code](../.vuepress/components/SlotSearch.vue)
 
 ## `selected-option`
 
@@ -169,7 +168,8 @@ This slot doesn't exist if `selected-option-container` is implemented.
 - `option {Object}` - A selected option
 
 <SlotSelectedOption />
-<<< @/.vuepress/components/SlotSelectedOption.vue
+
+@[code](../.vuepress/components/SlotSelectedOption.vue)
 
 ## `selected-option-container`
 
@@ -185,13 +185,13 @@ want to disable the deselect button, or have fine grain control over the markup.
   values
 
 <SlotSelectedOptionContainer />
-<<< @/.vuepress/components/SlotSelectedOptionContainer.vue
+
+@[code](../.vuepress/components/SlotSelectedOptionContainer.vue)
 
 ## `spinner`
 
 - `loading {Boolean}` - if the component is in a loading state
 
 <SlotSpinner />
-<<< @/.vuepress/components/SlotSpinner.vue
 
-</div>
+@[code](../.vuepress/components/SlotSpinner.vue)

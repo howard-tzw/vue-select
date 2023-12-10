@@ -1,3 +1,7 @@
+---
+sidebarDepth: 2
+---
+
 ::: warning
 Site under construction
 :::

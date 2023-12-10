@@ -1,197 +1,193 @@
-::: warning
-Site under construction
+---
+prev:
+    text: Свойства
+    link: /api/props
+next:
+    text: События
+    link: /api/events
+---
+
+::: tip Примечание
+Vs Vue Select использует слоты для более гибкой настройки уровня представления. Слоты можно использовать для изменения
+внешнего вида пользовательского интерфейса или просто для замены текста
 :::
 
-::: tip Vue Select leverages scoped slots to allow for total customization of
-the presentation layer. Slots can be used to change the look and feel of the UI,
-or to simply swap out text. :::
+## `footer`
 
-<style>
-  .slot-docs h2 {
-    border-top: 1px solid #f0f0f0;
-    border-bottom: none;
-    margin-top: 2rem;
-    padding-top: 2rem;
-  }
-  .slot-docs h2:first-child {
-    border-top: none;
-    margin-top: 0;
-  }
-</style>
-
-<div class="slot-docs">
-
-## `footer` <Badge text="3.8.0+" />
-
-Displayed at the bottom of the component, below `.vs__dropdown-toggle`.
+Отображается внизу компонента, ниже `.vs__dropdown-toggle`.
 
 When implementing this slot, you'll likely need to use `appendToBody` to
-position the dropdown. Otherwise content in this slot will affect it's
+position the dropdown. Otherwise, content in this slot will affect it's
 positioning.
 
-- `search {string}` - the current search query
-- `loading {boolean}` - is the component loading
-- `searching {boolean}` - is the component searching
-- `filteredOptions {array}` - options filtered by the search text
-- `deselect {function}` - function to deselect an option
+При реализации этого слота вам, возможно, потребуется использовать `appendToBody` для позиционирования выпадающего
+списка. Иначе содержимое в этом слоте повлияет на его позиционирование
+
+- `search {string}` - текущий поисковый запрос
+- `loading {boolean}` - признак состояния загрузки
+- `searching {boolean}` - признак состояния поиска
+- `filteredOptions {array}` - массив опций отфильтрованных поисковым запросом
+- `deselect {function}` - функция отменяющая выбор опции
 
 <SlotFooter />
-<<< @/.vuepress/components/SlotFooter.vue
 
-## `header` <Badge text="3.8.0+" />
+@[code](../../.vuepress/components/SlotFooter.vue)
 
-Displayed at the top of the component, above `.vs__dropdown-toggle`.
+## `header`
 
-- `search {string}` - the current search query
-- `loading {boolean}` - is the component loading
-- `searching {boolean}` - is the component searching
-- `filteredOptions {array}` - options filtered by the search text
-- `deselect {function}` - function to deselect an option
+Отображается вверху компонента, перед `.vs__dropdown-toggle`.
+
+- `search {string}` - текущий поисковый запрос
+- `loading {boolean}` - признак состояния загрузки
+- `searching {boolean}` - признак состояния поиска
+- `filteredOptions {array}` - массив опций отфильтрованных поисковым запросом
+- `deselect {function}` - функция отменяющая выбор опции
 
 <SlotHeader />
-<<< @/.vuepress/components/SlotHeader.vue
 
-## `list-footer` <Badge text="3.8.0+" />
+@[code](../../.vuepress/components/SlotHeader.vue)
 
-Displayed as the last item in the dropdown. No content by default. Parent
-element is the `<ul>`, so this slot should contain a root `<li>`.
+## `list-footer`
 
-- `search {string}` - the current search query
-- `loading {boolean}` - is the component loading
-- `searching {boolean}` - is the component searching
-- `filteredOptions {array}` - options filtered by the search text
+Отображается последним элементом списка. Не имеет контента по умолчанию. Родительский элемент `<ul>`, таким образом
+данный слот должен иметь в качестве корня тег `<li>`.
+
+- `search {string}` - текущий поисковый запрос
+- `loading {boolean}` - признак состояния загрузки
+- `searching {boolean}` - признак состояния поиска
+- `filteredOptions {array}` - массив опций отфильтрованных поисковым запросом
 
 <SlotListFooter />
-<<< @/.vuepress/components/SlotListFooter.vue
 
-## `list-header` <Badge text="3.8.0+" />
+@[code](../../.vuepress/components/SlotListFooter.vue)
 
-Displayed as the first item in the dropdown. No content by default. Parent
-element is the `<ul>`, so this slot should contain a root `<li>`.
+## `list-header`
 
-- `search {string}` - the current search query
-- `loading {boolean}` - is the component loading
-- `searching {boolean}` - is the component searching
-- `filteredOptions {array}` - options filtered by the search text
+Отображается первым элементом списка. Не имеет контента по умолчанию. Родительский элемент `<ul>`, таким образом
+данный слот должен иметь в качестве корня тег `<li>`.
+
+- `search {string}` - текущий поисковый запрос
+- `loading {boolean}` - признак состояния загрузки
+- `searching {boolean}` - признак состояния поиска
+- `filteredOptions {array}` - массив опций отфильтрованных поисковым запросом
 
 <SlotListHeader />
-<<< @/.vuepress/components/SlotListHeader.vue
+
+@[code](../../.vuepress/components/SlotListHeader.vue)
 
 ## `no-options`
 
-The no options slot is displayed above `list-footer` in the dropdown when
+Слот отображающий отсутствие опций. Размещает в выпадающем списке перед `list-footer` когда
 `filteredOptions.length === 0`.
 
-- `search {string}` - the current search query
-- `loading {boolean}` - is the component loading
-- `searching {boolean}` - is the component searching
+- `search {string}` - текущий поисковый запрос
+- `loading {boolean}` - признак состояния загрузки
+- `searching {boolean}` - признак состояния поиска
 
 <SlotNoOptions />
-<<< @/.vuepress/components/SlotNoOptions.vue
+
+@[code](../../.vuepress/components/SlotNoOptions.vue)
 
 ## `open-indicator`
 
-The open indicator is the caret icon on the component used to indicate dropdown
-status.
+Индикатор состояния выпадающего списка.
 
 ```js
-attributes: {
-  'ref': 'openIndicator',
-  'role': 'presentation',
-  'class': 'vs__open-indicator',
+attributes = {
+    ref: 'openIndicator',
+    role: 'presentation',
+    class: 'vs__open-indicator'
 }
 ```
 
 <SlotOpenIndicator />
-<<< @/.vuepress/components/SlotOpenIndicator.vue
+
+@[code](../../.vuepress/components/SlotOpenIndicator.vue)
 
 ## `option`
 
-The current option within the dropdown, contained within `<li>`.
+Отдельный элемент выпадающего списка, содержащийся в `<li>`.
 
-- `option {Object}` - The currently iterated option from `filteredOptions`
+- `option {Object}` - текущая опция в цикле по `filteredOptions`
 
 <SlotOption />
-<<< @/.vuepress/components/SlotOption.vue
+
+@[code](../../.vuepress/components/SlotOption.vue)
 
 ## `search`
 
-The search input has a lot of bindings, but they're grouped into `attributes`
-and `events`. Most of the time, you will just be binding those two with
-`v-on="events"` and `v-bind="attributes"`.
+Строка ввода поискового запроса множество привязок, но они сгруппированы: атрибуты и события. В большинстве случаев
+достаточно привязывать эти два параметра с помощью v-on="events" и v-bind="attributes".
 
-If you want the default styling, you'll need to add `.vs__search` to the input
-you provide.
+Если необходимо сохранить стиль по умолчанию, то добавьте класс `.vs__search` к добавляемому полю ввода.
 
 ```js
-  /**
-   * Attributes to be bound to a search input.
-   */
-  attributes: {
-    'disabled': this.disabled,
-    'placeholder': this.searchPlaceholder,
-    'tabindex': this.tabindex,
-    'readonly': !this.searchable,
-    'id': this.inputId,
+/**
+ * Атрибуты привязываемые к полю ввода.
+ */
+attributes = {
+    disabled: this.disabled,
+    placeholder: this.searchPlaceholder,
+    tabindex: this.tabindex,
+    readonly: !this.searchable,
+    id: this.inputId,
     'aria-autocomplete': 'list',
     'aria-labelledby': `vs${this.uid}__combobox`,
     'aria-controls': `vs${this.uid}__listbox`,
     'aria-activedescendant': this.typeAheadPointer > -1
-      ? `vs${this.uid}__option-${this.typeAheadPointer}`
-      : '',
-    'ref': 'search',
-    'type': 'search',
-    'autocomplete': this.autocomplete,
-    'value': this.search,
-  },
-  /**
-   * Events that this element should handle.
-   */
-  events: {
-    'compositionstart': () => this.isComposing = true,
-    'compositionend': () => this.isComposing = false,
-    'keydown': this.onSearchKeyDown,
-    'blur': this.onSearchBlur,
-    'focus': this.onSearchFocus,
-    'input': (e) => this.search = e.target.value,
-  }
+        ? `vs${this.uid}__option-${this.typeAheadPointer}`
+        : '',
+    ref: 'search',
+    type: 'search',
+    autocomplete: this.autocomplete,
+    value: this.search,
+},
+    /**
+     * События, которые должен обрабатывать этот элемент
+     */
+    events = {
+        'compositionstart': () => this.isComposing = true,
+        'compositionend': () => this.isComposing = false,
+        'keydown': this.onSearchKeyDown,
+        'blur': this.onSearchBlur,
+        'focus': this.onSearchFocus,
+        'input': (e) => this.search = e.target.value,
+    }
 ```
 
 <SlotSearch />
-<<< @/.vuepress/components/SlotSearch.vue{5-6}
+
+@[code](../../.vuepress/components/SlotSearch.vue)
 
 ## `selected-option`
 
-The text displayed within `selected-option-container`.
+Текст отображаемый внутри `selected-option-container`.
 
-This slot doesn't exist if `selected-option-container` is implemented.
+Этот слот не существует если реализован `selected-option-container`
 
-- `option {Object}` - A selected option
+- `option {Object}` - Выбранная опция
 
 <SlotSelectedOption />
-<<< @/.vuepress/components/SlotSelectedOption.vue
+
+@[code](../../.vuepress/components/SlotSelectedOption.vue)
 
 ## `selected-option-container`
 
-This is the root element where `v-for="option in selectedValue"`. Most of the
-time you'll want to use `selected-option`, but this container is useful if you
-want to disable the deselect button, or have fine grain control over the markup.
+Это корневой элемент где `v-for="option in selectedValue"`. В большинстве случаев достаточно использовать `selected-option`, но этот контейнер полезен, если вы хотите отключить кнопку отмены выбора или иметь точный контроль над разметкой.
 
-- `option {Object}` - Currently iterated selected option
-- `deselect {Function}` - Method used to deselect a given option when `multiple`
-  is true
-- `disabled {Boolean}` - Determine if the component is disabled
-- `multiple {Boolean}` - If the component supports the selection of multiple
-  values
+- `option {Object}` - Текущая выбранная опция
+- `deselect {Function}` - Метод, используемый для отмены выбора данной опции, когда значение `multiple` равно true
+- `disabled {Boolean}` - Флаг заблокированного состояния компонента
+- `multiple {Boolean}` - Флаг поддержки компонентом множественного выбора
 
 <SlotSelectedOptionContainer />
-<<< @/.vuepress/components/SlotSelectedOptionContainer.vue
+
+@[code](../../.vuepress/components/SlotSelectedOptionContainer.vue)
 
 ## `spinner`
 
-- `loading {Boolean}` - if the component is in a loading state
+- `loading {Boolean}` - Флаг состояния загрузки данных
 
 <SlotSpinner />
-<<< @/.vuepress/components/SlotSpinner.vue
 
-</div>
+@[code](../../.vuepress/components/SlotSpinner.vue)
