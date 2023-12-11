@@ -106,20 +106,20 @@ export default defaultTheme({
                 ],
             },
             {
-                text: 'Customizing',
+                text: 'Кастомизация',
                 collapsable: false,
                 children: [
                     {link: '/guide/keydown', text: 'Keydown Events'},
                     {link: '/guide/positioning', text: 'Dropdown Position'},
                     {link: '/guide/opening', text: 'Dropdown Opening'},
-                    {link: '/guide/filtering', text: 'Option Filtering'},
+                    {link: '/guide/filtering', text: 'Фильтрация опций'},
                 ],
             },
             {
                 text: 'API',
                 collapsable: false,
                 children: [
-                    {link: '/ru/api/props', text: 'Свойства'},
+                    {link: '/ru/api/props', text: 'Параметры'},
                     {link: '/ru/api/slots', text: 'Слоты'},
                     {link: '/ru/api/events', text: 'События'},
                 ],

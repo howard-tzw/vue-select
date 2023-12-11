@@ -1,6 +1,6 @@
 ---
 prev:
-    text: Свойства
+    text: Параметры
     link: /ru/api/props
 next:
     text: События
