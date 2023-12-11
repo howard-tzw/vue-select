@@ -1,12 +1,13 @@
-::: warning
-Site under construction
-:::
-
-### Customizing Keydown Behaviour
-
+---
+prev:
+  text: Using in Loops
+  link: /guide/loops
+next:
+  text: Dropdown Position
+  link: /api/positioning
 ---
 
-## selectOnKeyCodes <Badge text="v3.3.0+" />
+## selectOnKeyCodes
 
 `selectOnKeyCodes {Array}` is an array of keyCodes that will trigger a
 typeAheadSelect. Any keyCodes in this array will prevent the default event
@@ -15,9 +16,9 @@ For example, maybe you want to tag on a comma keystroke:
 
 <TagOnComma /> 
  
-<<< @/.vuepress/components/TagOnComma.vue
+@[code](../.vuepress/components/TagOnComma.vue)
 
-## mapKeyDown <Badge text="v3.3.0+" />
+## mapKeyDown
 
 Vs Vue3 Select provides the `map-keydown` Function prop to allow for customizing the
 components response to keydown events while the search input has focus.
@@ -70,11 +71,13 @@ Note that any keyCodes you've added to `selectOnKeyCodes` will be passed to
 }
 ```
 
-### Example: Autocomplete Email Addresses
+#### Example: Autocomplete Email Addresses
+
+---
 
 This is example listens for the `@` key, and autocompletes an email address with
 `@gmail.com`.
 
 <CustomHandlers />
 
-<<< @/.vuepress/components/CustomHandlers.vue
+@[code](../.vuepress/components/CustomHandlers.vue)

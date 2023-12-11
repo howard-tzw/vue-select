@@ -102,7 +102,7 @@ export default defaultTheme({
                     {link: '/guide/infinite-scroll', text: 'Infinite Scroll'},
                     {link: '/guide/vuex', text: 'Vuex'},
                     {link: '/guide/ajax', text: 'AJAX'},
-                    {link: '/guide/loops', text: 'Using in Loops'},
+                    {link: '/guide/loops', text: 'Применение в циклах'},
                 ],
             },
             {

@@ -1,45 +1,48 @@
-::: warning
-Site under construction
-:::
-
-### Customizing Keydown Behaviour
-
+---
+prev:
+  text: Using in Loops
+  link: /ru/guide/loops
+next:
+  text: Позиционирование списка
+  link: /ru/api/positioning
 ---
 
-## selectOnKeyCodes <Badge text="v3.3.0+" />
+## selectOnKeyCodes
 
-`selectOnKeyCodes {Array}` is an array of keyCodes that will trigger a
-typeAheadSelect. Any keyCodes in this array will prevent the default event
-action and trigger a typeahead select. By default, it's just `[13]` for return.
-For example, maybe you want to tag on a comma keystroke:
+`selectOnKeyCodes {Array}` - это массив кодов клавиш, который запускает typeahead select. Любые коды клавиш в этом массиве предотвратят действие события по умолчанию и запустят typehead select. По умолчанию для возврата используется просто [13]. Например, возможно, вы хотите пометить нажатие клавиши с запятой:
+
+`selectOnKeyCodes {Array}` - это массив кодов клавиш, которые инициируют выбор элемента при использовании функции 
+typeAhead. Любой код клавиши из этого массива прервет стандартное действие события и вызовет выбор элемента с 
+использованием функции typeAhead. По умолчанию установлен только `[13]` для клавиши Enter. Например, если вам необходимо
+добавить выбор при нажатии запятой, необходимо добавить код этой клавиши:
 
 <TagOnComma /> 
- 
-<<< @/.vuepress/components/TagOnComma.vue
 
-## mapKeyDown <Badge text="v3.3.0+" />
+@[code](../../.vuepress/components/TagOnComma.vue)
 
-Vs Vue3 Select provides the `map-keydown` Function prop to allow for customizing the
-components response to keydown events while the search input has focus.
+## mapKeyDown
+
+Vs Vue3 Select предоставляет параметр `map-keydown`, позволяющий настраивать реакцию компонентов на события нажатия 
+клавиш, в то время как строка поиска имеет фокус.
 
 ```js
 /**
- * @param map {Object} Mapped keyCode to handlers { <keyCode>:<callback> }
+ * @param map {Object} Сопоставление keyCode и обработчиков { <keyCode>:<callback> }
  * @param vm {VueSelect}
  * @return {Object}
  */
 (map, vm) => map,
 ```
 
-By default, the prop is a no–op returning the same object `map` object it
-receives. This object maps keyCodes to handlers: `{ <keyCode>: <callback> }`.
-Modifying this object can override default functionality, or add handlers for
-different keys that the component doesn't normally listen for.
+По умолчанию параметр – это заглушка, возвращающий тот же объект, который он получает. Этот объект сопоставляет коды 
+ключей обработчикам: `{ <keyCode>: <callback> }`. Изменение этого объекта может переопределить функциональность по 
+умолчанию или добавить обработчики для разных ключей, которые компонент обычно не прослушивает.
 
-Note that any keyCodes you've added to `selectOnKeyCodes` will be passed to
-`map-keydown` as well, so `map-keydown` will always take precedence.
+Обратите внимание, что любые коды клавиш, которые вы добавили в `selectOnKeyCodes`, также будут переданы в `map-keydown`,
+поэтому `map-keydown` всегда будет иметь приоритет
 
-**Default Handlers**
+
+**Обработчики по умолчанию**
 
 ```js
 //  delete
@@ -70,11 +73,12 @@ Note that any keyCodes you've added to `selectOnKeyCodes` will be passed to
 }
 ```
 
-### Example: Autocomplete Email Addresses
+#### Пример: Автозавершение email адреса 
 
-This is example listens for the `@` key, and autocompletes an email address with
-`@gmail.com`.
+---
+
+Этот пример показывает как при нажатии клавиши `@` происходит автодополнение адреса строкой `@gmail.com`.
 
 <CustomHandlers />
 
-<<< @/.vuepress/components/CustomHandlers.vue
+@[code](../../.vuepress/components/CustomHandlers.vue)
