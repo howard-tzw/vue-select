@@ -1,8 +1,17 @@
+---
+prev:
+  text: Vuex
+  link: /guide/vuex
+next:
+  text: Using in Loops
+  link: /guide/loops
+---
+
+# Loading Options with AJAX
+
 ::: warning
 Site under construction
 :::
-
-## Loading Options with AJAX
 
 The `search` event provides a hook to load options from a parent component when
 the search text is updated. It is emitted with two parameters:
@@ -38,28 +47,10 @@ asynchronous operation completes, call `loading(false)` to toggle it off.
 When loading server side options, it can be useful to disable the client side
 filtering. Use the `filterable` prop to disable filtering.
 
-```js
-/**
- * When true, existing options will be filtered
- * by the search text. Should not be used in
- * conjunction with taggable.
- *
- * @type {Boolean}
- */
-filterable: {
-	type: Boolean,
-	default: true
-},
-```
-
 ## Loading Spinner
 
 Vs Vue3 Select includes a default loading spinner that appears when the loading
 class is present. The `spinner` slot allows you to implement your own spinner.
-
-```html
-<div class="spinner" v-show="spinner">Loading...</div>
-```
 
 ## Library Agnostic
 
