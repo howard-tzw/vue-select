@@ -1,29 +1,31 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+  text: Позиционирование списка 
+  link: /ru/guide/positioning
+next:
+  text: Фильтрация опций
+  link: /ru/api/filtering
+---
 
-## Default Dropdown Behaviour
+## Поведение по умолчанию
 
-By default, the dropdown will open anytime the underlying search input has
-focus. The dropdown will open when clicked, or when it has received focus when
-tabbing through inputs.
+По умолчанию выпадающий список открывается, когда строка поиска получает фокус. Так же список открывается при нажатии 
+или когда получает фокус при переходе табуляцией.
 
-## Customizing Dropdown Behaviour <Badge text="v3.12.0+" />
+## Кастомизация поведения
 
-The `dropdownShouldOpen` prop allows for full customization of the open/close
-behaviour. The prop accepts a `function` that should return a `boolean` value.
-The returned boolean value will be used to determine if the dropdown should be
-`open`/`true` or `false`/`closed`. The function receives the instance of the
-component as the only argument.
+Параметр `dropdownShouldOpen` позволяет полностью настроить алгоритм открытия/закрытия. Опция принимает функцию, которая
+должна возвращать логическое значение. Возвращаемое логическое значение будет использоваться для определения того, 
+должен ли выпадающий список быть открытым (true) или закрытым (false). Функция получает экземпляр компонента в качестве
+единственного аргумента.
 
-#### Example: Open the dropdown when search text is present
+#### Пример: Открывать выпадающий список, когда строка поиска не пустая
 
 ---
 
-In this example, we will wait to show the dropdown until the user has started
-typing. However, if a country has already been selected, we will display the
-dropdown right away.
+В этом примере список не отображается до тех пор, пока пользователь не начнет вводить текст. Однако, если элемент уже
+выбран, выпадающий список отображается сразу.
 
 <OpenWhenSearchTextPresent />
 
-<<< @/.vuepress/components/OpenWhenSearchTextPresent.vue
+@[code](../../.vuepress/components/OpenWhenSearchTextPresent.vue)

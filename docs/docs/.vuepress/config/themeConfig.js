@@ -110,8 +110,8 @@ export default defaultTheme({
                 collapsable: false,
                 children: [
                     {link: '/guide/keydown', text: 'Keydown Events'},
-                    {link: '/guide/positioning', text: 'Dropdown Position'},
-                    {link: '/guide/opening', text: 'Dropdown Opening'},
+                    {link: '/guide/positioning', text: 'Позиционирование списка'},
+                    {link: '/guide/opening', text: 'Открытие списка'},
                     {link: '/guide/filtering', text: 'Фильтрация опций'},
                 ],
             },

@@ -1,6 +1,11 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+  text: Dropdown Position
+  link: /guide/positioning
+next:
+  text: Option Filtering
+  link: /api/filtering
+---
 
 ## Default Dropdown Behaviour
 
@@ -8,7 +13,7 @@ By default, the dropdown will open anytime the underlying search input has
 focus. The dropdown will open when clicked, or when it has received focus when
 tabbing through inputs.
 
-## Customizing Dropdown Behaviour <Badge text="v3.12.0+" />
+## Customizing Dropdown Behaviour
 
 The `dropdownShouldOpen` prop allows for full customization of the open/close
 behaviour. The prop accepts a `function` that should return a `boolean` value.
@@ -26,4 +31,4 @@ dropdown right away.
 
 <OpenWhenSearchTextPresent />
 
-<<< @/.vuepress/components/OpenWhenSearchTextPresent.vue
+@[code](../.vuepress/components/OpenWhenSearchTextPresent.vue)
