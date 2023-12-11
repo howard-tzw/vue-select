@@ -4,7 +4,7 @@ prev:
   link: /ru/guide/loops
 next:
   text: Позиционирование списка
-  link: /ru/api/positioning
+  link: /ru/guide/positioning
 ---
 
 ## selectOnKeyCodes

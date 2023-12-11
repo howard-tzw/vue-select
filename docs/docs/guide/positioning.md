@@ -4,7 +4,7 @@ prev:
   link: /guide/keydown
 next:
   text: Dropdown Opening
-  link: /api/opening
+  link: /guide/opening
 ---
 
 ## Default

@@ -4,7 +4,7 @@ prev:
   link: /ru/guide/keydown
 next:
   text: Открытие списка
-  link: /ru/api/opening
+  link: /ru/guide/opening
 ---
 
 ## Поведение по умолчанию

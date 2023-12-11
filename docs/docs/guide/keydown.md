@@ -4,7 +4,7 @@ prev:
   link: /guide/loops
 next:
   text: Dropdown Position
-  link: /api/positioning
+  link: /guide/positioning
 ---
 
 ## selectOnKeyCodes

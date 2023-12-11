@@ -4,7 +4,7 @@ prev:
   link: /guide/positioning
 next:
   text: Option Filtering
-  link: /api/filtering
+  link: /guide/filtering
 ---
 
 ## Default Dropdown Behaviour

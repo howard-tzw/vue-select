@@ -4,7 +4,7 @@ prev:
   link: /ru/guide/positioning
 next:
   text: Фильтрация опций
-  link: /ru/api/filtering
+  link: /ru/guide/filtering
 ---
 
 ## Поведение по умолчанию

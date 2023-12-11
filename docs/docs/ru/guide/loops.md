@@ -1,22 +1,18 @@
-::: warning
-Site under construction
-:::
-
-### Using Vs Vue3 Select in v-for Loops
-
+---
+prev:
+  text: AJAX
+  link: /ru/guide/ajax
+next:
+  text: События клавиатуры
+  link: /ru/guide/keydown
 ---
 
-There may be times that you are including Vs Vue3 Select within loops of data, such
-as a table. This can pose some challenges when emitting events from the
-component, as you won't know which Vs Vue3 Select instance emitted it. This can make
-it difficult to wire up with things like Vuex.
+Могут быть случаи, когда вы включаете Vs Vue3 Select в циклы данных, такие как таблица. Это может создать некоторые 
+проблемы при отправке событий из компонента, поскольку вы не будете знать, какой экземпляр Vs Vue3 Select его отправил.
 
-Fortunately, you can solve this problem with an anonymous function. The example
-below doesn't use Vuex just to keep things succinct, but the same solution would
-apply. The `@input` is handled with an inline anonymous function, allowing the
-selected country to be passed to the `updateCountry` method with the `country`
-and the `person` object.
+Вы можете решить эту проблему с помощью анонимной функции. `@input` обрабатывается встроенной анонимной функцией, 
+позволяющей передавать выбранную страну методу `updateCountry` вместе со `country` и объектом `person`.
 
 <LoopedSelect />
 
-<<< @/.vuepress/components/LoopedSelect.vue
+@[code](../../.vuepress/components/LoopedSelect.vue)
