@@ -19,7 +19,7 @@ For example, maybe you want to tag on a comma keystroke:
 
 ## mapKeyDown <Badge text="v3.3.0+" />
 
-Vue Select provides the `map-keydown` Function prop to allow for customizing the
+Vs Vue3 Select provides the `map-keydown` Function prop to allow for customizing the
 components response to keydown events while the search input has focus.
 
 ```js

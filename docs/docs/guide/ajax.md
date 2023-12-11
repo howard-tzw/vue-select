@@ -54,7 +54,7 @@ filterable: {
 
 ## Loading Spinner
 
-Vue Select includes a default loading spinner that appears when the loading
+Vs Vue3 Select includes a default loading spinner that appears when the loading
 class is present. The `spinner` slot allows you to implement your own spinner.
 
 ```html

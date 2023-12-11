@@ -144,14 +144,14 @@ option object is not present in the `options` array.
 <<< @/.vuepress/components/ReducedWithNoMatchingOption.vue
 
 In the example above, the component was supplied with an ID that doesn't exist
-in the `options` array. When `value` changes, Vue Select searches the supplied
+in the `options` array. When `value` changes, Vs Vue3 Select searches the supplied
 options, running each one through `reduce` until the corresponding option is
-found. When that option doesn't exist, Vue Select will end up displaying the
+found. When that option doesn't exist, Vs Vue3 Select will end up displaying the
 `value` supplied.
 
 ::: warning
 
-When providing Vue Select with a _reduced_ `value` - the object that the value
+When providing Vs Vue3 Select with a _reduced_ `value` - the object that the value
 was reduced from must exist in the `options` array.
 
 :::
@@ -180,10 +180,10 @@ true.
 
 When combining `taggable` with `reduce`, you must define the `createOption`
 prop. The `createOption` function is responsible for defining the structure of
-the objects that Vue Select will create for you when adding a tag. It should
+the objects that Vs Vue3 Select will create for you when adding a tag. It should
 return a value that has the same properties as the rest of your `options`.
 
-If you don't define `createOption`, Vue Select will construct a simple object
+If you don't define `createOption`, Vs Vue3 Select will construct a simple object
 following this structure: `{[this.label]: searchText}`. If you're using
 `reduce`, this is probably not what your options look like, which is why you'll
 need to set the function yourself.

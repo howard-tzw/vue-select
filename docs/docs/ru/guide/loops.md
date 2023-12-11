@@ -2,13 +2,13 @@
 Site under construction
 :::
 
-### Using Vue Select in v-for Loops
+### Using Vs Vue3 Select in v-for Loops
 
 ---
 
-There may be times that you are including Vue Select within loops of data, such
+There may be times that you are including Vs Vue3 Select within loops of data, such
 as a table. This can pose some challenges when emitting events from the
-component, as you won't know which Vue Select instance emitted it. This can make
+component, as you won't know which Vs Vue3 Select instance emitted it. This can make
 it difficult to wire up with things like Vuex.
 
 Fortunately, you can solve this problem with an anonymous function. The example

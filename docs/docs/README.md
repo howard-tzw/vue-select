@@ -1,4 +1,4 @@
-# Vs Vue Select
+# Vs Vue3 Select
 ::: warning
 Site under construction
 :::
@@ -18,7 +18,7 @@ Site under construction
 > Everything you wish the HTML `<select>` element could do, wrapped up into a
 > lightweight, extensible Vue component.
 
-Vs Vue Select is a feature rich select/dropdown/typeahead component. It provides a
+Vs Vue3 Select is a feature rich select/dropdown/typeahead component. It provides a
 default template that fits most use cases for a filterable select dropdown. The
 component is designed to be as lightweight as possible, while maintaining high
 standards for accessibility, developer experience, and customization.
@@ -27,12 +27,12 @@ standards for accessibility, developer experience, and customization.
   <country-select />  
 </div>
 
-Vue Select aims to be as lightweight as possible, while maintaining high
+Vs Vue3 Select aims to be as lightweight as possible, while maintaining high
 standards for accessibility, developer experience, and customization. Huge
 thanks to the [Jeff Saga](https://github.com/sagalbot),
 [contributors](https://github.com/sagalbot/vue-select/graphs/contributors)
 and [Howard Chen](https://github.com/howard-tzw/vue3-select)
-that make Vue Select possible!
+that make Vs Vue3 Select possible!
 
 ## Features
 

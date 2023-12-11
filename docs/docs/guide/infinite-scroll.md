@@ -2,7 +2,7 @@
 Site under construction
 :::
 
-Vue Select doesn't ship with first party support for infinite scroll, but it's
+Vs Vue3 Select doesn't ship with first party support for infinite scroll, but it's
 possible to implement by hooking into the `open`, `close`, and `search` events,
 along with the `filterable` prop, and the `list-footer` slot.
 
@@ -11,10 +11,10 @@ Let's break down the example below, starting with the `data`.
 - `observer` - a new `IntersectionObserver` with `infiniteScroll` set as the
   callback
 - `limit` - the number of options to display
-- `search` - since we've disabled Vue Selects filtering, we'll need to filter
+- `search` - since we've disabled Vs Vue3 Selects filtering, we'll need to filter
   options ourselves
 
-When Vue Select opens, the `open` event is emitted and `onOpen` will be called.
+When Vs Vue3 Select opens, the `open` event is emitted and `onOpen` will be called.
 We wait for `$nextTick()` so that the `$ref` we need will exist, then begin
 observing it for intersection.
 

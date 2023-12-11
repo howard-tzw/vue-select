@@ -2,7 +2,7 @@
 Site under construction
 :::
 
-Vue Select aims to follow the WAI-ARIA best practices for the
+Vs Vue3 Select aims to follow the WAI-ARIA best practices for the
 [combobox](https://www.w3.org/TR/wai-aria-practices-1.1/#combobox) and
 [listbox](https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox) widgets.
 
@@ -21,7 +21,7 @@ components.
 
 ### Autocomplete
 
-WAI-ARIA suggests four forms of autocomplete for Comboboxes. Vue Select can be
+WAI-ARIA suggests four forms of autocomplete for Comboboxes. Vs Vue3 Select can be
 configured to provide these use cases.
 
 1. **No autocomplete**
@@ -74,5 +74,5 @@ configured to provide these use cases.
    > textbox. The inline completion string is visually highlighted and has a
    > selected state.
 
-   🚧 Vue Select does not yet support this configuration, but it is on the
+   🚧 Vs Vue3 Select does not yet support this configuration, but it is on the
    roadmap [#865](https://github.com/sagalbot/vue-select/issues/865). 🚧

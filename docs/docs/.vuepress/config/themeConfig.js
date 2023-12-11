@@ -109,10 +109,10 @@ export default defaultTheme({
                 text: 'Кастомизация',
                 collapsable: false,
                 children: [
-                    {link: '/guide/keydown', text: 'Keydown Events'},
-                    {link: '/guide/positioning', text: 'Позиционирование списка'},
-                    {link: '/guide/opening', text: 'Открытие списка'},
-                    {link: '/guide/filtering', text: 'Фильтрация опций'},
+                    {link: '/ru/guide/keydown', text: 'События клавиатуры'},
+                    {link: '/ru/guide/positioning', text: 'Позиционирование списка'},
+                    {link: '/ru/guide/opening', text: 'Открытие списка'},
+                    {link: '/ru/guide/filtering', text: 'Фильтрация опций'},
                 ],
             },
             {

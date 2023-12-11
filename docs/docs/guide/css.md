@@ -2,13 +2,13 @@
 Site under construction
 :::
 
-Vue Select offers many APIs for customizing the look and feel from the
+Vs Vue3 Select offers many APIs for customizing the look and feel from the
 component. You can use [scoped slots](../api/slots.md),
 [custom child components](components.md), or modify the built in CSS properties.
 
 ## CSS Variables
 
-Vue Select uses custom CSS properties throughout the component to handle visual
+Vs Vue3 Select uses custom CSS properties throughout the component to handle visual
 opinions. This allows for quite a bit of flexibility in styling, without having
 to hook into a build system for generating your own styles with something like
 SASS. If there is a value that you think should use a CSS property instead of a
@@ -17,7 +17,7 @@ hardcoded CSS value, please submit a PR.
 ## Dark Mode Example
 
 Without writing any CSS yourself, you can completely customize the look and feel
-of Vue Select through the use of CSS variables. In this example, we adjust the
+of Vs Vue3 Select through the use of CSS variables. In this example, we adjust the
 colors of the component to match for a dark mode application.
 
 In this case, the variables are scoped to only this implementation of the
@@ -37,17 +37,17 @@ Check the MDN docs for more info about
 
 ## Overriding Default Styles
 
-Vue Select takes the approach of using selectors with a single level of
-specificity, while using classes that are very specific to Vue Select to avoid
+Vs Vue3 Select takes the approach of using selectors with a single level of
+specificity, while using classes that are very specific to Vs Vue3 Select to avoid
 collisions with your app.
 
-Most classes within Vue Select use the `vs__` prefix, and selectors are
+Most classes within Vs Vue3 Select use the `vs__` prefix, and selectors are
 generally a single classname – unless there is a state being applied to the
 component.
 
 In order to override a default property in your app, you should add one level of
 specificity. The easiest way to do this, is to add `.v-select` before the
-`vs__*` selector if you want to adjust all instances of Vue Select, or add your
+`vs__*` selector if you want to adjust all instances of Vs Vue3 Select, or add your
 own classname if you just want to affect one.
 
 <CssSpecificity />

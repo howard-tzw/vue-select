@@ -6,9 +6,9 @@ Site under construction
 
 ---
 
-Vue Select utilizes child components throughout, and exposes an API to overwrite
+Vs Vue3 Select utilizes child components throughout, and exposes an API to overwrite
 these components with your own, using the `components` `{Object}` prop. The
-object provided to the `components` prop will be merged with Vue Select's
+object provided to the `components` prop will be merged with Vs Vue3 Select's
 default components.
 
 <<< @/../src/components/childComponents.js{4-7}
@@ -66,9 +66,9 @@ export default {
 
 ## Setting Globally at Registration
 
-If you want all instances of Vue Select to use your custom components throughout
+If you want all instances of Vs Vue3 Select to use your custom components throughout
 your app, while only having to set the implementation once, you can do so when
-registering Vue Select as a component.
+registering Vs Vue3 Select as a component.
 
 ```js
 import Vue from 'vue'

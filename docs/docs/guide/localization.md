@@ -4,7 +4,7 @@ Site under construction
 
 ## Right to Left
 
-Vue Select supports RTL using the standard HTML API using the `dir` prop.
+Vs Vue3 Select supports RTL using the standard HTML API using the `dir` prop.
 
 ```html
 <v-select dir="rtl"></v-select>
