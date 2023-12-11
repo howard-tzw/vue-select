@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A fork of vue-select for Vue 3",
   "author": "Alexander Vorobyev <alex@va-soft.ru>",
-  "homepage": "",
+  "homepage": "https://vue3-select.va-soft.ru/",
   "directories": {
     "doc": "docs",
     "test": "tests"
