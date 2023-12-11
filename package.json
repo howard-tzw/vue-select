@@ -1,7 +1,7 @@
 {
   "name": "vs-vue3-select",
   "version": "1.0.0",
-  "description": "A maintained fork of vue-select for Vue 3",
+  "description": "A fork of vue-select for Vue 3",
   "author": "Alexander Vorobyev <alex@va-soft.ru>",
   "homepage": "",
   "directories": {
