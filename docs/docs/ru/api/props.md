@@ -1,16 +1,17 @@
 ---
-sidebarDepth: 2
+prev:
+  text: Фильтрация опций
+  link: /ru/api/filtering
+next:
+  text: Слоты
+  link: /ru/api/slots
 ---
-
-::: warning
-Site under construction
-:::
 
 ## ariaLabel
 
-This value will be bound to the
-[aria-label HTML attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
-for the search input. Defaults to `Search for option`.
+Значение свойства будет передано в 
+[HTML атрибут aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+элемента ввода поискового значения. По умолчанию `Search for option`.
 
 ```js
 ariaLabel: {
@@ -19,12 +20,11 @@ ariaLabel: {
 },
 ```
 
-## appendToBody <Badge text="v3.7.0+" />
+## appendToBody
 
-Append the dropdown element to the end of the body and size/position it
-dynamically. Use it if you have overflow or z-index issues.
+Если true выпадающий список будет добавляться в конец тега body, а размер и позиция будут вычисляться динамически. Это может потребоваться когда есть проблемы с выходом списка за пределы видимости или с z-index.
 
-See [Dropdown Position](../guide/positioning.md) for more details.
+Более детально описано в [Позиция выпадающего списка](../guide/positioning.md).
 
 ```js
 appendToBody: {
@@ -35,9 +35,9 @@ appendToBody: {
 
 ## autocomplete
 
-The value provided here will be bound to the
-[autocomplete HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
-on the search input. Defaults to `off`.
+Значение свойства будет передано в
+[HTML атрибут autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+элемента ввода поискового значения. По умолчанию `off`.
 
 ```js
 autocomplete: {
@@ -46,105 +46,98 @@ autocomplete: {
 },
 ```
 
-## autoscroll <Badge text="v3.10.0+" />
+## autoscroll
 
-When true, the dropdown will automatically scroll to ensure that the option
-highlighted is fully within the dropdown viewport when navigating with keyboard
-arrows.
+При значении true выпадающий список будет автоматически прокручиваться, что бы выделенный параметр находится в области видимости выпадающего списка при навигации с помощью клавиатуры.
 
 ```js
 autoscroll: {
-  type: Boolean,
-  default: true
+    type: Boolean,
+    default: true
 }
 ```
 
-## calculatePosition <Badge text="v3.7.0+" />
+## calculatePosition
+Когда `appendToBody` имеет значение true, эта функция отвечает за позиционирование выпадающего списка.
 
-When `appendToBody` is true, this function is responsible for positioning the
-drop down list.
+Если функция возвращается из calculatePosition, она будет вызвана, когда выпадающий список будет удален из DOM. Это позволяет выполнять любую сборку мусора, которая вам может понадобиться.
 
-If a function is returned from `calculatePosition`, it will be called when the
-drop down list is removed from the DOM. This allows for any garbage collection
-you may need to do.
-
-See [Dropdown Position](../guide/positioning.md) for more details.
+Более подробную информацию смотрите в разделе [Положение выпадающего списка](../guide/positioning.md).
 
 ```js
 calculatePosition: {
     type: Function,
     /**
      * @param dropdownList {HTMLUListElement}
-     * @param component {Vue} current instance of vue select
-     * @param width {string} calculated width in pixels of the dropdown menu
-     * @param top {string} absolute position top value in pixels relative to the document
-     * @param left {string} absolute position left value in pixels relative to the document
+     * @param component {Vue} текущий экземпляр компонента 
+     * @param width {string} вычесленная ширина выпадающего списка в пикселях
+     * @param top {string} абсолютное значение сверху (top) в пикселях относительно всей страницы
+     * @param left {string} абсолютное значение слева (left) в пикселях относительно всей страницы
      * @return {function|void}
      */
     default(dropdownList, component, {width, top, left}) {
-      dropdownList.style.top = top;
-      dropdownList.style.left = left;
-      dropdownList.style.width = width;
+        dropdownList.style.top = top;
+        dropdownList.style.left = left;
+        dropdownList.style.width = width;
     }
 }
 ```
 
 ## clearable
 
-Can the user clear the selected property?
+Устанавливает может ли пользователь очистить выбранное
 
 ```js
 clearable: {
-	type: Boolean,
-	default: true
+    type: Boolean,
+    default: true
 },
 ```
 
 ## clearSearchOnBlur
 
-Enables/disables clearing the search text when the search input is blurred.
+Включает/отключает очистку строки поиска, когда элемент теряет фокус.
 
 ```js
 clearSearchOnBlur: {
     type: Function,
     default: function ({ clearSearchOnSelect, multiple }) {
-      return clearSearchOnSelect && !multiple
+        return clearSearchOnSelect && !multiple
     }
 },
 ```
 
 ## clearSearchOnSelect
 
-Enables/disables clearing the search text when an option is selected.
+Включает/отключает очистку строки поиска, когда опция выбрана
 
 ```js
 clearSearchOnSelect: {
-	type: Boolean,
-	default: true
+    type: Boolean,
+    default: true
 },
 ```
 
 ## closeOnSelect
 
-Close a dropdown when an option is chosen. Set to false to keep the dropdown
-open (useful when combined with multi-select, for example)
+Закрывать ли выпадающий список при выборе опции. При false, раскрывающийся список остается открытым (полезно, например, 
+в сочетании с множественным выбором)
 
 ```js
 closeOnSelect: {
-	type: Boolean,
-	default: true
+    type: Boolean,
+    default: true
 },
 ```
 
-## components <Badge text="v3.1.0+" />
+## components
 
-API to overwrite default `vs-vue3-select` components with your own. This can be used
-to change the clear button or select chevron with your own markup.
+API для перезаписи компонентов по умолчанию `vs-vue3-select` своими собственными. Это можно использовать например для
+изменения кнопки очистки или индикатора состояния открытия списка вашей собственной разметкой.
 
-The object provided to the components prop will be merged with Vue Select's
-default components.
+Объект, предоставленный в prop компонентов, будет объединен с компонентами Vs Vue3 Select по умолчанию.
 
-See [Components guide](../guide/components.md) for more details.
+Более подробную информацию смотрите в [Компоненты](../guide/components.md).
 
 ```js
 import Deselect from './Deselect';
@@ -153,36 +146,35 @@ import OpenIndicator from './OpenIndicator';
 // ...
 
 components: {
-  type: Object,
-  default: function () {
-      Deselect,
-      OpenIndicator
-  }
+    type: Object,
+    default: function () {
+        Deselect,
+        OpenIndicator
+    }
 },
 ```
 
 ## createOption
 
-User defined function for adding Options
+Определяемая пользователем функция для добавления опций
 
 ```js
 createOption: {
-  type: Function,
-  default(newOption) {
-    if (typeof this.optionList[0] === 'object') {
-      newOption = {[this.label]: newOption}
-    }
+    type: Function,
+    default(newOption) {
+        if (typeof this.optionList[0] === 'object') {
+            newOption = {[this.label]: newOption}
+        }
 
-    this.$emit('option:created', newOption)
-    return newOption
-  }
+        this.$emit('option:created', newOption)
+        return newOption
+    }
 },
 ```
 
-## deselectFromDropdown <Badge text="v3.12.0+" />
+## deselectFromDropdown
 
-Determines whether the user can deselect an option by clicking it from within
-the dropdown menu.
+Определяет, может ли пользователь отменить выбор опции, щелкнув по ней в выпадающем меню.
 
 ```js
 deselectFromDropdown: {
@@ -193,248 +185,231 @@ deselectFromDropdown: {
 
 ## dir
 
-Sets RTL support. Accepts `ltr`, `rtl`, `auto`.
+Устанавливает поддержку RTL-стандарта. Допустимые значения: `ltr`, `rtl`, `auto`.
 
 ```js
 dir: {
-	type: String,
-	default: "auto"
+    type: String,
+    default: "auto"
 },
 ```
 
 ## disabled
 
-Disable the entire component.
+Устанавливает заблокированное состояние компонента.
 
 ```js
 disabled: {
-	type: Boolean,
-	default: false
+    type: Boolean,
+    default: false
 },
 ```
 
-## dropdownShouldOpen <Badge text="v3.12.0+" />
+## dropdownShouldOpen
 
-Determines whether the dropdown should open. Used for overriding the default
-dropdown behaviour. Receives the `vs-vue3-select` instance as the single argument to
-the function.
+Определяет, должен ли открываться выпадающий список. Используется для переопределения поведения выпадающего списка по
+умолчанию. Получает экземпляр `vs-vue3-select` в качестве единственного аргумента функции.
 
 ```js
 dropdownShouldOpen: {
     type: Function,
     default({noDrop, open, mutableLoading}) {
-      return noDrop ? false : open && !mutableLoading;
+        return noDrop ? false : open && !mutableLoading;
     }
 }
 ```
 
 ## filter
 
-Callback to filter results when search text is provided. Default implementation
-loops each option, and returns the result of this.filterBy.
+Функция обратного вызова для фильтрации результатов при вводе текста поиска. Реализация по умолчанию перебирает каждую 
+опцию и возвращает результат this.filterBy.
 
 ```js
 filter: {
-	type: Function,
-	default(options, search) {
-		return options.filter(option => {
-			let label = this.getOptionLabel(option);
-			if (typeof label === "number") {
-				label = label.toString();
-			}
-			return this.filterBy(option, label, search);
-		});
-	}
+    type: Function,
+    default(options, search) {
+        return options.filter(option => {
+            let label = this.getOptionLabel(option);
+            if (typeof label === "number") {
+                label = label.toString();
+            }
+            return this.filterBy(option, label, search);
+        });
+    }
 },
 ```
 
 ## filterable
 
-When true, existing options will be filtered by the search text. Should not be
-used in conjunction with taggable.
+При значении true существующие параметры будут отфильтрованы по тексту поиска. Не следует использовать в сочетании с
+taggable.
 
 ```js
 filterable: {
-	type: Boolean,
-	default: true
+    type: Boolean,
+    default: true
 },
 ```
 
 ## filterBy
 
-Callback to determine if the provided option should match the current search
-text. Used to determine if the option should be displayed.
+Функция обратного вызова, определяющая, соответствует ли предоставленная опция текущему тексту поиска. Используется для
+определения того, должна ли отображаться опция.
 
 ```js
 filterBy: {
-  type: Function,
-  default(option, label, search) {
-    return (label || '').toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
-  }
+    type: Function,
+    default(option, label, search) {
+        return (label || '').toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
+    }
 },
 ```
 
 ## getOptionKey
 
-Callback to get an option key. If `option` is an object and has an `id`, returns
-`option.id` by default, otherwise tries to serialize `option` to JSON.
+Функция обратного вызова для получения ключа опции. Если option является объектом и имеет идентификатор, по умолчанию 
+возвращает option.id, в противном случае пытается сериализовать опцию в JSON.
 
-The key must be unique for an option.
+Ключ должен быть уникальным для опции.
 
 ```js
 getOptionKey: {
-  type: Function,
-  default(option) {
-    if (typeof option === 'object' && option.id) {
-      return option.id
-    } else {
-      try {
-        return JSON.stringify(option)
-      } catch(e) {
-        return console.warn(
-          `[vue-select warn]: Could not stringify option ` +
-          `to generate unique key. Please provide 'getOptionKey' prop ` +
-          `to return a unique key for each option.\n` +
-          'https://vue-select.org/api/props.html#getoptionkey'
-        )
-        return null
-      }
+    type: Function,
+    default(option) {
+        if (typeof option === 'object' && option.id) {
+            return option.id
+        } else {
+            try {
+                return JSON.stringify(option)
+            } catch(e) {
+                return console.warn(
+                    `[vs-vue3-select warn]: Could not stringify option ` +
+                    `to generate unique key. Please provide 'getOptionKey' prop ` +
+                    `to return a unique key for each option.\n` +
+                    'https://vue3-select.va-soft.ru/api/props.html#getoptionkey'
+                )
+                return null
+            }
+        }
     }
-  }
 },
 ```
 
 ## getOptionLabel
 
-Callback to generate the label text. If `{option}` is an object, returns
-`option[this.label]` by default.
+Функция обратного вызова для генерации текста метки. Если {option} является объектом, по умолчанию возвращает 
+`option[this.label]`.
 
-Label text is used for filtering comparison and displaying. If you only need to
-adjust the display, you should use the `option` and `selected-option` slots.
+Текст метки используется для фильтрации, сравнения и отображения. Если вам необходимо только настроить отображение,
+следует использовать слоты `option` и `selected-option`.
 
 ```js
 getOptionLabel: {
-  type: Function,
-  default(option) {
-    if (typeof option === 'object') {
-      if (!option.hasOwnProperty(this.label)) {
-        return console.warn(
-          `[vue-select warn]: Label key "option.${this.label}" does not` +
-          ` exist in options object ${JSON.stringify(option)}.\n` +
-          'https://vue-select.org/api/props.html#getoptionlabel'
-        )
-      }
-      return option[this.label]
+    type: Function,
+    default(option) {
+        if (typeof option === 'object') {
+            if (!option.hasOwnProperty(this.label)) {
+                return console.warn(
+                    `[vs-vue3-select warn]: Label key "option.${this.label}" does not` +
+                    ` exist in options object ${JSON.stringify(option)}.\n` +
+                    'https://vue3-select.va-soft.ru/api/props.html#getoptionlabel'
+                )
+            }
+            return option[this.label]
+        }
+        return option;
     }
-    return option;
-  }
 },
 ```
 
 ## inputId
 
-Sets the id of the input element.
+Задает значение атрибута id элемента строки поиска.
 
 ```js
 inputId: {
-	type: String
+    type: String
 },
 ```
 
 ## label
 
-Tells `vs-vue3-select` what key to use when generating option labels when each
-`option` is an object.
+Указывает `vs-vue3-select`, какой ключ использовать при генерации текста опций, в случе если опция является объектом.
 
 ```js
 label: {
-	type: String,
-	default: "label"
+    type: String,
+    default: "label"
 },
 ```
 
 ## loading
 
-Show spinner if the component is in a loading state.
+Показывать индикатор загрузки, когда компонент находится в соответствующем состоянии.
 
 ```js
 loading: {
-	type: Boolean,
-	default: false
-},
-```
-
-## maxHeight
-
-::: warning Deprecated in `v2.x` & Removed in `v3.0` This prop was removed in
-`v3.0`. You can use the `$vs-dropdown-max-height` SCSS variable to adjust this
-setting in `v3.x`. :::
-
-Sets the max-height property on the dropdown list.
-
-```js
-maxHeight: {
-	type: String,
-	default: "400px"
+    type: Boolean,
+    default: false
 },
 ```
 
 ## multiple
 
-Equivalent to the `multiple` attribute on a `<select>` input.
+Эквивалентно атрибуту `multiple` тега `<select>`.
 
 ```js
 multiple: {
-	type: Boolean,
-	default: false
+    type: Boolean,
+    default: false
 },
 ```
 
 ## noDrop
 
-Disable the dropdown entirely.
+Отключает выпадающий список
 
 ```js
 noDrop: {
-	type: Boolean,
-	default: false
+    type: Boolean,
+    default: false
 },
 ```
 
 ## onTab
 
-Select the current value if `selectOnTab` is enabled
+Функция выбора текущего значения когда включен параметр `selectOnTab`
 
 ```js
 onTab: {
-	type: Function,
-	default: function() {
-		if (this.selectOnTab) {
-			this.typeAheadSelect();
-		}
-	}
+    type: Function,
+    default: function() {
+        if (this.selectOnTab) {
+            this.typeAheadSelect();
+        }
+    }
 },
 ```
 
 ## options
 
-An array of strings or objects to be used as dropdown choices. If you are using
-an array of objects, `vs-vue3-select` will look for a `label` key (ex.
-`[{label: 'Canada', value: 'CA'}]`). A custom label key can be set with the
-`label` prop.
+Массив строк или объектов, которые будут использоваться в выпадающем списке. Если вы используете массив объектов, 
+`vs-vue3-select` будет искать ключ метки (например: `[{label: 'Canada', value: 'CA'}]`). Пользовательский ключ метки 
+может быть установлен с помощью параметра `label`.
 
 ```js
 options: {
-	type: Array,
-	default() {
-		return [];
-	}
+    type: Array,
+    default() {
+        return [];
+    }
 },
 ```
 
 ### optgroups
 
-- [issue#4](https://github.com/howard-tzw/vue3-select/issues/4)
+Опции также могут быть сгруппированы вместе. Каждая группа представляет собой объект, содержащий название группы и 
+массив опций.
 
 ```vue
 <v-select
@@ -472,7 +447,7 @@ const optgroups = [
 
 ## placeholder
 
-Equivalent to the `placeholder` attribute on an `<input>`.
+Эквивалентно атрибуту `placeholder` тега `<input>`.
 
 ```js
 placeholder: {
@@ -483,7 +458,7 @@ placeholder: {
 
 ## pushTags
 
-When true, newly created tags will be added to the options list.
+При значении true вновь созданные теги будут добавлены в список опций.
 
 ```js
 pushTags: {
@@ -494,9 +469,8 @@ pushTags: {
 
 ## reduce
 
-When working with objects, the reduce prop allows you to transform a given
-object to only the information you want passed to a v-model binding or @input
-event.
+При работе с объектами функция reduce позволяет преобразовать полученный объект только в ту информацию, которую вы 
+хотите передать в обработчик v-model или событие @input.
 
 ```js
 reduce: {
@@ -507,19 +481,18 @@ reduce: {
 
 ## resetOnOptionsChange
 
-When false, updating the options will not reset the selected value.
+При значении false обновление списка опций не приведет к сбросу выбранного значения.
 
-Since `v3.4+` the prop accepts either a `boolean` or `function` that returns a
-`boolean`.
+Может принимать либо логическое значение, либо функцию, которая возвращает логическое значение.
 
-If defined as a function, it will receive the params listed below.
+Если определено как функция, оно получит параметры, перечисленные ниже.
 
 ```js
 /**
 * @type {Boolean|Function}
-* @param {Array} newOptions
-* @param {Array} oldOptions
-* @param {Array} selectedValue
+* @param {Array} newOptions новый список
+* @param {Array} oldOptions старый список
+* @param {Array} selectedValue выбранное значение
 */
 resetOnOptionsChange: {
     default: false,
@@ -529,7 +502,7 @@ resetOnOptionsChange: {
 
 ## searchable
 
-Enable/disable filtering the options.
+Включает/отключает фильтрацию параметров.
 
 ```js
 searchable: {
@@ -538,12 +511,11 @@ searchable: {
 },
 ```
 
-## selectable <Badge text="v3.3.0+" />
+## selectable
 
-The `selectable` prop determines if an option is selectable or not. If
-`selectable` returns false for a given option, it will be displayed with a
-`vs__dropdown-option--disabled` class. The option will be disabled and unable to
-be selected.
+Функция определяющая, является ли переданная в качестве параметра опция выбираемой или нет. Если `selectable` возвращает
+значение false для данной опции, она будет отображаться с классом `vs__dropdown-option--disabled`. Опция будет отключена
+и ее невозможно будет выбрать.
 
 ```js
 selectable: {
@@ -558,7 +530,7 @@ selectable: {
 
 ## selectOnTab
 
-When true, hitting the 'tab' key will select the current select value
+При значении true нажатие клавиши "tab" приведет к выбору текущего выбранного значения
 
 ```js
 selectOnTab: {
@@ -569,7 +541,7 @@ selectOnTab: {
 
 ## tabindex
 
-Set the tabindex for the input field.
+Устанавливает атрибут `tabindex` для элемента строки поиска
 
 ```js
 tabindex: {
@@ -580,7 +552,7 @@ tabindex: {
 
 ## taggable
 
-Enable/disable creating options from searchInput.
+Включает/отключает возможность создания опций пользователем из строки поиска.
 
 ```js
 taggable: {
@@ -591,8 +563,8 @@ taggable: {
 
 ## transition
 
-Sets a Vue transition property on the `.dropdown-menu`. `vs-vue3-select` does not
-include CSS for transitions, you'll need to add them yourself.
+Устанавливает Vue свойство transition для выпадающего списка. vs-vue3-select не включает CSS для переходов, вам 
+необходимо будет добавить их самостоятельно.
 
 ```js
 transition: {
@@ -603,8 +575,8 @@ transition: {
 
 ## uid
 
-A unique identifier used to generate IDs and DOM attributes. Must be unique for
-every instance of the component.
+Функция генерации уникального идентификатора для генерации идентификаторов, которые так же используются для атрибутов 
+DOM. Значение должно быть уникальным для каждого экземпляра. 
 
 ```js
 uid: {
@@ -615,8 +587,8 @@ uid: {
 
 ## value
 
-Contains the currently selected value. Very similar to a `value` attribute on an
-`<input>`. You can listen for changes using the 'input' event.
+Содержит выбранное в данный момент значение. Очень похоже на атрибут value в `<input>`. Вы можете отслеживать изменения, 
+используя событие 'input'.
 
 ```js
 value: {

@@ -13,7 +13,6 @@ export default defaultTheme({
                     {link: '/guide/install', text: 'Installation'},
                     {link: '/guide/options', text: 'Dropdown Options'},
                     {link: '/guide/values', text: 'Selecting Values'},
-                    {link: '/guide/upgrading', text: 'Upgrading 2.x to 3.x'},
                 ],
             },
             {
@@ -74,7 +73,6 @@ export default defaultTheme({
                     {link: '/guide/install', text: 'Installation'},
                     {link: '/guide/options', text: 'Dropdown Options'},
                     {link: '/guide/values', text: 'Selecting Values'},
-                    {link: '/guide/upgrading', text: 'Upgrading 2.x to 3.x'},
                 ],
             },
             {
@@ -121,7 +119,7 @@ export default defaultTheme({
                 text: 'API',
                 collapsable: false,
                 children: [
-                    {link: '/ru/api/props', text: 'Props'},
+                    {link: '/ru/api/props', text: 'Свойства'},
                     {link: '/ru/api/slots', text: 'Слоты'},
                     {link: '/ru/api/events', text: 'События'},
                 ],

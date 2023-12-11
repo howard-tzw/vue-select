@@ -29,11 +29,11 @@ Check the MDN docs for more info about
 
 <CssVariables style="margin-top: 1rem;" />
 
-@[code](../.vuepress/components/CssVariables.vue)
+@[code](../../.vuepress/components/CssVariables.vue)
 
 ### Available CSS Variables <Badge type="primary">3.18+</Badge>
 
-@[code](../../../src/css/global/variables.css)
+@[code](../../../../src/css/global/variables.css)
 
 ## Overriding Default Styles
 
@@ -52,7 +52,7 @@ own classname if you just want to affect one.
 
 <CssSpecificity />
 
-@[code](../.vuepress/components/CssSpecificity.vue)
+@[code](../../.vuepress/components/CssSpecificity.vue)
 
 ## Dropdown Transition
 

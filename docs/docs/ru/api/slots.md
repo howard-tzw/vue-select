@@ -1,10 +1,10 @@
 ---
 prev:
     text: Свойства
-    link: /api/props
+    link: /ru/api/props
 next:
     text: События
-    link: /api/events
+    link: /ru/api/events
 ---
 
 ::: tip Примечание

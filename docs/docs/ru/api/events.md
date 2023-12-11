@@ -1,7 +1,7 @@
 ---
 prev:
   text: Слоты
-  link: /api/slots
+  link: /ru/api/slots
 ---
 ## `input`
 
