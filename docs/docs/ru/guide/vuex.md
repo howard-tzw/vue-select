@@ -17,4 +17,4 @@ trigger a mutation.
 ></v-select>
 ```
 
-<CodePen url="aJQJyp" height="350"/>
+<CodePen url="rNPbvQE" height="350"/>

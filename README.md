@@ -16,10 +16,11 @@ documentation for usage instructions.
 
 New documentation specific to vue3-select will be available soon...
 
-### Original documentation and examples
+### Documentation and examples
 
-- **[API Documentation](https://vue-select.org)**
-- **[CodePen Template](http://codepen.io/sagalbot/pen/NpwrQO)**
+- **[API Documentation](https://vue3-select.va-soft.ru)**
+- **[CodePen Template](https://codepen.io/vasoft/pen/JjxVrVM)**
+- **[Collection of examples](https://codepen.io/collection/aMPBbR)**
 
 ## Install
 

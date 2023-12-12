@@ -50,3 +50,5 @@ that make Vs Vue3 Select possible!
 ## Resources
 
 - **[GitHub](https://github.com/voral/vs-vue3-select)**
+- **[Collection of examples](https://codepen.io/collection/aMPBbR)**
+

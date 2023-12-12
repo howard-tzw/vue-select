@@ -2,10 +2,12 @@
 Site under construction
 :::
 
-::: tip 🚧 This section of the guide is a work in progress! Check back soon for
+::: tip 🚧 
+This section of the guide is a work in progress! Check back soon for
 an update. Vs Vue3 Select currently offers quite a few scoped slots, and you can
 check out the [API Docs for Slots](../api/slots.md) in the meantime while a good
-guide is put together. :::
+guide is put together. 
+:::
 
 ### Scoped Slot `option`
 
@@ -24,7 +26,7 @@ templates.
 Using the `option` slot with props `"option"` provides the current option
 variable to the template.
 
-<CodePen url="NXBwYG" height="500"/>
+<CodePen url="wvNZjrP" height="500"/>
 
 ### Improving the default `no-options` text
 
@@ -34,4 +36,4 @@ contextual information by using the slot in your own apps.
 
 <BetterNoOptions />
 
-<<< @/.vuepress/components/BetterNoOptions.vue
+@[code](../.vuepress/components/BetterNoOptions.vue)

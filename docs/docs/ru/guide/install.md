@@ -71,4 +71,4 @@ Then register the component in your javascript:
 Vue.component('v-select', VueSelect.VueSelect)
 ```
 
-<CodePen url="dJjzeP" />
+<CodePen url="zYeXjZX" />

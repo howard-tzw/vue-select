@@ -63,8 +63,8 @@ simple requests.
 
 ## Example
 
-The [codepen example](https://codepen.io/sagalbot/pen/POMeOX) wraps up all the
+The [codepen example](https://codepen.io/vasoft/pen/LYqvOOM) wraps up all the
 above concepts and searches GitHub repositories. It also uses scoped slots to
 add some custom templating.
 
-<CodePen url="POMeOX" height="400"/>
+<CodePen url="LYqvOOM" height="400"/>
