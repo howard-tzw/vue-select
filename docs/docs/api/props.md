@@ -1,3 +1,12 @@
+---
+prev:
+  text: Option Filtering
+  link: /api/filtering
+next:
+  text: Slots
+  link: /api/slots
+---
+
 ## ariaLabel
 
 This value will be bound to the
@@ -11,7 +20,7 @@ ariaLabel: {
 },
 ```
 
-## appendToBody <Badge text="v3.7.0+" />
+## appendToBody
 
 Append the dropdown element to the end of the body and size/position it
 dynamically. Use it if you have overflow or z-index issues.
@@ -38,7 +47,7 @@ autocomplete: {
 },
 ```
 
-## autoscroll <Badge text="v3.10.0+" />
+## autoscroll
 
 When true, the dropdown will automatically scroll to ensure that the option
 highlighted is fully within the dropdown viewport when navigating with keyboard
@@ -51,13 +60,13 @@ autoscroll: {
 }
 ```
 
-## calculatePosition <Badge text="v3.7.0+" />
+## calculatePosition
 
 When `appendToBody` is true, this function is responsible for positioning the
-drop down list.
+dropdown list.
 
 If a function is returned from `calculatePosition`, it will be called when the
-drop down list is removed from the DOM. This allows for any garbage collection
+dropdown list is removed from the DOM. This allows for any garbage collection
 you may need to do.
 
 See [Dropdown Position](../guide/positioning.md) for more details.
@@ -67,7 +76,7 @@ calculatePosition: {
     type: Function,
     /**
      * @param dropdownList {HTMLUListElement}
-     * @param component {Vue} current instance of vue select
+     * @param component {Vue} current instance of component
      * @param width {string} calculated width in pixels of the dropdown menu
      * @param top {string} absolute position top value in pixels relative to the document
      * @param left {string} absolute position left value in pixels relative to the document
@@ -128,12 +137,12 @@ closeOnSelect: {
 },
 ```
 
-## components <Badge text="v3.1.0+" />
+## components
 
 API to overwrite default `vs-vue3-select` components with your own. This can be used
 to change the clear button or select chevron with your own markup.
 
-The object provided to the components prop will be merged with Vue Select's
+The object provided to the components prop will be merged with Vs Vue3 Select's
 default components.
 
 See [Components guide](../guide/components.md) for more details.
@@ -171,7 +180,7 @@ createOption: {
 },
 ```
 
-## deselectFromDropdown <Badge text="v3.12.0+" />
+## deselectFromDropdown
 
 Determines whether the user can deselect an option by clicking it from within
 the dropdown menu.
@@ -205,7 +214,7 @@ disabled: {
 },
 ```
 
-## dropdownShouldOpen <Badge text="v3.12.0+" />
+## dropdownShouldOpen
 
 Determines whether the dropdown should open. Used for overriding the default
 dropdown behaviour. Receives the `vs-vue3-select` instance as the single argument to
@@ -284,10 +293,10 @@ getOptionKey: {
         return JSON.stringify(option)
       } catch(e) {
         return console.warn(
-          `[vue-select warn]: Could not stringify option ` +
+          `[vs-vue3-select warn]: Could not stringify option ` +
           `to generate unique key. Please provide 'getOptionKey' prop ` +
           `to return a unique key for each option.\n` +
-          'https://vue-select.org/api/props.html#getoptionkey'
+          'https://vue3-select.va-soft.ru/api/props.html#getoptionkey'
         )
         return null
       }
@@ -311,9 +320,9 @@ getOptionLabel: {
     if (typeof option === 'object') {
       if (!option.hasOwnProperty(this.label)) {
         return console.warn(
-          `[vue-select warn]: Label key "option.${this.label}" does not` +
+          `[vs-vue3-select warn]: Label key "option.${this.label}" does not` +
           ` exist in options object ${JSON.stringify(option)}.\n` +
-          'https://vue-select.org/api/props.html#getoptionlabel'
+          'https://vue3-select.va-soft.ru/api/props.html#getoptionlabel'
         )
       }
       return option[this.label]
@@ -353,21 +362,6 @@ Show spinner if the component is in a loading state.
 loading: {
 	type: Boolean,
 	default: false
-},
-```
-
-## maxHeight
-
-::: warning Deprecated in `v2.x` & Removed in `v3.0` This prop was removed in
-`v3.0`. You can use the `$vs-dropdown-max-height` SCSS variable to adjust this
-setting in `v3.x`. :::
-
-Sets the max-height property on the dropdown list.
-
-```js
-maxHeight: {
-	type: String,
-	default: "400px"
 },
 ```
 
@@ -426,7 +420,7 @@ options: {
 
 ### optgroups
 
-- [issue#4](https://github.com/howard-tzw/vue3-select/issues/4)
+Options can also be grouped together. Each group is an object containing the name of the group and an array of options.
 
 ```vue
 <v-select
@@ -530,7 +524,7 @@ searchable: {
 },
 ```
 
-## selectable <Badge text="v3.3.0+" />
+## selectable
 
 The `selectable` prop determines if an option is selectable or not. If
 `selectable` returns false for a given option, it will be displayed with a

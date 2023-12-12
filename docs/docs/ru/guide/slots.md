@@ -2,8 +2,7 @@
 Site under construction
 :::
 
-::: tip 🚧 
-This section of the guide is a work in progress! Check back soon for
+::: tip 🚧 This section of the guide is a work in progress! Check back soon for
 an update. Vs Vue3 Select currently offers quite a few scoped slots, and you can
 check out the [API Docs for Slots](../api/slots.md) in the meantime while a good
 guide is put together. 
@@ -36,4 +35,4 @@ contextual information by using the slot in your own apps.
 
 <BetterNoOptions />
 
-@[code](../.vuepress/components/BetterNoOptions.vue)
+<<< @/.vuepress/components/BetterNoOptions.vue

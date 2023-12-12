@@ -13,7 +13,6 @@ export default defaultTheme({
                     {link: '/guide/install', text: 'Installation'},
                     {link: '/guide/options', text: 'Dropdown Options'},
                     {link: '/guide/values', text: 'Selecting Values'},
-                    {link: '/guide/upgrading', text: 'Upgrading 2.x to 3.x'},
                 ],
             },
             {
@@ -60,11 +59,79 @@ export default defaultTheme({
                 text: 'API',
                 collapsable: false,
                 children: [
-                    {link: 'api/props', text: 'Props'},
-                    {link: 'api/slots', text: 'Slots'},
-                    {link: 'api/events', text: 'Events'},
+                    {link: '/api/props', text: 'Props'},
+                    {link: '/api/slots', text: 'Slots'},
+                    {link: '/api/events', text: 'Events'},
                 ],
             },
         ],
-    }
+        '/ru/': [
+            {
+                text: 'Getting Started',
+                collapsable: false,
+                children: [
+                    {link: '/guide/install', text: 'Installation'},
+                    {link: '/guide/options', text: 'Dropdown Options'},
+                    {link: '/guide/values', text: 'Selecting Values'},
+                ],
+            },
+            {
+                text: 'Templating & Styling',
+                collapsable: false,
+                children: [
+                    {link: '/guide/components', text: 'Child Components'},
+                    {link: '/guide/css', text: 'CSS & Selectors'},
+                    {link: '/guide/slots', text: 'Slots'},
+                ],
+            },
+            {
+                text: 'Accessibility',
+                collapsable: false,
+                children: [
+                    {link: '/guide/accessibility', text: 'WAI-ARIA Spec'},
+                    {link: '/guide/localization', text: 'Localization'},
+                ],
+            },
+            {
+                text: 'Варианты применения',
+                collapsable: false,
+                children: [
+                    {link: '/ru/guide/validation', text: 'Проверки'},
+                    {link: '/ru/guide/selectable', text: 'Ограничение выбора'},
+                    {link: '/ru/guide/pagination', text: 'Разбивка на страницы'},
+                    {link: '/ru/guide/infinite-scroll', text: 'Бесконечная прокрутка'},
+                    {link: '/ru/guide/vuex', text: 'Vuex'},
+                    {link: '/ru/guide/ajax', text: 'AJAX'},
+                    {link: '/ru/guide/loops', text: 'Применение в циклах'},
+                ],
+            },
+            {
+                text: 'Кастомизация',
+                collapsable: false,
+                children: [
+                    {link: '/ru/guide/keydown', text: 'События клавиатуры'},
+                    {link: '/ru/guide/positioning', text: 'Позиционирование списка'},
+                    {link: '/ru/guide/opening', text: 'Открытие списка'},
+                    {link: '/ru/guide/filtering', text: 'Фильтрация опций'},
+                ],
+            },
+            {
+                text: 'API',
+                collapsable: false,
+                children: [
+                    {link: '/ru/api/props', text: 'Параметры'},
+                    {link: '/ru/api/slots', text: 'Слоты'},
+                    {link: '/ru/api/events', text: 'События'},
+                ],
+            },
+        ],
+    },
+    locales: {
+        '/': {
+            selectLanguageName: 'English',
+        },
+        '/ru/': {
+            selectLanguageName: 'Русский',
+        },
+    },
 })

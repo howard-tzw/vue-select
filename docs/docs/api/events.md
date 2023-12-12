@@ -1,3 +1,8 @@
+---
+prev:
+  text: Slots
+  link: /api/slots
+---
 ## `input`
 
 Triggered when the selected value changes. Used internally for `v-model`.
@@ -25,7 +30,7 @@ Triggered when the dropdown is closed.
 this.$emit('close')
 ```
 
-## `option:selecting` <Badge text="v3.11.0+" />
+## `option:selecting`
 
 Triggered after an option has been selected, <strong>before</strong> updating
 internal state.
@@ -34,7 +39,7 @@ internal state.
 this.$emit('option:selecting', selectedOption)
 ```
 
-## `option:selected` <Badge text="v3.11.0+" />
+## `option:selected`
 
 Triggered when an option has been selected, <strong>after</strong> updating
 internal state.
@@ -43,7 +48,7 @@ internal state.
 this.$emit('option:selected', selectedOption)
 ```
 
-## `option:deselecting` <Badge text="v3.11.0+" />
+## `option:deselecting`
 
 Triggered when an option has been deselected, <strong>before</strong> updating
 internal state.
@@ -52,7 +57,7 @@ internal state.
 this.$emit('option:deselecting', selectedOption)
 ```
 
-## `option:deselected` <Badge text="v3.11.0+" />
+## `option:deselected`
 
 Triggered when an option has been deselected, <strong>after</strong> updating
 internal state.
@@ -123,15 +128,3 @@ this.$emit('search:focus')
 
 Triggered when the search text changes.
 
-```js
-/**
- * Anytime the search string changes, emit the
- * 'search' event. The event is passed with two
- * parameters: the search string, and a function
- * that accepts a boolean parameter to toggle the
- * loading state.
- *
- * @emits search
- */
-this.$emit('search', newSearchString, toggleLoading)
-```

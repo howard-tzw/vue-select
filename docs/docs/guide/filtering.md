@@ -1,8 +1,17 @@
-Vue Select provides two props accepting `functions` that can be used to
+---
+prev:
+  text: Dropdown Opening
+  link: /guide/opening
+next:
+  text: Props
+  link: /api/props
+---
+
+Vs Vue3 Select provides two props accepting `functions` that can be used to
 implement custom filtering algorithms.
 
-- `filter` <Badge text="v2.5.0+" />
-- `filterBy` <Badge text="v2.5.0+" />
+- `filter`
+- `filterBy`
 
 By default, the component will perform a very basic check to see if an options
 label includes the current search text. If you're using scoped slots, you might
@@ -17,4 +26,4 @@ with fuzzy matchings.
 
 <FuseFilter />
 
-<<< @/.vuepress/components/FuseFilter.vue
+@[code](../.vuepress/components/FuseFilter.vue)

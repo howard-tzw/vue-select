@@ -202,7 +202,7 @@ export default {
      * An object with any custom components that you'd like to overwrite
      * the default implementation of in your app. The keys in this object
      * will be merged with the defaults.
-     * @see https://vue-select.org/guide/components.html
+     * @see https://vue3-select.va-soft.ru/guide/components.html
      * @type {Function}
      */
     components: {
@@ -381,9 +381,9 @@ export default {
         if (typeof option === 'object') {
           if (!option.hasOwnProperty(this.label)) {
             return console.warn(
-              `[vue-select warn]: Label key "option.${this.label}" does not` +
+              `[vs-vue3-select warn]: Label key "option.${this.label}" does not` +
                 ` exist in options object ${JSON.stringify(option)}.\n` +
-                'https://vue-select.org/api/props.html#getoptionlabel'
+                'https://vue3-select.va-soft.ru/api/props.html#getoptionlabel'
             )
           }
           return option[this.label]
@@ -421,10 +421,10 @@ export default {
             : sortAndStringify(option)
         } catch (e) {
           const warning =
-            `[vue-select warn]: Could not stringify this option ` +
+            `[vs-vue3-select warn]: Could not stringify this option ` +
             `to generate unique key. Please provide'getOptionKey' prop ` +
             `to return a unique key for each option.\n` +
-            'https://vue-select.org/api/props.html#getoptionkey'
+            'https://vue3-select.va-soft.ru/api/props.html#getoptionkey'
           return console.warn(warning, option, e)
         }
       },

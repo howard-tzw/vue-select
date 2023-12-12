@@ -52,11 +52,17 @@ global variable. You'll need to load Vue.js, `vs-vue3-select` JS & `vs-vue3-sele
 
 <!-- use the latest release -->
 <script src="https://unpkg.com/vs-vue3-select@latest"></script>
-<link rel="stylesheet" href="https://unpkg.com/vs-vue3-select@latest/dist/vs-vue3-select.css"/>
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/vs-vue3-select@latest/dist/vs-vue3-select.css"
+/>
 
 <!-- or point to a specific release -->
-<script src="https://unpkg.com/vs-vue3-select@1.0.0"></script>
-<link rel="stylesheet" href="https://unpkg.com/vs-vue3-select@1.0.0/dist/vs-vue3-select.css"/>
+<script src="https://unpkg.com/vs-vue3-select@3.0.0"></script>
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/vs-vue3-select@3.0.0/dist/vue-select.css"
+/>
 ```
 
 Then register the component in your javascript:

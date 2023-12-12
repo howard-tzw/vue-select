@@ -15,6 +15,6 @@ trigger a mutation.
   :options="$store.state.options"
   :value="$store.state.selected"
 ></v-select>
-``` 
+```
 
 <CodePen url="rNPbvQE" height="350"/>

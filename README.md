@@ -9,9 +9,11 @@ Forks tree:
 **Notes**: At the moment, most of the features of vs-vue3-select are the same as
 the original vue-select project.
 
-## Documentation
+### Documentation and examples
 
 - **[API Documentation](https://vue3-select.va-soft.ru)**
+- **[CodePen Template](https://codepen.io/vasoft/pen/JjxVrVM)**
+- **[Collection of examples](https://codepen.io/collection/aMPBbR)**
 
 ## Install
 
