@@ -1,7 +1,7 @@
 import { it, describe, expect, vi, afterEach } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import VueSelect from '@/components/Select.vue'
-import { mountDefault } from '@tests/helpers.js'
+import { mountDefault } from '#/helpers.js'
 
 describe('Reset on options change', () => {
   it('should not reset the selected value by default when the options property changes', async () => {

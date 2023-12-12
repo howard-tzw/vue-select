@@ -1,33 +1,31 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Стилизация слотами
+ link: /ru/guide/slots
+next:
+ text: Локализация
+ link: /ru/guide/localization
+---
 
-Vs Vue3 Select aims to follow the WAI-ARIA best practices for the
-[combobox](https://www.w3.org/TR/wai-aria-practices-1.1/#combobox) and
-[listbox](https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox) widgets.
+# Спецификация WAI-ARIA
 
-The UX of the component is designed around the HTML `<select>` element, while
-following the WAI-ARIA specifications and best practices for creating accessible
-components.
+Vs Vue3 Select стремиться следовать спецификации WAI-ARIA best в хороших практиках для 
+[combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и
+[listbox](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/).
 
-## Combobox
+Пользовательский интерфейс компонента разработан вокруг элемента HTML `<select>`, в соответствии со спецификациями
+WAI-ARIA и рекомендациями по созданию доступных компонентов.
 
-- [WAI-ARIA Combobox - Best Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#combobox)
-- [WAI-ARIA Combobox - Specification](https://www.w3.org/TR/wai-aria-1.1/#combobox)
+## Autocomplete
 
-## Listbox
+WAI-ARIA предлагает четыре формы автозаполнения для выпадающих списков. Vs Vue3 Select можно настроить для 
+предоставления этих вариантов использования.
 
-- [WAI-ARIA Listbox - Best Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox)
+### 1. No autocomplete
 
-### Autocomplete
-
-WAI-ARIA suggests four forms of autocomplete for Comboboxes. Vs Vue3 Select can be
-configured to provide these use cases.
-
-1. **No autocomplete**
-
-   > When the popup is triggered, the suggested values it contains are the same
-   > regardless of the characters typed in the textbox.
+> Поле со списком доступно для редактирования, и при запуске выпадающего списка опции, которые оно 
+> содержит, одинаковы независимо от текста, введенного в поле поиска. Например, всплывающее окно предлагает набор 
+> недавно введенных значений, и предложения не меняются при вводе пользователем
 
    ```html
    <v-select
@@ -38,12 +36,12 @@ configured to provide these use cases.
 
    <v-select :filterable="false" :options="['No Autocomplete', 'List Autocomplete']" />
 
-2. **List autocomplete with manual selection**
+### 2. Поле с ручным выбором опций
 
-   > When the popup is triggered, it presents suggested values that complete or
-   > logically correspond to the characters typed in the textbox. The character
-   > string the user has typed will become the value of the textbox unless the
-   > user selects a value in the popup.
+   > При запуске выпадающего списка отображаются предлагаемые опции. Если строка поиска доступна для
+   > редактирования, предлагаемые значения полностью или логически соответствуют строке поиска. Текст, введенный
+   > пользователем, станет значением выпадающего списка, если пользователь не выберет вручную значение во всплывающем 
+   > окне.
 
    ```html
    <v-select taggable :options="['No Autocomplete', 'List Autocomplete']" />
@@ -51,28 +49,24 @@ configured to provide these use cases.
 
    <v-select taggable :options="['No Autocomplete', 'List Autocomplete']" />
 
-3. **List autocomplete with automatic selection**
+### 3. Поле с автоматическим выбором опций
 
-   > When the popup is triggered, it presents suggested values that complete or
-   > logically correspond to the characters typed in the textbox, and the first
-   > suggestion is automatically highlighted as selected. The automatically
-   > selected suggestion becomes the value of the textbox when the combobox
-   > loses focus unless the user chooses a different suggestion or changes the
-   > character string in the textbox.
+   > Строка поиска доступна для редактирования, и когда открывается выпадающий список, в нем отображаются предлагаемые
+   > значения, которые полностью или логически соответствуют строк поиска, и первое предложение автоматически выделяется
+   > как выбранное. Автоматически выбранное предложение становится значением выпадающего списка, когда выпадающий список
+   > теряет фокус, если только пользователь не выберет другое предложение или не изменит строку символов в выпадающем
+   > списке
 
    ```html
-   <v-select :options="['No Autocomplete', 'List Autocomplete']" />
+   <v-select :options="['Other case','No Autocomplete', 'List Autocomplete']" />
    ```
 
-   <v-select :options="['No Autocomplete', 'List Autocomplete']" />
+   <v-select :options="['Other Case','No Autocomplete', 'List Autocomplete']" />
 
-4. **List with inline autocomplete**
+### 4. Список со встроенным автозаполнением
 
-   > This is the same as list with automatic selection with one additional
-   > feature. The portion of the selected suggestion that has not been typed by
-   > the user, a completion string, appears inline after the input cursor in the
-   > textbox. The inline completion string is visually highlighted and has a
-   > selected state.
+   > Это то же самое, что список с автоматическим выбором с одной дополнительной функцией. Часть выбранного предложения,
+   > которая не была введена пользователем, строка завершения, отображается добавленной после курсора ввода в строки 
+   > поиска. Добавленная строка дополнения визуально выделена и опция имеет выбранное состояние.
 
-   🚧 Vs Vue3 Select does not yet support this configuration, but it is on the
-   roadmap [#865](https://github.com/sagalbot/vue-select/issues/865). 🚧
+   🚧 Vs Vue3 Select пока не поддерживает такую настройку, но это есть в планах развития. 🚧

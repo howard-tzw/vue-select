@@ -1,17 +1,13 @@
 ---
 prev:
-  text: Vuex
-  link: /ru/guide/vuex
+  text: Менеджер состояний
+  link: /ru/guide/state-manager
 next:
-  text: Using in Loops
+  text: Применение в циклах
   link: /ru/guide/loops
 ---
 
 # Загрузка опций при помощи AJAX
-
-::: warning
-Site under construction
-:::
 
 Событие `search` вызывает обработчик из родительского компонента для загрузки опций при обновлении текста поиска. 
 Обработчик может иметь два параметра:

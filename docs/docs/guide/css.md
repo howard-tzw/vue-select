@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Child Components
+ link: /guide/components
+next:
+ text: Slots Styling
+ link: /guide/slots
+---
+
+# CSS Styling
 
 Vs Vue3 Select offers many APIs for customizing the look and feel from the
 component. You can use [scoped slots](../api/slots.md),
@@ -17,8 +24,8 @@ hardcoded CSS value, please submit a PR.
 ## Dark Mode Example
 
 Without writing any CSS yourself, you can completely customize the look and feel
-of Vs Vue3 Select through the use of CSS variables. In this example, we adjust the
-colors of the component to match for a dark mode application.
+of Vs Vue3 Select through the use of CSS variables. In this example, we customize the colors of the component in a 
+different style from the rest of the examples
 
 In this case, the variables are scoped to only this implementation of the
 component, but you could place these variables anywhere in your applications CSS
@@ -31,7 +38,32 @@ Check the MDN docs for more info about
 
 @[code](../.vuepress/components/CssVariables.vue)
 
-### Available CSS Variables <Badge type="primary">3.18+</Badge>
+In this documentation, the following styles have been added to implement the dark theme
+
+```css
+html.dark{
+  --vs-controls-color: #664cc3;
+
+  --vs-border-color: #664cc3;
+
+  --vs-dropdown-bg: #282c34;
+
+  --vs-selected-bg: #664cc3;
+  --vs-selected-color: #eeeeee;
+
+  --vs-search-input-color: #eeeeee;
+
+  --vs-dropdown-option--active-bg: #664cc3;
+  --vs-dropdown-option--active-color: #eeeeee;
+
+  --vs-open-indicator-color: #664cc3;
+
+  --vs-state-disabled-bg: trasparent;
+  --vs-state-disabled-color: #555;
+}
+```
+
+### Available CSS Variables
 
 @[code](../../../src/css/global/variables.css)
 
@@ -62,16 +94,19 @@ in/out. The component uses the
 default, the transition name is `vs__fade`. There's a couple ways to override or
 change this transition.
 
-1. Use the `transition` prop. Applying this prop will change the name of the
-   animation classes and negate the default CSS. If you want to remove it
-   entirely, you can set it to an empty string.
+### Transition
+Use the `transition` prop. Applying this prop will change the name of the
+ animation classes and negate the default CSS. If you want to remove it
+ entirely, you can set it to an empty string.
 
 ```html
 <v-select transition="" />
 ```
 
-2. You can also override the default CSS for the `vs__fade` transition. Again,
-   if you wanted to eliminate the transition entirely:
+### Override
+
+You can also override the default CSS for the `vs__fade` transition. Again,
+if you wanted to eliminate the transition entirely:
 
 ```css
 .vs__fade-enter-active,
@@ -79,3 +114,7 @@ change this transition.
   transition: none;
 }
 ```
+
+### CSS Variable
+
+There are also two variables to control the animation

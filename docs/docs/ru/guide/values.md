@@ -1,77 +1,62 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+  text: Выпадающий список
+  link: /ru/guide/options
+next:
+  text: Дочерние компоненты
+  link: /ru/guide/components
+---
 
-## Getting and Setting
+# Работа со значением
 
-### `v-model`
+## Получение и передача 
 
-The most common use case for `vs-vue3-select` is to have the chosen value synced with
-a parent component. `vs-vue3-select` takes advantage of the `v-model` syntax to sync
-values with a parent. The `v-model` syntax works with primitives and objects.
+### Свойство `v-model`
+___
+
+Наиболее распространенным вариантом использования `vs-vue3-select` является синхронизация выбранного значения с 
+родительским компонентом. `vs-vue3-select` использует синтаксис `v-model` для синхронизации значений с родительским
+компонентом. Синтаксис `v-model` работает с примитивами и объектами.
 
 ```html
 <v-select v-model="selected" />
 ```
 
-Note that when using the `multiple` prop, the `v-model` value will always be an
-array.
+Если компонент в режиме мультивыбора `multiple`,  `v-model` всегда будет массивом.
 
-### Props and Events
+## Свойства и события
 
-Sometimes `v-model` might not fit your use case. For example, when working with
-[Vuex](https://vuex.vuejs.org), you'll need to trigger a mutation rather than
-mutating a value directly. In that case, maybe you need to bind a pre-selected
-value, and trigger a mutation when it changes.
+Иногда `v-model` может не подойти. Например, при работе с [Vuex](https://vuex.vuejs.org) вам нужно будет инициировать 
+мутацию, а не изменять значение напрямую. В этом случае, возможно, вам нужно привязать предварительно выбранное значение
+и запустить мутацию при его изменении.
 
-`vs-vue3-select` exposes the `value` prop and an `input` event to enable this. This
-combo of props and events is also how Vue wires up the `v-model` syntax
-internally.
+В этом случае можно использовать свойство `value` и событие `update:model-value`. Эта комбинация также является 
+способом, с помощью которого Vue подключает синтаксис `v-model` внутри.
 
-#### Prop: `value`
+### Свойство `value`
 
-The `value` prop lets `vs-vue3-select` know what value is currently selected. It will
-accept strings, numbers or objects. If you're using a `multiple` v-select,
-you'll want to pass an array.
+Параметр `value` позволяет указать `vs-vue3-select` узнать, какое значение выбрано в данный момент. Он будет принимать 
+строки, числа или объекты. Если вы используете множественный `v-select`, вам нужно будет передать массив.
 
 ```html
 <v-select :value="selected" />
 ```
 
-::: tip 🤓 Anytime you bind the `value` prop directly, you're responsible for
-updating the bound variable in your code using the `@input` event. :::
+::: tip 🤓 
+Каждый раз когда вы используете свойство `value`, вы должны самостоятельно обновлять связанную переменную родительского 
+компонента при помощи обработчика события `update:model-value`.
+:::
 
-#### Event: `input`
+### Событие: `update:model-value`
 
-The `input` event is triggered anytime the value state changes, and is emitted
-with the `value` state as it's only parameter.
+Событие `update:model-value` запускается всякий раз, когда изменяется значение, и передается с состоянием значения в
+качестве единственного параметра.
 
-#### Vuex Support
+## Простой и множественный выбор
 
-The `value` prop and `emit` event are very useful when using a state management
-tool, like Vuex. You can bind the selected value with `:value="$store.myValue"`,
-and use the `input` event to trigger a mutation, or dispatch an action – or
-anything else you might need to do when the selection changes.
-
-```html
-<v-select :value="$store.myValue" @input="setSelected" />
-```
-
-```js
-methods: {
-  setSelected(value)
-  {
-    //  trigger a mutation, or dispatch an action
-  }
-}
-```
-
-## Single/Multiple
-
-By default, `vs-vue3-select` supports choosing a single value. If you need multiple
-values, use the `multiple` boolean prop, much the same way you would on an HTML
-`<select>` element. When `multiple` is true, `v-model` and `value` must be an
-array.
+По умолчанию `vs-vue3-select` настрое на выбор одного значения. Если вам нужно несколько значений, используйте свойство 
+`multiple` `boolean`, точно так же, как если бы использовали для элемента HTML `<select>`. Когда значение `multiple`
+равно true, `v-модель` и `value` должны быть массивом.
 
 ```html
 <v-select multiple v-model="selected" :options="['Canada','United States']" />
@@ -79,26 +64,26 @@ array.
 
 <v-select multiple :options="['Canada','United States']" />
 
-## Transforming Selections
+## Преобразование выбранного значения
 
-When the `options` array contains objects, `vs-vue3-select` returns the whole object
-as dropdown value upon selection. This approach makes no assumptions about the
-data you need, and provides a lot of flexibility. However, there will be
-situations where you just need to return a single key from an object.
+Когда массив `options` содержит объекты, `vs-vue3-select` возвращает весь объект в качестве выбранного значения.
+Этот подход не делает предположений о необходимых вам данных и обеспечивает большую гибкость. Однако будут ситуации, 
+когда вам просто нужно вернуть только один ключ из объекта.
 
-### Returning a single key with `reduce`
+### Возвращение одного ключа при помощи `reduce`
 
-If you need to return a single key, or transform the selection before it is
-synced, `vs-vue3-select` provides a `reduce` callback that allows you to transform a
-selected option before it is passed to the `@input` event. Consider this data
-structure:
+Если вам нужно вернуть один ключ или преобразовать выбранный объект перед его синхронизацией, `vs-vue3-select` 
+предоставляет свойство `reduce` принимающее функцию обратного вызова, которая преобразует выбранную опцию до того,
+как она будет передан событию `update:model-value`. 
+
+Рассмотрим структуру данных:
 
 ```js
 let options = [{ code: 'CA', country: 'Canada' }]
 ```
 
-If we want to display the `country`, but return the `code` to `v-model`, we can
-use the `reduce` prop to receive only the data that's required.
+Если вы хотите отображать `country`, но возвращать `code` в `v-model`, то можете  использовать свойство `reduce` для
+получения только тех данные, которые необходимы.
 
 ```html
 <v-select
@@ -108,9 +93,9 @@ use the `reduce` prop to receive only the data that's required.
 />
 ```
 
-### Deep Nested Values
+### Глубоко вложенные значения
 
-The `reduce` property also works well when you have a deeply nested value:
+Свойство `reduce` точно так же можно использовать и для объектов с глубокой вложенностью:
 
 ```
 {
@@ -132,34 +117,24 @@ The `reduce` property also works well when you have a deeply nested value:
 
  <reducer-nested-value />
 
-## Caveats with `reduce`
+## Предостережения по работе `reduce`
 
-The most common issue with `reduce` is when the component displays your
-_reduced_ _value_ instead of it's _label_. This happens when you supply Vue
-Select a `value` or `v-model` binding with a reduced\_ value, but the complete
-option object is not present in the `options` array.
+Наиболее распространенная проблема с `reduce` заключается в том, что компонент отображает ваше преобразованное значение 
+вместо его необходимой метки выбранного свойства. Это происходит, когда вы предоставляете Vs Vue3 Select связку `value`
+или `v-model` с преобразованным значением, но полный объект отсутствует в массиве `options`.
 
 <ReducedWithNoMatchingOption />
 
-<<< @/.vuepress/components/ReducedWithNoMatchingOption.vue
+@[code](../../.vuepress/components/ReducedWithNoMatchingOption.vue)
 
-In the example above, the component was supplied with an ID that doesn't exist
-in the `options` array. When `value` changes, Vs Vue3 Select searches the supplied
-options, running each one through `reduce` until the corresponding option is
-found. When that option doesn't exist, Vs Vue3 Select will end up displaying the
-`value` supplied.
+В приведенном выше примере компоненту был предоставлен идентификатор, которого нет в массиве параметров. При изменении
+значения Vs Vue3 Select выполняет поиск по предоставленным параметрам, запуская каждый из них через reduce, пока не 
+будет найден соответствующий параметр. Если этот параметр не существует, Vs Vue3 Select в конечном итоге отобразит
+указанное значение.
 
-::: warning
+## Ввод данных отсутствующих в списке
 
-When providing Vs Vue3 Select with a _reduced_ `value` - the object that the value
-was reduced from must exist in the `options` array.
-
-:::
-
-## Tagging
-
-To allow input that's not present within the options, set the `taggable` prop to
-true.
+Чтобы разрешить ввод данных, отсутствующих в параметрах, установите для параметра `taggable` значение true.
 
 ```html
 <v-select taggable multiple />
@@ -167,7 +142,7 @@ true.
 
 <v-select taggable multiple />
 
-If you want added tags to be pushed to the options array, set `push-tags` to
+Если вы хотите, чтобы добавленные теги добавлялись в массив параметров, установите для параметра `push-tags` значение
 true.
 
 ```html
@@ -176,43 +151,40 @@ true.
 
 <v-select taggable multiple push-tags />
 
-### Using `taggable` & `reduce` together
+### Совместное использование `taggable` и `reduce`
 
-When combining `taggable` with `reduce`, you must define the `createOption`
-prop. The `createOption` function is responsible for defining the structure of
-the objects that Vs Vue3 Select will create for you when adding a tag. It should
-return a value that has the same properties as the rest of your `options`.
+При объединении `taggable` с `reduce` вы должны определить параметр `CreateOption`. Функция `CreateOption` отвечает за
+определение структуры объектов, которые Vs Vue3 Select создаст при добавлении тега. Он должен возвращать значение, 
+обладающее теми же свойствами, что и остальные ваши опции.
 
-If you don't define `createOption`, Vs Vue3 Select will construct a simple object
-following this structure: `{[this.label]: searchText}`. If you're using
-`reduce`, this is probably not what your options look like, which is why you'll
-need to set the function yourself.
+Если вы не определите `CreateOption`, Vs Vue3 Select создаст простой объект, со следующей структурой:
+`{[this.label]: searchText}`. Если вы используете reduce, то, вероятно, это не то, как выглядят ваши опции, поэтому вам
+нужно будет установить функцию самостоятельно.
 
-**Example**
+**Пример**
 
-We have a taggable select for adding books to a collection. We're just concerned
-about getting the book title added, and our server side code will add the author
-details in a background process. The user has already selected a book.
+У нас есть возможность выбора тегов для добавления книг в коллекцию. Мы просто заботимся о добавлении названия книги,
+и наш серверный код добавит сведения об авторе в фоновом режиме. Пользователь уже выбрал книгу.
 
 ```js
 const options = [
-  {
-    title: 'HTML5',
-    author: {
-      firstName: 'Remy',
-      lastName: 'Sharp',
+    {
+        title: 'HTML5',
+        author: {
+            firstName: 'Remy',
+            lastName: 'Sharp',
+        },
     },
-  },
 ]
 ```
 
 ```html
 <v-select
-  taggable
-  multiple
-  label="title"
-  :options="options"
-  :create-option="book => ({ title: book, author: { firstName: '', lastName: '' } })"
-  :reduce="book => `${book.author.firstName} ${book.author.lastName}`"
+        taggable
+        multiple
+        label="title"
+        :options="options"
+        :create-option="book => ({ title: book, author: { firstName: '', lastName: '' } })"
+        :reduce="book => `${book.author.firstName} ${book.author.lastName}`"
 />
 ```

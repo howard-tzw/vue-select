@@ -1,21 +1,37 @@
-::: warning
-Site under construction
-:::
-
-### Prop: `components` `{Object}`
-
 ---
+prev:
+ text: Selecting Values
+ link: /guide/values
+next:
+ text: CSS Styling
+ link: /guide/css
+---
+
+# Child Components
+
+## Prop: `components` `{Object}`
 
 Vs Vue3 Select utilizes child components throughout, and exposes an API to overwrite
 these components with your own, using the `components` `{Object}` prop. The
 object provided to the `components` prop will be merged with Vs Vue3 Select's
 default components.
 
-<<< @/../src/components/childComponents.js{4-7}
+<CustomComponentRegistration/>
+
+@[code](../.vuepress/components/CustomComponentRegistration.vue)
+
+CustomDeselect.vue
+
+@[code](../.vuepress/components/CustomDeselect.vue)
+
+CustomOpenIndicator.vue
+
+@[code](../.vuepress/components/CustomOpenIndicator.vue)
+
 
 You can override the value of any of these keys with your own components.
 
-## Deselect <Badge text="v3.1.0+" />
+## Deselect
 
 You may wish to roll your own deselect button. `Deselect` is used within tags on
 `multiple` selects, and serves as the clear button for single selects. Maybe you
@@ -24,24 +40,17 @@ just want to use a simple `<button>Clear</button>` instead.
 ```html
 <v-select :components="{Deselect}" />
 ```
+CustomDeselect.vue
 
-```js
-export default {
-  data: () => ({
-    Deselect: {
-      render: (createElement) => createElement('span', '❌'),
-    },
-  }),
-}
-```
+@[code](../.vuepress/components/CustomDeselect.vue)
 
-  <ClearButtonOverride />
+<ClearButtonOverride />
 
 The same approach applies for `multiple` selects:
 
 <MultipleClearButtonOverride />
 
-## OpenIndicator <Badge text="v3.1.0+" />
+## OpenIndicator
 
 The `OpenIndicator` component is the 'caret' used within the component that
 adjusts orientation based on whether the dropdown is open or closed.
@@ -50,17 +59,9 @@ adjusts orientation based on whether the dropdown is open or closed.
 <v-select :components="{OpenIndicator}" />
 ```
 
-```js
-export default {
-  data: () => ({
-    selected: ['Canada'],
-    OpenIndicator: {
-      render: (createElement) =>
-        createElement('span', { class: { toggle: true } }),
-    },
-  }),
-}
-```
+CustomOpenIndicator.vue
+
+@[code](../.vuepress/components/CustomOpenIndicator.vue)
 
 <OpenIndicatorOverride />
 
@@ -72,20 +73,18 @@ registering Vs Vue3 Select as a component.
 
 ```js
 import Vue from 'vue'
-import vSelect from 'vue-select'
+import vSelect from 'vs-vue3-select'
 
-// Set the components prop default to return our fresh components
 vSelect.props.components.default = () => ({
   Deselect: {
-    render: (createElement) => createElement('span', '❌'),
+    template: '❌',
   },
   OpenIndicator: {
-    render: (createElement) => createElement('span', '🔽'),
+    template: '<span>🔽</span>',
   },
 })
 
-// Register the component
 Vue.component(vSelect)
 ```
 
-<CustomComponentRegistration />
+<CodePen url="KKJLMvg" height="350"/>

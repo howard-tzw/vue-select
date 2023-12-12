@@ -1,38 +1,19 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: CSS Styling
+ link: /guide/css
+next:
+ text: WAI-ARIA Spec
+ link: /guide/accessibility
+---
+# Slots styling
 
-::: tip 🚧 
-This section of the guide is a work in progress! Check back soon for
-an update. Vs Vue3 Select currently offers quite a few scoped slots, and you can
-check out the [API Docs for Slots](../api/slots.md) in the meantime while a good
-guide is put together. 
-:::
+Vs Vue3 Select currently offers several slots. Slots are described in the documentation 
+[API Docs for Slots](../api/slots.md). 
 
-### Scoped Slot `option`
-
-`vs-vue3-select` provides the scoped `option` slot in order to create custom dropdown
-templates.
-
-```html
-<v-select :options="options" label="title">
-  <template v-slot:option="option">
-    <span :class="option.icon"></span>
-    {{ option.title }}
-  </template>
-</v-select>
-```
-
-Using the `option` slot with props `"option"` provides the current option
-variable to the template.
-
-<CodePen url="wvNZjrP" height="500"/>
-
-### Improving the default `no-options` text
-
-The `no-options` slot is displayed in the dropdown when `filteredOptions === 0`.
-By default, it displays _Sorry, no matching options_. You can add more
-contextual information by using the slot in your own apps.
+As an example, we will give an improved stylization of the message about the lack of options suitable for the search 
+bar. By default, _Sorry, no matching options_ is displayed. You can add additional contextual information
+using the field in your own applications.
 
 <BetterNoOptions />
 

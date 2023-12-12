@@ -1,8 +1,15 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Validation
+ link: /guide/validation
+next:
+ text: Pagination
+ link: /guide/pagination
+---
 
-## Selectable Prop <Badge text="v3.3.0+" />
+# Limiting Selections
+
+## Selectable Prop
 
 The `selectable` prop determines if an option is selectable or not. If
 `selectable` returns false for a given option, it will be displayed with a
@@ -37,7 +44,7 @@ be selectable or not.
 
 <UnselectableExample />
 
-<<< @/.vuepress/components/UnselectableExample.vue{6}
+@[code{1-8} vue{6}](../.vuepress/components/UnselectableExample.vue)
 
 ## Limiting the Number of Selections
 
@@ -47,4 +54,4 @@ select any author, but may only select a maximum of three books.
 
 <LimitSelectionQuantity />
 
-<<< @/.vuepress/components/LimitSelectionQuantity.vue{8}
+@[code{1-10} vue{8}](../.vuepress/components/LimitSelectionQuantity.vue)

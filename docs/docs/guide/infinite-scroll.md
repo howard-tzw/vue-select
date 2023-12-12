@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Pagination
+ link: /guide/pagination
+next:
+ text: State manager
+ link: /guide/state-manager
+---
+
+# Infinite Scroll
 
 Vs Vue3 Select doesn't ship with first party support for infinite scroll, but it's
 possible to implement by hooking into the `open`, `close`, and `search` events,
@@ -26,6 +33,9 @@ position remains where it was before the list size changed. Again, it's
 important to wait for `$nextTick` here so that the DOM elements have been
 inserted before setting the scroll position.
 
+You could create observer directly in data(), but since these docs are server side rendered, `IntersectionObserver` 
+doesn't exist in that environment, so we need to do it in `mounted()` instead.
+
 <InfiniteScroll />
 
-<<< @/.vuepress/components/InfiniteScroll.vue
+@[code](../.vuepress/components/InfiniteScroll.vue)

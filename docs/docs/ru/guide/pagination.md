@@ -1,23 +1,25 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Ограничение выбора
+ link: /ru/guide/selectable
+next:
+ text: Бесконечная прокрутка
+ link: /ru/guide/infinite-scroll
+---
 
-::: tip <Badge text="3.8.0+" /> Pagination is supported using slots available
-with Vs Vue3 Select 3.8 and above. :::
+# Разбивка на страницы
 
-Pagination can be a super helpful tool when working with large sets of data. If
-you have 1,000 options, the component is going to render 1,000 DOM nodes. That's
-a lot of nodes to insert/remove, and chances are your user is only interested in
-a few of them anyways.
+Разбивка на страницы может быть очень полезным инструментом при работе с большими наборами данных. Если у вас есть 1000 
+опций, компонент будет отображать 1000 узлов DOM. Это очень много узлов для вставки/удаления, и, скорее всего, вашего
+пользователя в любом случае интересуют только некоторые из них.
 
-To implement pagination with Vs Vue3 Select, you can take advantage of the
-`list-footer` slot. It appears below all other options in the drop down list.
+Чтобы реализовать разбиение на страницы с помощью Vs Vue3 Select, вы можете воспользоваться слотом `list-footer`. Он
+отображается под всеми другими параметрами в выпадающем списке.
 
-To make pagination work properly with filtering, you'll have to handle it
-yourself in the parent. You can use the `filterable` boolean to turn off Vue
-Select's filtering, and then hook into the `search` event to use the current
-search query in the parent component.
+Чтобы разбиение на страницы корректно работало с фильтрацией, вам придется самостоятельно обработать ee в родительском 
+компоненте. Вы можете использовать логическое значение `filterable`, чтобы отключить фильтрацию Vs Vue3 Select, а затем 
+подключиться к событию `search`, чтобы использовать текущий поисковый запрос в родительском компоненте.
 
 <Paginated />
 
-<<< @/.vuepress/components/Paginated.vue
+@[code](../../.vuepress/components/Paginated.vue)

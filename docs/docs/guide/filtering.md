@@ -7,6 +7,8 @@ next:
   link: /api/props
 ---
 
+# Option Filtering
+
 Vs Vue3 Select provides two props accepting `functions` that can be used to
 implement custom filtering algorithms.
 

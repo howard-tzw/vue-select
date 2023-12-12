@@ -1,11 +1,13 @@
 ---
 prev:
-  text: Using in Loops
+  text: Применение в циклах
   link: /ru/guide/loops
 next:
   text: Позиционирование списка
   link: /ru/guide/positioning
 ---
+
+# События клавиатуры
 
 ## selectOnKeyCodes
 

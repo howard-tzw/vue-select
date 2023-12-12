@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Dropdown Options
+ link: /guide/options
+next:
+ text: Child Components
+ link: /guide/components
+---
+
+# Selecting Values
 
 ## Getting and Setting
 
@@ -17,18 +24,18 @@ values with a parent. The `v-model` syntax works with primitives and objects.
 Note that when using the `multiple` prop, the `v-model` value will always be an
 array.
 
-### Props and Events
+## Props and Events
 
 Sometimes `v-model` might not fit your use case. For example, when working with
 [Vuex](https://vuex.vuejs.org), you'll need to trigger a mutation rather than
 mutating a value directly. In that case, maybe you need to bind a pre-selected
 value, and trigger a mutation when it changes.
 
-`vs-vue3-select` exposes the `value` prop and an `input` event to enable this. This
+`vs-vue3-select` exposes the `value` prop and an `update:model-value` event to enable this. This
 combo of props and events is also how Vue wires up the `v-model` syntax
 internally.
 
-#### Prop: `value`
+### Prop: `value`
 
 The `value` prop lets `vs-vue3-select` know what value is currently selected. It will
 accept strings, numbers or objects. If you're using a `multiple` v-select,
@@ -38,33 +45,15 @@ you'll want to pass an array.
 <v-select :value="selected" />
 ```
 
-::: tip 🤓 Anytime you bind the `value` prop directly, you're responsible for
-updating the bound variable in your code using the `@input` event. :::
+::: tip 🤓 
+Anytime you bind the `value` prop directly, you're responsible for
+updating the bound variable in your code using the `update:model-value` event. 
+:::
 
-#### Event: `input`
+### Event: `update:model-value`
 
-The `input` event is triggered anytime the value state changes, and is emitted
+The `update:model-value` event is triggered anytime the value state changes, and is emitted
 with the `value` state as it's only parameter.
-
-#### Vuex Support
-
-The `value` prop and `emit` event are very useful when using a state management
-tool, like Vuex. You can bind the selected value with `:value="$store.myValue"`,
-and use the `input` event to trigger a mutation, or dispatch an action – or
-anything else you might need to do when the selection changes.
-
-```html
-<v-select :value="$store.myValue" @input="setSelected" />
-```
-
-```js
-methods: {
-  setSelected(value)
-  {
-    //  trigger a mutation, or dispatch an action
-  }
-}
-```
 
 ## Single/Multiple
 
@@ -90,7 +79,7 @@ situations where you just need to return a single key from an object.
 
 If you need to return a single key, or transform the selection before it is
 synced, `vs-vue3-select` provides a `reduce` callback that allows you to transform a
-selected option before it is passed to the `@input` event. Consider this data
+selected option before it is passed to the `update:model-value` event. Consider this data
 structure:
 
 ```js
@@ -135,13 +124,13 @@ The `reduce` property also works well when you have a deeply nested value:
 ## Caveats with `reduce`
 
 The most common issue with `reduce` is when the component displays your
-_reduced_ _value_ instead of it's _label_. This happens when you supply Vue
+_reduced_ _value_ instead of it's _label_. This happens when you supply Vs Vue3
 Select a `value` or `v-model` binding with a reduced\_ value, but the complete
 option object is not present in the `options` array.
 
 <ReducedWithNoMatchingOption />
 
-<<< @/.vuepress/components/ReducedWithNoMatchingOption.vue
+@[code](../.vuepress/components/ReducedWithNoMatchingOption.vue)
 
 In the example above, the component was supplied with an ID that doesn't exist
 in the `options` array. When `value` changes, Vs Vue3 Select searches the supplied

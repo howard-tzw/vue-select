@@ -1,31 +1,35 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+  text: Разбивка на страницы
+  link: /ru/guide/pagination
+next:
+  text: Менеджер состояний
+  link: /ru/guide/state-manager
+---
 
-Vs Vue3 Select doesn't ship with first party support for infinite scroll, but it's
-possible to implement by hooking into the `open`, `close`, and `search` events,
-along with the `filterable` prop, and the `list-footer` slot.
+# Бесконечная прокрутка
 
-Let's break down the example below, starting with the `data`.
+Vs Vue3 Select не имеет функционала бесконечной прокрутки списка, но ее можно реализовать, при помощи событий `open`,
+`close` и `search`, параметра `filterable` и слота `list-footer`.
 
-- `observer` - a new `IntersectionObserver` with `infiniteScroll` set as the
-  callback
-- `limit` - the number of options to display
-- `search` - since we've disabled Vs Vue3 Selects filtering, we'll need to filter
-  options ourselves
+Разберем пример приведенный ниже. Начнем с `data`:
 
-When Vs Vue3 Select opens, the `open` event is emitted and `onOpen` will be called.
-We wait for `$nextTick()` so that the `$ref` we need will exist, then begin
-observing it for intersection.
+- `observer` - новый объект `IntersectionObserver` с `infiniteScroll` установленной в качестве функции обратного вызова
+- `limit` - количество отображаемых опций
+- `search` - встроенную фильтрацию компонента отключили через параметр, поэтому необходимо хранить строку поиска
 
-The observer is set to call `infiniteScroll` when the `<li>` is completely
-visible within the list. Some fancy destructuring is done here to get the first
-`ObservedEntry`, and specifically the `isIntersecting` & `target` properties. If
-the `<li>` is intersecting, we increase the `limit`, and ensure that the scroll
-position remains where it was before the list size changed. Again, it's
-important to wait for `$nextTick` here so that the DOM elements have been
-inserted before setting the scroll position.
+Когда откроется выпадающий список, будет выдано событие `open` и будет вызван `onOpen`. Мы ждем `$nextTick()`, чтобы 
+нужный нам `$ref` существовал, затем начинаем наблюдать за ним на предмет пересечения.
+
+Наблюдатель настроен на вызов `InfiniteScroll`, когда `<li>` полностью виден в списке. Здесь выполняется некоторая 
+деструктуризация, чтобы получить первый наблюдаемый элемент и, в частности, свойства isIntersecting и target. Если 
+`<li>` пересекается, мы увеличиваем ограничение и обеспечиваем, чтобы положение прокрутки оставалось там, где оно было 
+до изменения размера списка. Опять же, здесь важно дождаться $nextTick, чтобы элементы DOM были вставлены перед
+установкой положения прокрутки.
+
+Вы могли бы создать observer непосредственно в data(), но поскольку рендер страницы может на стороне сервера,
+IntersectionObserver не существует в этой среде, поэтому нам нужно сделать это в `mounted()`.
 
 <InfiniteScroll />
 
-<<< @/.vuepress/components/InfiniteScroll.vue
+@[code](../../.vuepress/components/InfiniteScroll.vue)

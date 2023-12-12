@@ -1,13 +1,20 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Проверки
+ link: /ru/guide/validation
+next:
+ text: Разбивка на страницы
+ link: /ru/guide/pagination
+---
 
-## Selectable Prop <Badge text="v3.3.0+" />
 
-The `selectable` prop determines if an option is selectable or not. If
-`selectable` returns false for a given option, it will be displayed with a
-`vs__dropdown-option--disabled` class. The option will be disabled and unable to
-be selected.
+# Ограничение выбора
+
+## Параметр Selectable
+
+Параметр `selectable` определяет, является ли опция выбираемой или нет. Если `selectable` возвращает значение false для
+данной опции, она будет отображаться с классом `vs__dropdown-option--disabled`. Опция будет отключена и ее невозможно 
+будет выбрать.
 
 ```js
 selectable: {
@@ -20,10 +27,8 @@ selectable: {
 },
 ```
 
-### Example
-
-Here `selectable` is used to prevent books by a certain author from being
-chosen. In this case, the options passed to the component are objects:
+В примере `selectable` используется для предотвращения выбора книг определенного автора. Параметры, 
+передаваемые компоненту, являются объектами:
 
 ```json
 {
@@ -32,19 +37,17 @@ chosen. In this case, the options passed to the component are objects:
 }
 ```
 
-This object will be passed to `selectable`, so we can check if the author should
-be selectable or not.
+Этот объект будет передан в `selectable`, чтобы мы могли проверить, должен ли автор быть выбранным или нет.
 
 <UnselectableExample />
 
-<<< @/.vuepress/components/UnselectableExample.vue{6}
+@[code{1-8} vue{6}](../../.vuepress/components/UnselectableExample.vue)
 
-## Limiting the Number of Selections
+## Ограничения количества выбранных опций
 
-`selectable` can also be used a bit more creatively to limit the number
-selections that can be made within the component. In this case, the user can
-select any author, but may only select a maximum of three books.
+`selectable` также может быть использована, чтобы ограничить количество вариантов, которые могут быть выбраны в
+компоненте. В этом случае пользователь может выбрать любого автора, но может выбрать максимум три книги.
 
 <LimitSelectionQuantity />
 
-<<< @/.vuepress/components/LimitSelectionQuantity.vue{8}
+@[code{1-10} vue{8}](../../.vuepress/components/LimitSelectionQuantity.vue)

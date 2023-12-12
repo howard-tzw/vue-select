@@ -6,6 +6,9 @@ next:
   text: Events
   link: /api/events
 ---
+
+# Slots
+
 ::: tip
 Vs Vue3 Select leverages scoped slots to allow for total customization of
 the presentation layer. Slots can be used to change the look and feel of the UI,

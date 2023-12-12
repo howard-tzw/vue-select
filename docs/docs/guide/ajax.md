@@ -1,17 +1,13 @@
 ---
 prev:
-  text: Vuex
-  link: /guide/vuex
+  text: State Manager
+  link: /guide/state-manager
 next:
   text: Using in Loops
   link: /guide/loops
 ---
 
 # Loading Options with AJAX
-
-::: warning
-Site under construction
-:::
 
 The `search` event provides a hook to load options from a parent component when
 the search text is updated. It is emitted with two parameters:

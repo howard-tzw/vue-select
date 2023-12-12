@@ -7,6 +7,8 @@ next:
   link: /api/slots
 ---
 
+# Props
+
 ## ariaLabel
 
 This value will be bound to the

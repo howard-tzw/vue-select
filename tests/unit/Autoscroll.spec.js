@@ -1,6 +1,6 @@
 import { it, describe, expect, vi, afterEach } from 'vitest'
 import pointerScroll from '@/mixins/pointerScroll.js'
-import { mountDefault } from '@tests/helpers.js'
+import { mountDefault } from '#/helpers.js'
 
 describe('Automatic Scrolling', () => {
   let spy

@@ -1,38 +1,20 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: CSS стилизация
+ link: /ru/guide/css
+next:
+ text: Спецификация WAI-ARIA
+ link: /ru/guide/accessibility
+---
 
-::: tip 🚧 This section of the guide is a work in progress! Check back soon for
-an update. Vs Vue3 Select currently offers quite a few scoped slots, and you can
-check out the [API Docs for Slots](../api/slots.md) in the meantime while a good
-guide is put together. 
-:::
+# Стилизация слотами
 
-### Scoped Slot `option`
+Vs Vue3 Select в настоящее время предлагает несколько слотов. Слоты описаны в документации [API для слотов](../api/slots.md). 
 
-`vs-vue3-select` provides the scoped `option` slot in order to create custom dropdown
-templates.
-
-```html
-<v-select :options="options" label="title">
-  <template v-slot:option="option">
-    <span :class="option.icon"></span>
-    {{ option.title }}
-  </template>
-</v-select>
-```
-
-Using the `option` slot with props `"option"` provides the current option
-variable to the template.
-
-<CodePen url="wvNZjrP" height="500"/>
-
-### Improving the default `no-options` text
-
-The `no-options` slot is displayed in the dropdown when `filteredOptions === 0`.
-By default, it displays _Sorry, no matching options_. You can add more
-contextual information by using the slot in your own apps.
+В качестве примера приведем улучшенную стилизацию сообщение об отсутствии опций подходящих поисковой строке. По 
+умолчанию отображается _Sorry, no matching options_. Вы можете добавить дополнительную контекстную информацию, 
+используя поле в своих собственных приложениях.
 
 <BetterNoOptions />
 
-<<< @/.vuepress/components/BetterNoOptions.vue
+@[code](../../.vuepress/components/BetterNoOptions.vue)

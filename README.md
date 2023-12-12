@@ -1,13 +1,22 @@
-# vs-vue3-select
+# Vs Vue3 Select
 
-The project is in the process of preparing documentation and examples.
+![Current Release](https://img.shields.io/github/release/voral/vs-vue3-select.svg?style=flat-square)
+![Release Date](https://img.shields.io/github/release-date/voral/vs-vue3-select?style=flat-square)
+![Monthly Downloads](https://img.shields.io/npm/dm/vs-vue3-select.svg?style=flat-square)
+![min gzipped size](https://img.shields.io/bundlejs/size/vs-vue3-select?style=flat-square)
+![MIT License](https://img.shields.io/github/license/voral/vs-vue3-select.svg?style=flat-square)
 
-Forks tree:
-    [sagalbot/vue-select](https://github.com/sagalbot/vue-select) v4.0.0-beta.6,
-    [howard-tzw/vue3-select](https://github.com/howard-tzw/vue3-select) v0.1.2,
+Vs Vue3 Select is a feature rich select/dropdown/typeahead component. It provides a
+default template that fits most use cases for a filterable select dropdown. The
+component is designed to be as lightweight as possible, while maintaining high
+standards for accessibility.
 
-**Notes**: At the moment, most of the features of vs-vue3-select are the same as
-the original vue-select project.
+This is a fork of a popular component that has not been maintained for a long time
+
+Fork history:
+
+- [sagalbot/vue-select](https://github.com/sagalbot/vue-select) v4.0.0-beta.6
+- [howard-tzw/vue3-select](https://github.com/howard-tzw/vue3-select) v0.1.2
 
 ### Documentation and examples
 

@@ -1,5 +1,5 @@
 import { it, describe, expect, vi } from 'vitest'
-import { mountDefault, selectWithProps } from '@tests/helpers.js'
+import { mountDefault, selectWithProps } from '#/helpers.js'
 
 describe('Removing values', () => {
   it('can remove the given tag when its close icon is clicked', async () => {

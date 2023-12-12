@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Localization
+ link: /guide/localization
+next:
+ text: Limiting Selections
+ link: /guide/selectable
+---
+
+# Validation
 
 ## Required
 

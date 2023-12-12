@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: WAI-ARIA Spec
+ link: /guide/accessibility
+next:
+ text: Validation
+ link: /guide/validation
+---
+
+# Localization
 
 ## Right to Left
 
@@ -25,36 +32,40 @@ and can be replaced in your app.
 
 ### Loading Spinner
 
-_Slot Definition:_
-
+:::: code-group
+::: code-group-item Implementation
+```html
+<v-select>
+    <template #spinner="{ loading }">
+        <span v-if="loading">Загрузка...</span>
+    </template>
+</v-select>
+```
+:::
+::: code-group-item Slot Definition
 ```html
 <slot name="spinner">
   <div class="spinner" v-show="mutableLoading">Loading...</div>
 </slot>
 ```
-
-_Implementation:_
-
-```html
-<v-select>
-  <i slot="spinner" class="icon icon-spinner"></i>
-</v-select>
-```
+:::
+::::
 
 ### No Options Text
 
-_Slot Definition:_
-
+:::: code-group
+::: code-group-item Implementation
+```html
+<v-select>
+    <template #no-options>Нет доступных опцйи</template>
+</v-select>
+```
+:::
+::: code-group-item Definition
 ```html
 <slot name="no-options">Sorry, no matching options.</slot>
 ```
-
-_Implementation:_
-
-```html
-<v-select>
-  <div slot="no-options">No Options Here!</div>
-</v-select>
-```
+:::
+::::
 
 For a full list of component slots, view the [slots API docs](../api/slots.md).

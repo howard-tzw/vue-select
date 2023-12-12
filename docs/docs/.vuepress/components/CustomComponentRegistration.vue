@@ -6,10 +6,6 @@
 </template>
 
 <script setup>
-const Deselect = {
-  template: '❌'
-}
-const OpenIndicator = {
-  template: '<span>🔽</span>'
-}
+import Deselect from "./CustomDeselect.vue";
+import OpenIndicator from "./CustomOpenIndicator.vue";
 </script>

@@ -7,6 +7,8 @@ next:
   link: /guide/keydown
 ---
 
+# Using in Loops
+
 There may be times that you are including Vs Vue3 Select within loops of data, such
 as a table. This can pose some challenges when emitting events from the
 component, as you won't know which Vs Vue3 Select instance emitted it. 
