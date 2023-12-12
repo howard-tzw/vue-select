@@ -243,7 +243,7 @@ describe('When Tagging Is Enabled', () => {
   it('will select an existing option on tab', async () => {
     const Select = mountDefault({
       taggable: true,
-      selectOnTab: true,
+      selectOnKeyCodes: [13,9],
     })
 
     Select.vm.typeAheadPointer = 0

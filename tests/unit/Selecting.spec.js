@@ -57,19 +57,6 @@ describe('VS - Selecting Values', () => {
     expect(Select.vm.selectedValue).toEqual(Select.vm.modelValue)
   })
 
-  it('can select an option on tab', () => {
-    spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
-    const Select = shallowMount(VueSelect, {
-      props: {
-        selectOnTab: true,
-      },
-    })
-
-    Select.get('input').trigger('keydown.tab')
-
-    expect(spy).toHaveBeenCalledWith()
-  })
-
   it('can deselect a pre-selected object', () => {
     const Select = shallowMount(VueSelect, {
       props: {

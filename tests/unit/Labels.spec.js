@@ -23,8 +23,8 @@ describe('Labels', () => {
     await Select.vm.$nextTick()
 
     expect(spy).toHaveBeenCalledWith(
-      '[vue-select warn]: Label key "option.label" does not exist in options object {}.' +
-        '\nhttps://vue-select.org/api/props.html#getoptionlabel'
+      '[vs-vue3-select warn]: Label key "option.label" does not exist in options object {}.' +
+        '\nhttps://vue3-select.va-soft.ru/api/props.html#getoptionlabel'
     )
   })
 

@@ -387,21 +387,6 @@ noDrop: {
 },
 ```
 
-## onTab
-
-Select the current value if `selectOnTab` is enabled
-
-```js
-onTab: {
-	type: Function,
-	default: function() {
-		if (this.selectOnTab) {
-			this.typeAheadSelect();
-		}
-	}
-},
-```
-
 ## options
 
 An array of strings or objects to be used as dropdown choices. If you are using
@@ -540,17 +525,6 @@ selectable: {
    */
   default: option => true,
 },
-```
-
-## selectOnTab
-
-When true, hitting the 'tab' key will select the current select value
-
-```js
-selectOnTab: {
-	type: Boolean,
-	default: false
-}
 ```
 
 ## tabindex

@@ -1,6 +1,8 @@
 import { it, describe, expect, vi, afterEach } from 'vitest'
 import typeAheadPointer from '@/mixins/typeAheadPointer.js'
 import { mountDefault } from '@tests/helpers.js'
+import {shallowMount} from "@vue/test-utils";
+import VueSelect from "@/components/Select.vue";
 
 describe('Custom Keydown Handlers', () => {
   let spy
@@ -61,19 +63,19 @@ describe('Custom Keydown Handlers', () => {
       Select.get('input').trigger('keydown.enter')
       expect(spy).toHaveBeenCalledTimes(1)
     })
-
-    it('will not select a value with tab if the user is composing', () => {
-      spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
-
-      const Select = mountDefault({ selectOnTab: true })
-
-      Select.get('input').trigger('compositionstart')
-      Select.get('input').trigger('keydown.tab')
-      expect(spy).toHaveBeenCalledTimes(0)
-
-      Select.get('input').trigger('compositionend')
-      Select.get('input').trigger('keydown.tab')
-      expect(spy).toHaveBeenCalledTimes(1)
-    })
   })
+
+  it('can select an option on tab', () => {
+    spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
+    const Select = shallowMount(VueSelect, {
+      props: {
+        selectOnKeyCodes: [13,9],
+      },
+    })
+
+    Select.get('input').trigger('keydown.tab')
+
+    expect(spy).toHaveBeenCalledWith()
+  })
+
 })

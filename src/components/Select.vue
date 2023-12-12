@@ -353,7 +353,6 @@ export default {
      * are displayed but disabled and cannot be selected.
      *
      * @type {Function}
-     * @since 3.3.0
      * @param {Object|String} option
      * @return {Boolean}
      */
@@ -426,19 +425,6 @@ export default {
             `to return a unique key for each option.\n` +
             'https://vue3-select.va-soft.ru/api/props.html#getoptionkey'
           return console.warn(warning, option, e)
-        }
-      },
-    },
-
-    /**
-     * Select the current value if selectOnTab is enabled
-     * @deprecated since 3.3
-     */
-    onTab: {
-      type: Function,
-      default: function () {
-        if (this.selectOnTab && !this.isComposing) {
-          this.typeAheadSelect()
         }
       },
     },
@@ -545,8 +531,6 @@ export default {
      * a `boolean` or `function` that returns a `boolean`. If defined as a function,
      * it will receive the params listed below.
      *
-     * @since 3.4 - Type changed to {Boolean|Function}
-     *
      * @type {Boolean|Function}
      * @param {Array} newOptions
      * @param {Array} oldOptions
@@ -596,16 +580,6 @@ export default {
     dir: {
       type: String,
       default: 'auto',
-    },
-
-    /**
-     * When true, hitting the 'tab' key will select the current select value
-     * @type {Boolean}
-     * @deprecated since 3.3 - use selectOnKeyCodes instead
-     */
-    selectOnTab: {
-      type: Boolean,
-      default: false,
     },
 
     /**
@@ -660,14 +634,13 @@ export default {
 
     /**
      * When `appendToBody` is true, this function is responsible for
-     * positioning the drop down list.
+     * positioning the dropdown list.
      *
      * If a function is returned from `calculatePosition`, it will
-     * be called when the drop down list is removed from the DOM.
+     * be called when the dropdown list is removed from the DOM.
      * This allows for any garbage collection you may need to do.
      *
-     * @since v3.7.0
-     * @see http://vue-select.org/guide/positioning.html
+     * @see http://vue3-select.va-soft.ru/guide/positioning.html
      */
     calculatePosition: {
       type: Function,
@@ -690,7 +663,6 @@ export default {
      * Determines whether the dropdown should be open.
      * Receives the component instance as the only argument.
      *
-     * @since v3.12.0
      * @return boolean
      */
     dropdownShouldOpen: {
@@ -1366,8 +1338,6 @@ export default {
       const defaults = {
         //  backspace
         8: (e) => this.maybeDeleteValue(),
-        //  tab
-        9: (e) => this.onTab(),
         //  esc
         27: (e) => this.onEscape(),
         //  up.prevent

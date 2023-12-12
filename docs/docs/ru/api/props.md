@@ -376,21 +376,6 @@ noDrop: {
 },
 ```
 
-## onTab
-
-Функция выбора текущего значения когда включен параметр `selectOnTab`
-
-```js
-onTab: {
-    type: Function,
-    default: function() {
-        if (this.selectOnTab) {
-            this.typeAheadSelect();
-        }
-    }
-},
-```
-
 ## options
 
 Массив строк или объектов, которые будут использоваться в выпадающем списке. Если вы используете массив объектов, 
@@ -526,17 +511,6 @@ selectable: {
    */
   default: option => true,
 },
-```
-
-## selectOnTab
-
-При значении true нажатие клавиши "tab" приведет к выбору текущего выбранного значения
-
-```js
-selectOnTab: {
-	type: Boolean,
-	default: false
-}
 ```
 
 ## tabindex

@@ -48,9 +48,6 @@ Vs Vue3 Select предоставляет параметр `map-keydown`, поз
 //  delete
 8: e => this.maybeDeleteValue()
 
-//  tab
-9: e => this.onTab()
-
 //  enter
 13: e => {
     e.preventDefault();

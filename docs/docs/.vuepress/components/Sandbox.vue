@@ -128,8 +128,8 @@
             type="checkbox"
           />
           <code
-            >:select-on-tab="{{
-              configuration.selectOnTab ? 'true' : 'false'
+            >:select-on-key-codes="{{
+              configuration.selectOnTab ? [13,9] : [13]
             }}"</code
           >
         </label>
