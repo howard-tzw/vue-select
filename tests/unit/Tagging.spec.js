@@ -4,7 +4,7 @@ import {
   searchSubmit,
   selectTag,
   selectWithProps,
-} from '@tests/helpers.js'
+} from '#/helpers.js'
 import VueSelect from '@/components/Select.vue'
 
 describe('When Tagging Is Enabled', () => {

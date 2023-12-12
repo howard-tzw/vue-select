@@ -1,81 +1,116 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Дочерние компоненты
+ link: /ru/guide/components
+next:
+ text: Стилизация слотами
+ link: /ru/guide/slots
+---
 
-Vs Vue3 Select offers many APIs for customizing the look and feel from the
-component. You can use [scoped slots](../api/slots.md),
-[custom child components](components.md), or modify the built in CSS properties.
+# CSS стилизация
 
-## CSS Variables
+Vs Vue3 Select предлагает различные способы для настройки внешнего вида компонента. Вы можете использовать 
+[слоты](../api/slots.md), пользовательские [дочерние компоненты](components.md) или изменять встроенные свойства CSS.
 
-Vs Vue3 Select uses custom CSS properties throughout the component to handle visual
-opinions. This allows for quite a bit of flexibility in styling, without having
-to hook into a build system for generating your own styles with something like
-SASS. If there is a value that you think should use a CSS property instead of a
-hardcoded CSS value, please submit a PR.
 
-## Dark Mode Example
+## Переменные CSS
 
-Without writing any CSS yourself, you can completely customize the look and feel
-of Vs Vue3 Select through the use of CSS variables. In this example, we adjust the
-colors of the component to match for a dark mode application.
+Vs Vue3 Select использует пользовательские свойства CSS во всем компоненте для обработки визуальных отзывов. Это
+обеспечивает довольно большую гибкость в стилизации, без необходимости подключаться к системе сборки для создания 
+собственных стилей. Если есть значение, которое, по вашему мнению, должно использовать свойство CSS вместо жестко
+заданного значения CSS, пожалуйста, отправьте PullRequest.
 
-In this case, the variables are scoped to only this implementation of the
-component, but you could place these variables anywhere in your applications CSS
-file to implement at a global level for your app.
+### Пример
 
-Check the MDN docs for more info about
-[CSS Custom Properties.](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+Не создавая самостоятельно никакого CSS, вы можете полностью настроить внешний вид Vs Vue3 Select с помощью переменных
+CSS. В этом примере мы настраиваем цвета компонента в отличном от остальных примеров стиле.
+
+В этом случае область действия переменных ограничена только этой реализацией компонента, но вы могли бы разместить эти
+переменные в любом месте CSS-файла вашего приложения, чтобы реализовать их на глобальном уровне для вашего приложения.
+
+Подробнее о переменных CSS можно почитать в [документации MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 
 <CssVariables style="margin-top: 1rem;" />
 
 @[code](../../.vuepress/components/CssVariables.vue)
 
-### Available CSS Variables <Badge type="primary">3.18+</Badge>
+В этой документации, для реализации темной темы, были добавлены следующий стили
+```css
+html.dark{
+  --vs-controls-color: #664cc3;
+
+  --vs-border-color: #664cc3;
+
+  --vs-dropdown-bg: #282c34;
+
+  --vs-selected-bg: #664cc3;
+  --vs-selected-color: #eeeeee;
+
+  --vs-search-input-color: #eeeeee;
+
+  --vs-dropdown-option--active-bg: #664cc3;
+  --vs-dropdown-option--active-color: #eeeeee;
+
+  --vs-open-indicator-color: #664cc3;
+
+  --vs-state-disabled-bg: trasparent;
+  --vs-state-disabled-color: #555;
+}
+```
+
+
+### Доступные переменные CSS
 
 @[code](../../../../src/css/global/variables.css)
 
-## Overriding Default Styles
+## Переопределение стилей
 
-Vs Vue3 Select takes the approach of using selectors with a single level of
-specificity, while using classes that are very specific to Vs Vue3 Select to avoid
-collisions with your app.
+Vs Vue3 Select использует подход использования селекторов с одним уровнем, в то же время используя имена классов, 
+которые специфичны для Vs Vue3 Select, чтобы избежать коллизий с вашим приложением.
 
-Most classes within Vs Vue3 Select use the `vs__` prefix, and selectors are
-generally a single classname – unless there is a state being applied to the
-component.
+Большинство классов в Vs Vue3 Select используют префикс `vs__`, а селекторы обычно представляют собой одно имя класса –
+если только к компоненту не применяется состояние.
 
-In order to override a default property in your app, you should add one level of
-specificity. The easiest way to do this, is to add `.v-select` before the
-`vs__*` selector if you want to adjust all instances of Vs Vue3 Select, or add your
-own classname if you just want to affect one.
+Чтобы переопределить свойство по умолчанию в вашем приложении, вы должны добавить один уровень специфичности. Самый
+простой способ сделать это - добавить `.v-select` перед селектором `vs__*`, если вы хотите настроить все экземпляры 
+Vs Vue3 Select, или добавить свое собственное имя класса, если вы хотите повлиять только на один.
 
 <CssSpecificity />
 
 @[code](../../.vuepress/components/CssSpecificity.vue)
 
-## Dropdown Transition
+## Анимация выпадающего списка
 
-By default, the dropdown transitions with a `.15s` cubic-bezier opacity fade
-in/out. The component uses the
-[VueJS transition system](https://vuejs.org/v2/guide/transitions.html). By
-default, the transition name is `vs__fade`. There's a couple ways to override or
-change this transition.
+По умолчанию анимация выпадающего списка выполняется изменением непрозрачности по функции кубического безье
+(cubic-bezier) в течении 0.15 секунд исчезают. Компонент использует 
+[систему переходов VueJS](https://vuejs.org/guide/built-ins/transition.html). По умолчанию имя перехода - vs__fade. Есть 
+несколько способов переопределить или изменить этот переход.
 
-1. Use the `transition` prop. Applying this prop will change the name of the
-   animation classes and negate the default CSS. If you want to remove it
-   entirely, you can set it to an empty string.
+### Функция перехода
+
+Используйте опцию перехода. Применение этой опции изменит названия классов анимации и отменит CSS по умолчанию. 
+Если вы хотите полностью удалить ее - передайте пустую строку
 
 ```html
 <v-select transition="" />
 ```
 
-2. You can also override the default CSS for the `vs__fade` transition. Again,
-   if you wanted to eliminate the transition entirely:
+### Переопределение переходов
+Вы также можете переопределить CSS по умолчанию для перехода vs__fade. Опять же, если вы хотите полностью исключить 
+переход:
 
 ```css
 .vs__fade-enter-active,
 .vs__fade-leave-active {
   transition: none;
 }
+```
+
+### Переменные CSS 
+
+Так же есть две переменные для управления анимацией
+```css
+  /* Transitions */
+  --vs-transition-timing-function: cubic-bezier(1, -0.115, 0.975, 0.855);
+  --vs-transition-duration: 150ms;
 ```

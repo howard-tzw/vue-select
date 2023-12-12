@@ -1,42 +1,43 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Установка
+ link: /ru/guide/install
+next:
+ text: Работа со значением
+ link: /ru/guide/values
+---
 
-## Options Prop
+# Выпадающий список
 
-`vs-vue3-select` accepts arrays of primitive values or objects to use as options
-through the `options` prop:
+## Свойство `options`
+
+`vs-vue3-select` принимает массив примитивных типов или объектов для использования в качестве опций при помощи свойства `options`:
 
 ```html
-<!-- array of strings or numbers -->
 <v-select :options="['Canada', 'United States']"></v-select>
 ```
 
 <v-select :options="['Canada', 'United States']"></v-select>
 
 ```html
-<!-- or, an array of objects -->
 <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select>
 ```
 
 <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select>
 
-## Option Labels
+## Метки опций
 
-#### Options as Primitives (strings, numbers, boolean)
+#### Опции примитивных типов (strings, numbers, boolean)
 
-When `options` contains strings or numbers, they'll be used as the label for the
-option within the component. No further configuration is necessary.
+Если элемент списка содержит строку или число, то она будет использована в качестве метки для соответствующей опции.
+Дополнительных настроек при этом не требуется.
 
-#### Options as Objects
+#### Опции объектного типа
 
-When `options` is an array of objects, the component must generate a label to be
-shown as the options text. By default, `vs-vue3-select` will attempt to render
-`option.label` as the option label. You might not have a `label` key in your
-objects, so you can set your own label to match your source data using the
-`label {String}` prop.
+Если `options` это массив объектов, компонент должен генерировать текст для отображения в качестве метки. По умолчанию, `vs-vue3-select` попробует найти свойство label у объекта `option.label`. Если в ваших объектах нет такого свойства, то
+вы можете указать имя необходимого свойства в параметре `label {String}`.
 
-For example, consider an object with `countryCode` and `countryName` properties:
+Для примера, рассмотрим объект со свойствами `countryCode` и `countryName`:
 
 ```json
 {
@@ -45,8 +46,7 @@ For example, consider an object with `countryCode` and `countryName` properties:
 }
 ```
 
-If you wanted to display `Canada` in the dropdown, you'd use the `countryName`
-key:
+Если вы хотите видеть `Canada` в выпадающем списке, используйте ключ `countryName`:
 
 ```html
 <v-select label="countryName" :options="countries"></v-select>
@@ -54,9 +54,8 @@ key:
 
 <country-select />
 
-## Null / Empty Options
+## Пустой список
 
-`vs-vue3-select` requires the `options` prop to be an `array`. If you are using Vue
-in development mode, you will get warnings attempting to pass anything other
-than an `array` to the `options` prop. If you need a `null`/`empty` value, use
-an empty array `[]`.
+`vs-vue3-select` требует, чтобы параметр `options` был массивом. Если вы используете Vue
+в режиме разработки, вы увидите предупреждение если попытаетесь передать переменную любого другого типа. Если вам 
+необходимо `null` или `empty` используйте пустой массив `[]`.

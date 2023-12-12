@@ -2,17 +2,16 @@
 prev:
   text: Slots
   link: /api/slots
+next:
+  text: Vs Vue3 Select
+  link: /
 ---
-## `input`
+# Events
 
-Triggered when the selected value changes. Used internally for `v-model`.
+## `update:model-value`
 
-```js
-/**
- * @param {Object|String} val - selected option.
- */
-this.$emit('input', val)
-```
+Triggered when the selected value changes. Passes the selected option (String
+or Object type) to the handler as a parameter
 
 ## `open`
 

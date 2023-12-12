@@ -7,6 +7,8 @@ next:
   link: /guide/filtering
 ---
 
+# Dropdown Opening
+
 ## Default Dropdown Behaviour
 
 By default, the dropdown will open anytime the underlying search input has

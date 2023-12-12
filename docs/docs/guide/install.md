@@ -1,23 +1,30 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Vs Vue3 Select
+ link: /
+next:
+ text: Dropdown Options
+ link: /guide/options
+---
+
+# Installation
 
 ## Package manager
 
 Install with package manager:
 
 :::: code-group
-::: code-group-item Pnpm
+::: code-group-item PNPM
 ```bash
 pnpm add vs-vue3-select
 ```
 :::
-::: code-group-item Yarn
+::: code-group-item YARN
 ```bash
 yarn add vs-vue3-select
 ```
 :::
-::: code-group-item Npm
+::: code-group-item NPM
 ```bash
 npm install vs-vue3-select
 ```
@@ -59,10 +66,26 @@ global variable. You'll need to load Vue.js, `vs-vue3-select` JS & `vs-vue3-sele
 <link rel="stylesheet" href="https://unpkg.com/vs-vue3-select@1.0.0/dist/vs-vue3-select.css"/>
 ```
 
-Then register the component in your javascript:
+And we use the component:
 
-```js
-Vue.component('v-select', VueSelect.VueSelect)
+```html
+<body>
+<div id="app">
+    <v-select :options="options"></v-select>
+</div>
+<script>
+    Vue.createApp({
+        components: {
+            vSelect: window["vs-vue3-select"]
+        },
+        data() {
+            return {
+                options: ["JavaScript", "PHP", "C++", "Java", "Assembler"]
+            };
+        }
+    }).mount("#app");
+</script>
+</body>
 ```
 
 <CodePen url="zYeXjZX" />

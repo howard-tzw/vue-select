@@ -1,6 +1,13 @@
-::: warning
-Site under construction
-:::
+---
+prev:
+ text: Installation
+ link: /guide/install
+next:
+ text: Selecting Values
+ link: /guide/values
+---
+
+# Dropdown Options
 
 ## Options Prop
 
@@ -8,14 +15,12 @@ Site under construction
 through the `options` prop:
 
 ```html
-<!-- array of strings or numbers -->
 <v-select :options="['Canada', 'United States']"></v-select>
 ```
 
 <v-select :options="['Canada', 'United States']"></v-select>
 
 ```html
-<!-- or, an array of objects -->
 <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select>
 ```
 

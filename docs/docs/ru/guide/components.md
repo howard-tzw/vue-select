@@ -1,91 +1,89 @@
-::: warning
-Site under construction
-:::
-
-### Prop: `components` `{Object}`
-
+---
+prev:
+ text: Работа со значением
+ link: /ru/guide/values
+next:
+ text: Стилизация CSS
+ link: /ru/guide/css
 ---
 
-Vs Vue3 Select utilizes child components throughout, and exposes an API to overwrite
-these components with your own, using the `components` `{Object}` prop. The
-object provided to the `components` prop will be merged with Vs Vue3 Select's
-default components.
+# Дочерние компоненты
 
-<<< @/../src/components/childComponents.js{4-7}
+## Свойство: `components` `{Object}`
 
-You can override the value of any of these keys with your own components.
+Vs Vue3 Select использует дочерние компоненты и предоставляет API для перезаписи этих компонентов вашими собственными,
+при помощи свойства `components` `{Object}.` Объект, предоставленный в свойстве `components`, будет объединен с
+компонентами Vs Vue3 Select по умолчанию.
 
-## Deselect <Badge text="v3.1.0+" />
+<CustomComponentRegistration/>
 
-You may wish to roll your own deselect button. `Deselect` is used within tags on
-`multiple` selects, and serves as the clear button for single selects. Maybe you
-just want to use a simple `<button>Clear</button>` instead.
+@[code](../../.vuepress/components/CustomComponentRegistration.vue)
+
+CustomDeselect.vue
+
+@[code](../../.vuepress/components/CustomDeselect.vue)
+
+CustomOpenIndicator.vue
+
+@[code](../../.vuepress/components/CustomOpenIndicator.vue)
+
+
+Вы можете переопределить значение любого из этих ключей с помощью ваших собственных компонентов.
+
+## Отмена выбора
+
+Возможно, вы захотите включить свою собственную кнопку отмены выбора. Отмена выбора используется в тегах при 
+множественном выборе и служит кнопкой очистки для одиночного выбора. Возможно, вы просто хотите использовать 
+простую `<button>Очистить</button>` вместо штатной.
 
 ```html
 <v-select :components="{Deselect}" />
 ```
+CustomDeselect.vue
 
-```js
-export default {
-  data: () => ({
-    Deselect: {
-      render: (createElement) => createElement('span', '❌'),
-    },
-  }),
-}
-```
+@[code](../../.vuepress/components/CustomDeselect.vue)
 
-  <ClearButtonOverride />
+<ClearButtonOverride />
 
-The same approach applies for `multiple` selects:
+Так же это применяется и к компоненту в режиме мультивыбора (`multiple`):
 
 <MultipleClearButtonOverride />
 
-## OpenIndicator <Badge text="v3.1.0+" />
+## Индикатор открытия
 
-The `OpenIndicator` component is the 'caret' used within the component that
-adjusts orientation based on whether the dropdown is open or closed.
+Компонент `OpenIndicator` - это "курсор", используемый в компоненте, который меняет ориентацию в зависимости от того,
+открыт выпадающий список или закрыт.
 
 ```html
 <v-select :components="{OpenIndicator}" />
 ```
 
-```js
-export default {
-  data: () => ({
-    selected: ['Canada'],
-    OpenIndicator: {
-      render: (createElement) =>
-        createElement('span', { class: { toggle: true } }),
-    },
-  }),
-}
-```
+CustomOpenIndicator.vue
+
+@[code](../../.vuepress/components/CustomOpenIndicator.vue)
 
 <OpenIndicatorOverride />
 
-## Setting Globally at Registration
+## Настройка компонентов глобально
 
-If you want all instances of Vs Vue3 Select to use your custom components throughout
-your app, while only having to set the implementation once, you can do so when
-registering Vs Vue3 Select as a component.
+Если вы хотите, чтобы все экземпляры Vs Vue3 Select использовали ваши пользовательские компоненты во всем вашем
+приложении, при этом вам нужно будет зарегистрировать реализацию только один раз. Это можно сделать это при регистрации
+Vs Vue3 Select в качестве компонента.
 
 ```js
 import Vue from 'vue'
-import vSelect from 'vue-select'
+import vSelect from 'vs-vue3-select'
 
-// Set the components prop default to return our fresh components
 vSelect.props.components.default = () => ({
   Deselect: {
-    render: (createElement) => createElement('span', '❌'),
+    template: '❌',
   },
   OpenIndicator: {
-    render: (createElement) => createElement('span', '🔽'),
+    template: '<span>🔽</span>',
   },
 })
 
-// Register the component
 Vue.component(vSelect)
 ```
 
-<CustomComponentRegistration />
+<CodePen url="KKJLMvg" height="350"/>

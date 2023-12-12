@@ -1,6 +1,6 @@
 import { it, describe, expect } from 'vitest'
 import { defineComponent } from 'vue'
-import { selectWithProps } from '@tests/helpers.js'
+import { selectWithProps } from '#/helpers.js'
 
 describe('Components API', () => {
   it('swap the Deselect component', () => {

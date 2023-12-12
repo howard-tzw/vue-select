@@ -2,17 +2,16 @@
 prev:
   text: Слоты
   link: /ru/api/slots
+next:
+  text: Vs Vue3 Select
+  link: /ru/
 ---
-## `input`
+# События
 
-Срабатывает при изменении выбранного значения. Используется внутри для `v-model`.
+## `update:model-value`
 
-```js
-/**
- * @param {Object|String} val - selected option.
- */
-this.$emit('input', val)
-```
+Срабатывает при изменении выбранного значения. В качестве параметра передает в обработчик выбранную опцию (тип String 
+или Object)
 
 ## `open`
 

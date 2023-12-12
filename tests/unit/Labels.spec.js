@@ -1,7 +1,7 @@
 import { it, describe, expect, vi } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import VueSelect from '@/components/Select.vue'
-import { selectWithProps } from '@tests/helpers.js'
+import { selectWithProps } from '#/helpers.js'
 
 describe('Labels', () => {
   it('can generate labels using a custom label key', () => {

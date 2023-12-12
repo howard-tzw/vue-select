@@ -20,8 +20,8 @@ export default defaultTheme({
                 collapsable: false,
                 children: [
                     {link: '/guide/components', text: 'Child Components'},
-                    {link: '/guide/css', text: 'CSS & Selectors'},
-                    {link: '/guide/slots', text: 'Slots'},
+                    {link: '/guide/css', text: 'CSS Styling'},
+                    {link: '/guide/slots', text: 'Slots Styling'},
                 ],
             },
             {
@@ -40,7 +40,7 @@ export default defaultTheme({
                     {link: '/guide/selectable', text: 'Limiting Selections'},
                     {link: '/guide/pagination', text: 'Pagination'},
                     {link: '/guide/infinite-scroll', text: 'Infinite Scroll'},
-                    {link: '/guide/vuex', text: 'Vuex'},
+                    {link: '/guide/state-manager', text: 'State manager'},
                     {link: '/guide/ajax', text: 'AJAX'},
                     {link: '/guide/loops', text: 'Using in Loops'},
                 ],
@@ -67,29 +67,29 @@ export default defaultTheme({
         ],
         '/ru/': [
             {
-                text: 'Getting Started',
+                text: 'Как начать',
                 collapsable: false,
                 children: [
-                    {link: '/guide/install', text: 'Installation'},
-                    {link: '/guide/options', text: 'Dropdown Options'},
-                    {link: '/guide/values', text: 'Selecting Values'},
+                    {link: '/ru/guide/install', text: 'Установка'},
+                    {link: '/ru/guide/options', text: 'Выпадающий список'},
+                    {link: '/ru/guide/values', text: 'Работа со значением'},
                 ],
             },
             {
-                text: 'Templating & Styling',
+                text: 'Стилизация',
                 collapsable: false,
                 children: [
-                    {link: '/guide/components', text: 'Child Components'},
-                    {link: '/guide/css', text: 'CSS & Selectors'},
-                    {link: '/guide/slots', text: 'Slots'},
+                    {link: '/ru/guide/components', text: 'Дочерние компоненты'},
+                    {link: '/ru/guide/css', text: 'CSS стилизация'},
+                    {link: '/ru/guide/slots', text: 'Стилизация слотами'},
                 ],
             },
             {
-                text: 'Accessibility',
+                text: 'Доступность',
                 collapsable: false,
                 children: [
-                    {link: '/guide/accessibility', text: 'WAI-ARIA Spec'},
-                    {link: '/guide/localization', text: 'Localization'},
+                    {link: '/ru/guide/accessibility', text: 'Спецификация WAI-ARIA'},
+                    {link: '/ru/guide/localization', text: 'Локализация'},
                 ],
             },
             {
@@ -100,7 +100,7 @@ export default defaultTheme({
                     {link: '/ru/guide/selectable', text: 'Ограничение выбора'},
                     {link: '/ru/guide/pagination', text: 'Разбивка на страницы'},
                     {link: '/ru/guide/infinite-scroll', text: 'Бесконечная прокрутка'},
-                    {link: '/ru/guide/vuex', text: 'Vuex'},
+                    {link: '/ru/guide/state-manager', text: 'Менеджер состояний'},
                     {link: '/ru/guide/ajax', text: 'AJAX'},
                     {link: '/ru/guide/loops', text: 'Применение в циклах'},
                 ],
