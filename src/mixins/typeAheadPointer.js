@@ -2,6 +2,7 @@ export default {
   data() {
     return {
       typeAheadPointer: -1,
+      typeAheadLabel: ''
     }
   },
 
@@ -10,6 +11,7 @@ export default {
       for (let i = 0; i < this.filteredOptions.length; i++) {
         if (this.selectable(this.filteredOptions[i])) {
           this.typeAheadPointer = i
+          //this.typeAheadLabel = this.filteredOptions[i][this.label]
           break
         }
       }
@@ -29,6 +31,7 @@ export default {
   methods: {
     updateTypeAheadPointer(index) {
       this.typeAheadPointer = index
+      this.typeAheadLabel = this.filteredOptions[index] ? this.filteredOptions[index][this.label] : ''
     },
     /**
      * Move the typeAheadPointer visually up the list by
@@ -65,13 +68,19 @@ export default {
     /**
      * Select the option at the current typeAheadPointer position.
      * Optionally clear the search input on selection.
+     * @param  actionMode Boolean true - width after select actions
      * @return {void}
      */
-    typeAheadSelect() {
+    typeAheadSelect(actionMode) {
       const typeAheadOption = this.filteredOptions[this.typeAheadPointer]
+      actionMode = typeof actionMode === 'undefined' ? true : actionMode
 
       if (typeAheadOption && this.selectable(typeAheadOption)) {
-        this.select(typeAheadOption)
+        if (actionMode) {
+          this.select(typeAheadOption)
+        }  else {
+          this.processSelect(typeAheadOption)
+        }
       }
     },
 

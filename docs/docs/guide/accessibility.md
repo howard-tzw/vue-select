@@ -47,7 +47,7 @@ configured to provide these use cases.
    <v-select taggable :options="['No Autocomplete', 'List Autocomplete']" />
    ```
 
-   <v-select taggable :options="['No Autocomplete', 'List Autocomplete']" />
+   <v-select taggable :options="['No Autocomplete', 'List Autocomplete']" :auto-select="true" />
 
 ### 3. List autocomplete with automatic selection
 
@@ -57,16 +57,25 @@ configured to provide these use cases.
    > unless the user chooses a different suggestion or changes the character string in the combobox.
 
    ```html
-   <v-select :options="['Other Case','No Autocomplete', 'List Autocomplete']" />
+   <v-select 
+        :options="['Other case','No Autocomplete', 'List Autocomplete']" 
+        :auto-select="true" />
    ```
 
-   <v-select :options="['Other Case','No Autocomplete', 'List Autocomplete']" />
+   <v-select :options="['Other Case','No Autocomplete', 'List Autocomplete']" :auto-select="true" />
 
-### 4. List with inline autocomplete
+### 4. List with inline autocomplete <Badge type="tip" text="v1.2.0+" vertical="top" />
 
    > This is the same as list with automatic selection with one additional feature. The portion of the selected
    > suggestion that has not been typed by the user, a completion string, appears inline after the input cursor in the
    > combobox. The inline completion string is visually highlighted and has a selected state.
 
-🚧 Vs Vue3 Select does not yet support this configuration, but it is on the
-   roadmap [#865](https://github.com/sagalbot/vue-select/issues/865). 🚧
+Auto-completion is performed if the option starts with the search bar.
+
+   ```html
+   <v-select :options="['Other case','No Autocomplete', 'List Autocomplete']" 
+             :auto-select="true"  
+             :complete-search="true" />
+   ```
+
+   <v-select :options="['Other Case','No Autocomplete', 'List Autocomplete', 'No cases']" :auto-select="true"  :complete-search="true" />

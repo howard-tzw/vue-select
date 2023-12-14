@@ -58,6 +58,16 @@ autoscroll: {
     default: true
 }
 ```
+## autoSelect
+
+При значении true при потере фокуса компонентом будет автоматически выбрана подсвеченная в списке опция.
+
+```js
+autoSelect: {
+    type: Boolean,
+    default: false
+}
+```
 
 ## calculatePosition
 Когда `appendToBody` имеет значение true, эта функция отвечает за позиционирование выпадающего списка.
@@ -130,6 +140,18 @@ closeOnSelect: {
     type: Boolean,
     default: true
 },
+```
+
+## completeSearch
+
+При значении true часть выбранной опции, которая не была введена пользователем, отображается в строке поиска после 
+курсора ввода.
+
+```js
+completeSearch: {
+    type: Boolean,
+    default: false
+}
 ```
 
 ## components

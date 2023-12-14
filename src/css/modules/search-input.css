@@ -16,15 +16,25 @@
     display: none;
 }
 
+.vs__input-box{
+    max-width: 100%;
+    flex-grow: 1;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
 .vs__search,
 .vs__search:focus {
     /* disable the quick blinking effect when the input has been hit */
     /* refer to https://stackoverflow.com/questions/3516173/ipad-safari-how-to-disable-the-quick-blinking-effect-when-a-link-has-been-hit */
     -webkit-tap-highlight-color: transparent;
 
-    width: 0;
-    max-width: 100%;
-    flex-grow: 1;
+    width: 100%;
     position: relative;
     margin: 0;
     padding: 0;
@@ -39,6 +49,25 @@
     border: 1px solid transparent;
     border-left: none;
     outline: none;
+
+}
+
+/* Autocomplete */
+.vs__search_complete{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    z-index: 0;
+    color: var(--vs-state-disabled-color);
+    height: 100%;
+}
+
+.vs__search_position{
+    display: flex;
+    align-items: center;
 }
 
 .vs__search::placeholder {
