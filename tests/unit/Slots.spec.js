@@ -159,4 +159,21 @@ describe('Scoped Slots', () => {
       'filteredOptions',
     ])
   })
+  test('typeahead slot props', async () => {
+    const footer = vi.fn()
+    const Select = mountDefault(
+      {},
+      {
+        slots: { 'typeahead': footer },
+      }
+    )
+    Select.vm.open = true
+    await Select.vm.$nextTick()
+    expect(Object.keys(footer.mock.calls[0][0])).toEqual([
+      'search',
+      'completedText',
+      'searching',
+      'canCompleteSearch',
+    ])
+  })
 })
