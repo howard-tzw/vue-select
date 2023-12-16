@@ -860,7 +860,13 @@ export default {
         },
         listHeader: listSlot,
         listFooter: listSlot,
-        header: {...listSlot, deselect: this.deselect},
+        header: {
+          ...listSlot,
+          deselect: this.deselect,
+          id: this.inputId,
+          selectedValue: this.selectedValue,
+          open: this.open
+        },
         footer: {...listSlot, deselect: this.deselect},
       }
     },

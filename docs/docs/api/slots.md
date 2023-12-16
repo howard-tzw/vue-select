@@ -42,6 +42,9 @@ Displayed at the top of the component, above `.vs__dropdown-toggle`.
 - `searching {boolean}` - is the component searching
 - `filteredOptions {array}` - options filtered by the search text
 - `deselect {function}` - function to deselect an option
+- `inputId {string}` - Attribute id of input <Badge type="tip" text="v1.2.0+" vertical="top" />
+- `selectedValue {array}` - selected option array <Badge type="tip" text="v1.2.0+" vertical="top" />
+- `open {bool}` - active input indicator <Badge type="tip" text="v1.2.0+" vertical="top" />
 
 <SlotHeader />
 

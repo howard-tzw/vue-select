@@ -43,6 +43,7 @@ export default defaultTheme({
                     {link: '/guide/state-manager', text: 'State manager'},
                     {link: '/guide/ajax', text: 'AJAX'},
                     {link: '/guide/loops', text: 'Using in Loops'},
+                    {link: '/guide/floating-label', text: 'Floating Label'},
                 ],
             },
             {
@@ -103,6 +104,7 @@ export default defaultTheme({
                     {link: '/ru/guide/state-manager', text: 'Менеджер состояний'},
                     {link: '/ru/guide/ajax', text: 'AJAX'},
                     {link: '/ru/guide/loops', text: 'Применение в циклах'},
+                    {link: '/ru/guide/floating-label', text: 'Плавающая метка'},
                 ],
             },
             {

@@ -44,6 +44,9 @@ positioning.
 - `searching {boolean}` - признак состояния поиска
 - `filteredOptions {array}` - массив опций отфильтрованных поисковым запросом
 - `deselect {function}` - функция отменяющая выбор опции
+- `inputId {string}` - Атрибут id элемента input <Badge type="tip" text="v1.2.0+" vertical="top" />
+- `selectedValue {array}` - Массив выбранных опций <Badge type="tip" text="v1.2.0+" vertical="top" />
+- `open {bool}` - Индикатор активности поля <Badge type="tip" text="v1.2.0+" vertical="top" />
 
 <SlotHeader />
 

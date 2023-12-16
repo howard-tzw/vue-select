@@ -1,7 +1,7 @@
 ---
 prev:
-  text: Using in Loops
-  link: /guide/loops
+  text: Floating Label
+  link: /guide/floating-label
 next:
   text: Dropdown Position
   link: /guide/positioning

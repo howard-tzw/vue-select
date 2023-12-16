@@ -77,5 +77,3 @@ const links = computed(() => {
     </div>
   </div>
 </template>
-
-<style scoped></style>

@@ -103,6 +103,9 @@ describe('Scoped Slots', () => {
       'searching',
       'filteredOptions',
       'deselect',
+      'id',
+      'selectedValue',
+      'open'
     ])
   })
 

@@ -1,7 +1,7 @@
 ---
 prev:
-  text: Применение в циклах
-  link: /ru/guide/loops
+  text: Плавающая метка
+  link: /ru/guide/floating-label
 next:
   text: Позиционирование списка
   link: /ru/guide/positioning

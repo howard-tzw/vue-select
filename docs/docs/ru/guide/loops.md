@@ -3,8 +3,8 @@ prev:
   text: AJAX
   link: /ru/guide/ajax
 next:
-  text: События клавиатуры
-  link: /ru/guide/keydown
+  text: Плавающая метка
+  link: /ru/guide/floating-label
 ---
 
 # Применение в циклах

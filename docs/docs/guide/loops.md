@@ -3,8 +3,8 @@ prev:
   text: AJAX
   link: /guide/ajax
 next:
-  text: Keydown Events
-  link: /guide/keydown
+  text: Floating Label
+  link: /guide/floating-label
 ---
 
 # Using in Loops
