@@ -121,7 +121,8 @@ attributes = {
 Строка ввода поискового запроса множество привязок, но они сгруппированы: атрибуты и события. В большинстве случаев
 достаточно привязывать эти два параметра с помощью v-on="events" и v-bind="attributes".
 
-Если необходимо сохранить стиль по умолчанию, то добавьте класс `.vs__search` к добавляемому полю ввода.
+Если необходимо сохранить стиль по умолчанию, то добавьте классы `vs__search vs__search_position` к добавляемому полю ввода.
+Класс `vs__search_position` синхронизирует позицию текста поиска и текста автодополнения.
 
 ```js
 /**
@@ -193,3 +194,19 @@ attributes = {
 <SlotSpinner />
 
 @[code](../../.vuepress/components/SlotSpinner.vue)
+
+## `typeahead`  <Badge type="tip" text="v1.2.0+" vertical="top" /> 
+
+Строка автодополнения.
+
+Если необходимо сохранить стиль по умолчанию, то добавьте классы `vs__search_complete vs__search_position` к 
+добавляемому элементу. Класс `vs__search_position` синхронизирует позицию текста поиска и текста автодополнения.
+
+- `search {string}` - Текст поиска
+- `completedText {string}` - Дополненный текст поиска 
+- `searching {Boolean}` - Флаг состояния поиска компонента
+- `canCompleteSearch {Boolean}` - Признак режима автодополнения
+
+<SlotTypeahead />
+
+@[code](../../.vuepress/components/SlotTypeahead.vue)

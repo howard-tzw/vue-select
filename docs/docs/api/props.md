@@ -62,6 +62,18 @@ autoscroll: {
 }
 ```
 
+## autoSelect
+
+When true, The portion of the selected suggestion that has not been typed by the user, appears in 
+search line after the input cursor.
+
+```js
+autoSelect: {
+    type: Boolean,
+    default: false
+}
+```
+
 ## calculatePosition
 
 When `appendToBody` is true, this function is responsible for positioning the

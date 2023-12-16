@@ -121,8 +121,8 @@ The search input has a lot of bindings, but they're grouped into `attributes`
 and `events`. Most of the time, you will just be binding those two with
 `v-on="events"` and `v-bind="attributes"`.
 
-If you want the default styling, you'll need to add `.vs__search` to the input
-you provide.
+If you want the default styling, you'll need to add `vs__search vs__search_position` to the input you provide. The
+`vs__search_position` class synchronizes the position of the search text and the autocomplete text.
 
 ```js
 /**
