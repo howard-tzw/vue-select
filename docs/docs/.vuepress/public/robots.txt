@@ -1,0 +1,3 @@
+User-Agent: *
+Host: vue3-select.va-soft.ru
+Sitemap: https://vue3-select.va-soft.ru/sitemap.xml
