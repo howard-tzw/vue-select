@@ -1,6 +1,6 @@
 ---
 prev:
-  text: Применение в циклах
+  text: Using in Loops
   link: /guide/loops
 next:
   text: Keydown Events

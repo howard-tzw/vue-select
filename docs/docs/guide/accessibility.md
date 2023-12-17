@@ -70,7 +70,7 @@ configured to provide these use cases.
    > suggestion that has not been typed by the user, a completion string, appears inline after the input cursor in the
    > combobox. The inline completion string is visually highlighted and has a selected state.
 
-Auto-completion is performed if the option starts with the search bar.
+Autocompleted option is shown if it starts with the characters typed by the user.
 
    ```html
    <v-select :options="['Other case','No Autocomplete', 'List Autocomplete']" 

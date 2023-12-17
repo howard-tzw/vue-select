@@ -64,8 +64,7 @@ autoscroll: {
 
 ## autoSelect
 
-When true, The portion of the selected suggestion that has not been typed by the user, appears in 
-search line after the input cursor.
+When true, if the component loses focus, the option highlighted in the list will be automatically selected.
 
 ```js
 autoSelect: {
@@ -149,6 +148,17 @@ closeOnSelect: {
 	type: Boolean,
 	default: true
 },
+```
+## completeSearch
+
+When true, the part of the selected suggestion that has not been typed by the user, appears in the search line after the
+input cursor.
+
+```js
+completeSearch: {
+    type: Boolean,
+    default: false
+}
 ```
 
 ## components
