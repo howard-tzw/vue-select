@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {ref, computed} from 'vue'
 import countries from '../mocks/countryCodes.js'
 import {useRouter} from 'vue-router'
@@ -24,7 +24,7 @@ const links = computed(() => {
   const router = useRouter()
   const excludes = ['Home', '404']
   return router.options.routes.filter(
-      (r) => r.path.startsWith('/') && !excludes.includes(r.name as string)
+      (r) => r.path.startsWith('/') && !excludes.includes(r.name)
   )
 })
 </script>
