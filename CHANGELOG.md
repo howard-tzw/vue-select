@@ -1,5 +1,20 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.2.0](https://github.com/voral/vs-vue3-select/compare/v1.1.0...v1.2.0) (2023-12-17)
+
+
+### Features
+
+* **accessibility:** Autocomplete ([7f6c4b6](https://github.com/voral/vs-vue3-select/commit/7f6c4b6f13ea0a6a0decf20133eac7b53bf26359))
+* **useCase:** Enhance header slot with additional props: id, selectedValues, open. ([8c01534](https://github.com/voral/vs-vue3-select/commit/8c01534e9d0d573d6988d0b6916b86fda73036d4))
+
+
+### Chores
+
+* **description:** Changed project description ([fbcdb3a](https://github.com/voral/vs-vue3-select/commit/fbcdb3ab9098256e4eb9017142e9535692ad7e44))
+
 ## [1.1.0](https://github.com/voral/vs-vue3-select/compare/v1.0.0...v1.1.0) (2023-12-12)
 
 
