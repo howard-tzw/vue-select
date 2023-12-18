@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/voral/vs-vue3-select/compare/v1.2.0...v1.2.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* **styles:** The selected option was visually cut off - fixed ([7a520a4](https://github.com/voral/vs-vue3-select/commit/7a520a4fe97429b93c446582b81803728a89102e))
+
 ## [1.2.0](https://github.com/voral/vs-vue3-select/compare/v1.1.0...v1.2.0) (2023-12-17)
 
 
