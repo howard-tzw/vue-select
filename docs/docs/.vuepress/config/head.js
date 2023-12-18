@@ -43,6 +43,7 @@ const head = [
     ['meta', {property: 'og:title', content: meta.title}],
     ['meta', {property: 'og:site_name', content: meta.title}],
     ['meta', {property: 'og:url', content: meta.url}],
+    ['meta', {property: 'og:type', content: 'website'}],
 ]
 
 if (isDeployPreview) {
