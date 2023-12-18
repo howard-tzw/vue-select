@@ -34,6 +34,7 @@
 .vs--single .vs__selected {
     background-color: transparent;
     border-color: transparent;
+    flex: none;
 }
 
 .vs--single.vs--open .vs__selected,
