@@ -263,7 +263,8 @@
 
 <script>
 import Fuse from 'fuse.js'
-import debounce from 'lodash/debounce'
+//import debounce from 'lodash/debounce'
+import debounce from "@popperjs/core/lib/utils/debounce";
 import vSelect from '../../../../src/components/Select.vue'
 import countries from '../data/countryCodes'
 import books from '../data/books'
