@@ -9,6 +9,7 @@ export default defineConfig({
         coverage: {
             provider: 'v8',
             exclude: [...configDefaults.coverage.exclude, 'demo'],
+            reporter:['lcov','html-spa','text']
         },
     },
     resolve: {

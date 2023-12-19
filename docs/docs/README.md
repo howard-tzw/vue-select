@@ -1,11 +1,11 @@
 # Vs Vue3 Select
 
-![Current Release](https://img.shields.io/github/release/voral/vs-vue3-select.svg?style=flat-square)
-![Release Date](https://img.shields.io/github/release-date/voral/vs-vue3-select?style=flat-square)
-![Monthly Downloads](https://img.shields.io/npm/dm/vs-vue3-select.svg?style=flat-square)
-![min gzipped size](https://img.shields.io/bundlejs/size/vs-vue3-select?style=flat-square)
-![MIT License](https://img.shields.io/github/license/voral/vs-vue3-select.svg?style=flat-square)
-
+![Current Release](https://img.shields.io/github/release/voral/vs-vue3-select.svg)
+![Release Date](https://img.shields.io/github/release-date/voral/vs-vue3-select)
+![Monthly Downloads](https://img.shields.io/npm/dm/vs-vue3-select.svg)
+![min gzipped size](https://img.shields.io/bundlejs/size/vs-vue3-select)
+![MIT License](https://img.shields.io/github/license/voral/vs-vue3-select.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Voral/vs-vue3-select/badge.svg?branch=main)](https://coveralls.io/github/Voral/vs-vue3-select?branch=main)
 
 Vs Vue3 Select is a feature rich select/dropdown/typeahead component. It provides a
 default template that fits most use cases for a filterable select dropdown. The

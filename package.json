@@ -17,6 +17,7 @@
     "demo:preview": "pnpm -r --filter demo preview",
     "test": "vitest --environment jsdom",
     "coverage": "vitest --run --coverage --environment jsdom --silent",
+    "coverage-info": "vitest --run --coverage --environment jsdom --silent && cat ./coverage/lcov.info | coveralls",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "release": "standard-version --header",
