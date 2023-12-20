@@ -89,7 +89,7 @@ export default defaultTheme({
                 text: 'Доступность',
                 collapsable: false,
                 children: [
-                    {link: '/ru/accessibility/accessibility', text: 'Спецификация WAI-ARIA'},
+                    {link: '/ru/accessibility/wai-aria', text: 'Спецификация WAI-ARIA'},
                     {link: '/ru/accessibility/localization', text: 'Локализация'},
                 ],
             },
