@@ -1,4 +1,4 @@
-# Vs Vue3 Select
+# Компонент Vs Vue3 Select
 
 ![Current Release](https://img.shields.io/github/release/voral/vs-vue3-select.svg)
 ![Release Date](https://img.shields.io/github/release-date/voral/vs-vue3-select)
