@@ -6,6 +6,7 @@ import sitemapPlugin from '@vuepress-denaro/vuepress-plugin-sitemap';
 import {googleAnalyticsPlugin} from "@vuepress/plugin-google-analytics";
 import 'dotenv/config';
 
+console.log('test',process.env.YANDEX_METRIKA_ID);
 export default [
     registerComponentsPlugin({
         componentsDir: './docs/.vuepress/components'
@@ -13,7 +14,7 @@ export default [
     activeHeaderLinksPlugin(),
     searchPlugin(),
     yandexMetrikaPlugin({
-        id: process.env.YANDEX_METIKA_ID,
+        id: process.env.YANDEX_METRIKA_ID,
         config: {
             clickmap: false,
             trackLinks: true,
@@ -26,6 +27,6 @@ export default [
         exclude: ['/404.html', 'sandbox.html']
     }),
     googleAnalyticsPlugin({
-        id: process.env.GOOFLE_ANALYTICS_ID,
+        id: process.env.GOOGLE_ANALYTICS_ID,
     })
 ]
