@@ -18,7 +18,3 @@ const options = ['Albania', 'Algeria', 'American Samoa',
     </template>
   </v-select>
 </template>
-
-<style scoped>
-
-</style>

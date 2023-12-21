@@ -8,9 +8,9 @@
       <td>{{ person.name }}</td>
       <td>
         <v-select
-          :options="options"
-          :value="person.country"
-          @input="(country) => updateCountry(person, country)"
+            :options="options"
+            :value="person.country"
+            @input="(country) => updateCountry(person, country)"
         />
       </td>
     </tr>
@@ -23,8 +23,8 @@ import countries from '../data/countries'
 export default {
   data: () => ({
     people: [
-      { name: 'John', country: '' },
-      { name: 'Jane', country: '' },
+      {name: 'John', country: ''},
+      {name: 'Jane', country: ''},
     ],
   }),
   computed: {

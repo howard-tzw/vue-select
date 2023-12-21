@@ -16,7 +16,7 @@
     display: none;
 }
 
-.vs__input-box{
+.vs__input-box {
     max-width: 100%;
     flex-grow: 1;
     position: relative;
@@ -53,9 +53,9 @@
 }
 
 /* Autocomplete */
-.vs__search_complete{
+.vs__search_complete {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -65,7 +65,7 @@
     height: 100%;
 }
 
-.vs__search_position{
+.vs__search_position {
     display: flex;
     align-items: center;
 }

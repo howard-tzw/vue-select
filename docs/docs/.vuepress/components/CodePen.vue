@@ -1,11 +1,11 @@
 <template>
   <p
-    :data-height="height"
-    data-theme-id="32252"
-    :data-slug-hash="url"
-    data-default-tab="result"
-    data-user="vasoft"
-    class="codepen"
+      :data-height="height"
+      data-theme-id="32252"
+      :data-slug-hash="url"
+      data-default-tab="result"
+      data-user="vasoft"
+      class="codepen"
   ></p>
 </template>
 

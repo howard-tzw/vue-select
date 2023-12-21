@@ -262,7 +262,6 @@
 </template>
 
 <script>
-import Fuse from 'fuse.js'
 //import debounce from 'lodash/debounce'
 import debounce from "@popperjs/core/lib/utils/debounce";
 import vSelect from '../../../../src/components/Select.vue'

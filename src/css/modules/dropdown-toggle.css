@@ -11,41 +11,42 @@
  */
 
 .vs__dropdown-toggle {
-  height: var(--vs-height);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  padding: 0px;
-  white-space: normal;
+    height: var(--vs-height);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0;
+    white-space: normal;
 
-  appearance: none;
-  background: var(--vs-bg-color);
-  border: var(--vs-border-width) var(--vs-border-style) var(--vs-border-color);
-  border-radius: var(--vs-border-radius);
+    appearance: none;
+    background: var(--vs-bg-color);
+    border: var(--vs-border-width) var(--vs-border-style) var(--vs-border-color);
+    border-radius: var(--vs-border-radius);
 }
 
 .vs__selected-options {
-  max-width: 100%;
-  display: flex;
-  flex-basis: 100%;
-  flex-grow: 1;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0 0px 0 10px;
-  position: relative;
+    max-width: 100%;
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    position: relative;
 }
 
 .vs__actions {
-  display: flex;
-  align-items: center;
-  padding: var(--vs-actions-padding);
-  margin: 0 2px;
+    display: flex;
+    align-items: center;
+    padding: var(--vs-actions-padding);
+    margin: 0 2px;
 }
 
 /* Dropdown Toggle States */
 .vs--searchable .vs__dropdown-toggle {
-  cursor: text;
+    cursor: text;
 }
+
 .vs--unsearchable .vs__dropdown-toggle {
-  cursor: pointer;
+    cursor: pointer;
 }

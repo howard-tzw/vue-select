@@ -6,7 +6,6 @@ import sitemapPlugin from '@vuepress-denaro/vuepress-plugin-sitemap';
 import {googleAnalyticsPlugin} from "@vuepress/plugin-google-analytics";
 import 'dotenv/config';
 
-console.log('test',process.env.YANDEX_METRIKA_ID);
 export default [
     registerComponentsPlugin({
         componentsDir: './docs/.vuepress/components'

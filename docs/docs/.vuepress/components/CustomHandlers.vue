@@ -1,10 +1,10 @@
 <template>
   <v-select
-    taggable
-    multiple
-    no-drop
-    :map-keydown="handlers"
-    placeholder="enter an email"
+      taggable
+      multiple
+      no-drop
+      :map-keydown="handlers"
+      placeholder="enter an email"
   />
 </template>
 

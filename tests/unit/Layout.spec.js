@@ -1,31 +1,31 @@
-import { it, describe, expect } from 'vitest'
-import { shallowMount } from '@vue/test-utils'
+import {it, describe, expect} from 'vitest'
+import {shallowMount} from '@vue/test-utils'
 import VueSelect from '@/components/Select.vue'
 
 describe('Single value options', () => {
-  it('should reset the search input on focus lost', () => {
-    const Select = shallowMount(VueSelect)
-    Select.vm.open = true
+    it('should reset the search input on focus lost', () => {
+        const Select = shallowMount(VueSelect)
+        Select.vm.open = true
 
-    Select.vm.search = 't'
-    expect(Select.vm.search).toEqual('t')
+        Select.vm.search = 't'
+        expect(Select.vm.search).toEqual('t')
 
-    Select.vm.onSearchBlur()
-    expect(Select.vm.search).toEqual('')
-  })
-
-  it('should not reset the search input on focus lost when clearSearchOnSelect is false', () => {
-    const Select = shallowMount(VueSelect, {
-      props: { value: 'foo', clearSearchOnSelect: false },
+        Select.vm.onSearchBlur()
+        expect(Select.vm.search).toEqual('')
     })
 
-    expect(Select.vm.clearSearchOnSelect).toEqual(false)
+    it('should not reset the search input on focus lost when clearSearchOnSelect is false', () => {
+        const Select = shallowMount(VueSelect, {
+            props: {value: 'foo', clearSearchOnSelect: false},
+        })
 
-    Select.vm.open = true
-    Select.vm.search = 't'
-    expect(Select.vm.search).toEqual('t')
+        expect(Select.vm.clearSearchOnSelect).toEqual(false)
 
-    Select.vm.onSearchBlur()
-    expect(Select.vm.search).toEqual('t')
-  })
+        Select.vm.open = true
+        Select.vm.search = 't'
+        expect(Select.vm.search).toEqual('t')
+
+        Select.vm.onSearchBlur()
+        expect(Select.vm.search).toEqual('t')
+    })
 })

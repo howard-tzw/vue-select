@@ -21,7 +21,7 @@
 
 <script>
 import countries from '../data/countries'
-import { createPopper } from '@popperjs/core'
+import {createPopper} from '@popperjs/core'
 
 export default {
   data: () => ({ countries, placement: 'top' }),

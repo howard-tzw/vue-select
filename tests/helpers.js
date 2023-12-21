@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import {shallowMount} from '@vue/test-utils'
 import VueSelect from '@/components/Select.vue'
 
 /**
@@ -9,22 +9,22 @@ import VueSelect from '@/components/Select.vue'
  * @param searchText
  */
 export const searchSubmit = async (Wrapper, searchText = undefined) => {
-  await Wrapper.get('input').trigger('focus')
+    await Wrapper.get('input').trigger('focus')
 
-  if (searchText) {
-    Wrapper.vm.search = searchText
-    await Wrapper.vm.$nextTick()
-  }
+    if (searchText) {
+        Wrapper.vm.search = searchText
+        await Wrapper.vm.$nextTick()
+    }
 
-  await Wrapper.get('input').trigger('keydown.enter')
+    await Wrapper.get('input').trigger('keydown.enter')
 }
 
 /**
  * Focus the search input
  */
 export const searchFocus = async (Wrapper) => {
-  await Wrapper.get('input').trigger('focus')
-  await Wrapper.vm.$nextTick()
+    await Wrapper.get('input').trigger('focus')
+    await Wrapper.vm.$nextTick()
 }
 
 /**
@@ -34,13 +34,13 @@ export const searchFocus = async (Wrapper) => {
  * @return {Promise<void>}
  */
 export const selectTag = async (Wrapper, searchText) => {
-  Wrapper.vm.$refs.search.focus()
-  await Wrapper.vm.$nextTick()
+    Wrapper.vm.$refs.search.focus()
+    await Wrapper.vm.$nextTick()
 
-  Wrapper.vm.search = searchText
-  await Wrapper.vm.$nextTick()
+    Wrapper.vm.search = searchText
+    await Wrapper.vm.$nextTick()
 
-  await Wrapper.get('input').trigger('keydown.enter')
+    await Wrapper.get('input').trigger('keydown.enter')
 }
 
 /**
@@ -50,7 +50,7 @@ export const selectTag = async (Wrapper, searchText) => {
  * @returns {Wrapper<Vue>}
  */
 export const selectWithProps = (props = {}) => {
-  return shallowMount(VueSelect, { props })
+    return shallowMount(VueSelect, {props})
 }
 
 /**
@@ -60,11 +60,11 @@ export const selectWithProps = (props = {}) => {
  * @return {Wrapper<Vue>}
  */
 export const mountDefault = (props = {}, options = {}) => {
-  return shallowMount(VueSelect, {
-    props: {
-      options: ['one', 'two', 'three'],
-      ...props,
-    },
-    ...options,
-  })
+    return shallowMount(VueSelect, {
+        props: {
+            options: ['one', 'two', 'three'],
+            ...props,
+        },
+        ...options,
+    })
 }

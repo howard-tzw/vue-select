@@ -1,8 +1,8 @@
 <template>
   <v-select
-    v-model="country"
-    :options="countries"
-    :dropdown-should-open="dropdownShouldOpen"
+      v-model="country"
+      :options="countries"
+      :dropdown-should-open="dropdownShouldOpen"
   />
 </template>
 

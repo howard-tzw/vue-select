@@ -1,10 +1,10 @@
 <template>
   <v-select
-    :options="paginated"
-    :filterable="false"
-    @open="onOpen"
-    @close="onClose"
-    @search="(query) => (search = query)"
+      :options="paginated"
+      :filterable="false"
+      @open="onOpen"
+      @close="onClose"
+      @search="(query) => (search = query)"
   >
     <template #list-footer>
       <li v-show="hasNextPage" ref="load" class="loader">
@@ -48,7 +48,7 @@ export default {
     onClose() {
       this.observer.disconnect()
     },
-    async infiniteScroll([{ isIntersecting, target }]) {
+    async infiniteScroll([{isIntersecting, target}]) {
       if (isIntersecting) {
         const ul = target.offsetParent
         const scrollTop = target.offsetParent.scrollTop

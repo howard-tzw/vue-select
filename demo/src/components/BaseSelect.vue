@@ -5,17 +5,17 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ref, computed, useAttrs } from 'vue'
+import {ref, computed, useAttrs} from 'vue'
 
 const props = withDefaults(
-  defineProps<{
-    searchable?: boolean
-    square?: boolean
-  }>(),
-  {
-    searchable: false,
-    square: false,
-  }
+    defineProps<{
+      searchable?: boolean
+      square?: boolean
+    }>(),
+    {
+      searchable: false,
+      square: false,
+    }
 )
 
 const borderRadius = computed(() => {
@@ -38,12 +38,12 @@ function selectedOptionNameClass(name: string) {
 <template>
   <div>
     <v-select
-      v-bind="$attrs"
-      :clearable="false"
-      :searchable="searchable"
-      label="name"
-      append-to-body
-      transition="fade"
+        v-bind="$attrs"
+        :clearable="false"
+        :searchable="searchable"
+        label="name"
+        append-to-body
+        transition="fade"
     >
       <template #option="{ name }">
         <div class="option--scroll">
@@ -75,6 +75,7 @@ function selectedOptionNameClass(name: string) {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
 :deep(
     .vs__dropdown-toggle .vs__selected-options .vs__selected::-webkit-scrollbar
   ) {
@@ -89,6 +90,7 @@ function selectedOptionNameClass(name: string) {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .option--scroll::-webkit-scrollbar {
   display: none;

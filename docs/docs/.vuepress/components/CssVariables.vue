@@ -1,13 +1,14 @@
 <template>
   <div style="background: #282c34; padding: 1rem; border-radius: 0.3rem">
-    <v-select :options="countries" />
+    <v-select :options="countries"/>
   </div>
 </template>
 
 <script>
 import countries from '../data/countries.js'
+
 export default {
-  data: () => ({ countries }),
+  data: () => ({countries}),
 }
 </script>
 

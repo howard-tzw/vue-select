@@ -1,81 +1,81 @@
-import { it, describe, expect, vi, afterEach } from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 import typeAheadPointer from '@/mixins/typeAheadPointer.js'
-import { mountDefault } from '#/helpers.js'
+import {mountDefault} from '#/helpers.js'
 import {shallowMount} from "@vue/test-utils";
 import VueSelect from "@/components/Select.vue";
 
 describe('Custom Keydown Handlers', () => {
-  let spy
-  afterEach(() => {
-    if (spy) spy.mockClear()
-  })
-
-  it('can use the map-keydown prop to trigger custom behaviour', async () => {
-    const onKeyDown = vi.fn()
-    const Select = mountDefault({
-      mapKeydown: (defaults, vm) => ({ ...defaults, 32: onKeyDown }),
+    let spy
+    afterEach(() => {
+        if (spy) spy.mockClear()
     })
 
-    await Select.get('input').trigger('keydown.space')
+    it('can use the map-keydown prop to trigger custom behaviour', async () => {
+        const onKeyDown = vi.fn()
+        const Select = mountDefault({
+            mapKeydown: (defaults, vm) => ({...defaults, 32: onKeyDown}),
+        })
 
-    expect(onKeyDown.mock.calls.length).toBe(1)
-  })
+        await Select.get('input').trigger('keydown.space')
 
-  it('selectOnKeyCodes should trigger a selection for custom keycodes', () => {
-    spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
-
-    const Select = mountDefault({
-      selectOnKeyCodes: [32],
+        expect(onKeyDown.mock.calls.length).toBe(1)
     })
 
-    Select.get('input').trigger('keydown.space')
+    it('selectOnKeyCodes should trigger a selection for custom keycodes', () => {
+        spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
 
-    expect(spy).toHaveBeenCalledTimes(1)
-  })
+        const Select = mountDefault({
+            selectOnKeyCodes: [32],
+        })
 
-  it('even works when combining selectOnKeyCodes with map-keydown', () => {
-    spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
+        Select.get('input').trigger('keydown.space')
 
-    const onKeyDown = vi.fn()
-    const Select = mountDefault({
-      mapKeydown: (defaults, vm) => ({ ...defaults, 32: onKeyDown }),
-      selectOnKeyCodes: [9],
+        expect(spy).toHaveBeenCalledTimes(1)
     })
 
-    Select.get('input').trigger('keydown.space')
-    expect(onKeyDown.mock.calls.length).toBe(1)
+    it('even works when combining selectOnKeyCodes with map-keydown', () => {
+        spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
 
-    Select.get('input').trigger('keydown.tab')
-    expect(spy).toHaveBeenCalledTimes(1)
-  })
+        const onKeyDown = vi.fn()
+        const Select = mountDefault({
+            mapKeydown: (defaults, vm) => ({...defaults, 32: onKeyDown}),
+            selectOnKeyCodes: [9],
+        })
 
-  describe('CompositionEvent support', () => {
-    it('will not select a value with enter if the user is composing', () => {
-      spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
+        Select.get('input').trigger('keydown.space')
+        expect(onKeyDown.mock.calls.length).toBe(1)
 
-      const Select = mountDefault()
-
-      Select.get('input').trigger('compositionstart')
-      Select.get('input').trigger('keydown.enter')
-      expect(spy).toHaveBeenCalledTimes(0)
-
-      Select.get('input').trigger('compositionend')
-      Select.get('input').trigger('keydown.enter')
-      expect(spy).toHaveBeenCalledTimes(1)
-    })
-  })
-
-  it('can select an option on tab', () => {
-    spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
-    const Select = shallowMount(VueSelect, {
-      props: {
-        selectOnKeyCodes: [13,9],
-      },
+        Select.get('input').trigger('keydown.tab')
+        expect(spy).toHaveBeenCalledTimes(1)
     })
 
-    Select.get('input').trigger('keydown.tab')
+    describe('CompositionEvent support', () => {
+        it('will not select a value with enter if the user is composing', () => {
+            spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
 
-    expect(spy).toHaveBeenCalledWith()
-  })
+            const Select = mountDefault()
+
+            Select.get('input').trigger('compositionstart')
+            Select.get('input').trigger('keydown.enter')
+            expect(spy).toHaveBeenCalledTimes(0)
+
+            Select.get('input').trigger('compositionend')
+            Select.get('input').trigger('keydown.enter')
+            expect(spy).toHaveBeenCalledTimes(1)
+        })
+    })
+
+    it('can select an option on tab', () => {
+        spy = vi.spyOn(typeAheadPointer.methods, 'typeAheadSelect')
+        const Select = shallowMount(VueSelect, {
+            props: {
+                selectOnKeyCodes: [13, 9],
+            },
+        })
+
+        Select.get('input').trigger('keydown.tab')
+
+        expect(spy).toHaveBeenCalledWith()
+    })
 
 })

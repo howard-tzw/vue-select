@@ -22,7 +22,7 @@ describe('Autocomplete', () => {
     })
     it('2 should not view complete text then prop autoSelect is default', async () => {
         const Select = selectWithProps({
-            options: ['Afghanistan', 'Albania', 'Algeria','Cocos (Keeling) Islands'],
+            options: ['Afghanistan', 'Albania', 'Algeria', 'Cocos (Keeling) Islands'],
         })
 
         Select.get('input').trigger('focus')

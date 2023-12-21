@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-select
-      class="style-chooser"
-      placeholder="Choose a Styling Option"
-      :options="['Components', 'CSS / Variables', 'Slots']"
+        class="style-chooser"
+        placeholder="Choose a Styling Option"
+        :options="['Components', 'CSS / Variables', 'Slots']"
     />
   </div>
 </template>

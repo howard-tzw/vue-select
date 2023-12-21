@@ -6,25 +6,24 @@
  */
 
 .vs__open-indicator {
-  fill: var(--vs-controls-color);
-  transform: scale(var(--vs-controls-size));
-  transition: transform var(--vs-transition-duration)
-    var(--vs-transition-timing-function);
-  transition-timing-function: var(--vs-transition-timing-function);
+    fill: var(--vs-controls-color);
+    transform: scale(var(--vs-controls-size));
+    transition: transform var(--vs-transition-duration) var(--vs-transition-timing-function);
+    transition-timing-function: var(--vs-transition-timing-function);
 }
 
 svg.vs__open-indicator > path {
-  fill: var(--vs-open-indicator-color);
+    fill: var(--vs-open-indicator-color);
 }
 
 /* Open State */
 
 .vs--open .vs__open-indicator {
-  transform: rotate(180deg) scale(var(--vs-controls-size));
+    transform: rotate(180deg) scale(var(--vs-controls-size));
 }
 
 /* Loading State */
 
 .vs--loading .vs__open-indicator {
-  opacity: 0;
+    opacity: 0;
 }

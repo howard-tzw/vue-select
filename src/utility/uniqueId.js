@@ -6,7 +6,7 @@ let idCount = 0
  * @return {number}
  */
 function uniqueId() {
-  return ++idCount
+    return ++idCount
 }
 
 export default uniqueId

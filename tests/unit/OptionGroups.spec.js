@@ -1,115 +1,116 @@
-import { it, describe, expect, vi } from 'vitest'
-import { shallowMount } from '@vue/test-utils'
+import {it, describe, expect, vi} from 'vitest'
+import {shallowMount} from '@vue/test-utils'
 import VueSelect from '@/components/Select.vue'
 
 const preventDefault = vi.fn()
+
 function clickEvent(currentTarget) {
-  return { currentTarget, preventDefault }
+    return {currentTarget, preventDefault}
 }
 
 describe('Option Groups', () => {
-  it('should display an opt group title followed by two text options', () => {
-    const optgroups = [
-      {
-        groupLabel: 'Opt Group',
-        groupOptions: ['one', 'two'],
-      },
-    ]
+    it('should display an opt group title followed by two text options', () => {
+        const optgroups = [
+            {
+                groupLabel: 'Opt Group',
+                groupOptions: ['one', 'two'],
+            },
+        ]
 
-    const Select = shallowMount(VueSelect, {
-      props: {
-        options: optgroups,
-      },
+        const Select = shallowMount(VueSelect, {
+            props: {
+                options: optgroups,
+            },
+        })
+
+        Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
+
+        expect(Select.vm.filteredOptions).toEqual([
+            {
+                optgroup: 'Opt Group',
+            },
+            'one',
+            'two',
+        ])
     })
 
-    Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
+    it('should display an opt group title followed by two object options', () => {
+        const optgroups = [
+            {
+                groupLabel: 'Opt Group',
+                groupOptions: [
+                    {
+                        label: 'Test',
+                        value: 'test',
+                    },
+                    {
+                        label: 'Test 2',
+                        value: 'test2',
+                    },
+                ],
+            },
+        ]
 
-    expect(Select.vm.filteredOptions).toEqual([
-      {
-        optgroup: 'Opt Group',
-      },
-      'one',
-      'two',
-    ])
-  })
+        const Select = shallowMount(VueSelect, {
+            props: {
+                options: optgroups,
+            },
+        })
 
-  it('should display an opt group title followed by two object options', () => {
-    const optgroups = [
-      {
-        groupLabel: 'Opt Group',
-        groupOptions: [
-          {
-            label: 'Test',
-            value: 'test',
-          },
-          {
-            label: 'Test 2',
-            value: 'test2',
-          },
-        ],
-      },
-    ]
+        Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
 
-    const Select = shallowMount(VueSelect, {
-      props: {
-        options: optgroups,
-      },
+        expect(Select.vm.filteredOptions).toEqual([
+            {
+                optgroup: 'Opt Group',
+            },
+            {
+                label: 'Test',
+                value: 'test',
+            },
+            {
+                label: 'Test 2',
+                value: 'test2',
+            },
+        ])
     })
 
-    Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
+    it('should display mix a non-grouped text item with an opt group', () => {
+        const optgroups = [
+            'one',
+            {
+                groupLabel: 'Opt Group',
+                groupOptions: [
+                    {
+                        label: 'Test',
+                        value: 'test',
+                    },
+                    {
+                        label: 'Test 2',
+                        value: 'test2',
+                    },
+                ],
+            },
+        ]
 
-    expect(Select.vm.filteredOptions).toEqual([
-      {
-        optgroup: 'Opt Group',
-      },
-      {
-        label: 'Test',
-        value: 'test',
-      },
-      {
-        label: 'Test 2',
-        value: 'test2',
-      },
-    ])
-  })
+        const Select = shallowMount(VueSelect, {
+            props: {
+                options: optgroups,
+            },
+        })
 
-  it('should display mix a non-grouped text item with an opt group', () => {
-    const optgroups = [
-      'one',
-      {
-        groupLabel: 'Opt Group',
-        groupOptions: [
-          {
-            label: 'Test',
-            value: 'test',
-          },
-          {
-            label: 'Test 2',
-            value: 'test2',
-          },
-        ],
-      },
-    ]
+        Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
 
-    const Select = shallowMount(VueSelect, {
-      props: {
-        options: optgroups,
-      },
+        expect(Select.vm.filteredOptions).toEqual([
+            'one',
+            {optgroup: 'Opt Group'},
+            {
+                label: 'Test',
+                value: 'test',
+            },
+            {
+                label: 'Test 2',
+                value: 'test2',
+            },
+        ])
     })
-
-    Select.vm.toggleDropdown(clickEvent(Select.vm.$refs.search))
-
-    expect(Select.vm.filteredOptions).toEqual([
-      'one',
-      { optgroup: 'Opt Group' },
-      {
-        label: 'Test',
-        value: 'test',
-      },
-      {
-        label: 'Test 2',
-        value: 'test2',
-      },
-    ])
-  })
 })

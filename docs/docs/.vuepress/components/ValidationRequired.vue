@@ -3,20 +3,21 @@
     <v-select v-model="selected" :options="books" label="title">
       <template #search="{ attributes, events }">
         <input
-          :required="!selected"
-          class="vs__search"
-          v-bind="attributes"
-          v-on="events"
+            :required="!selected"
+            class="vs__search"
+            v-bind="attributes"
+            v-on="events"
         />
       </template>
     </v-select>
 
-    <input type="submit" />
+    <input type="submit"/>
   </form>
 </template>
 
 <script>
 import books from '../data/books'
+
 export default {
   data: () => ({
     books,

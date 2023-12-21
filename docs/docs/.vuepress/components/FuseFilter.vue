@@ -1,12 +1,12 @@
 <template>
   <v-select
-    :filter="fuseSearch"
-    :options="books"
-    :get-option-label="(option) => option.title"
+      :filter="fuseSearch"
+      :options="books"
+      :get-option-label="(option) => option.title"
   >
     <template #option="{ author, title }">
       {{ title }}
-      <br />
+      <br/>
       <cite>{{ author.firstName }} {{ author.lastName }}</cite>
     </template>
   </v-select>
@@ -27,8 +27,8 @@ export default {
         shouldSort: true,
       })
       return search.length
-        ? fuse.search(search).map(({ item }) => item)
-        : fuse.list
+          ? fuse.search(search).map(({item}) => item)
+          : fuse.list
     },
   },
 }
