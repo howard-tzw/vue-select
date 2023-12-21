@@ -44,6 +44,7 @@ export default defaultTheme({
                     {link: '/use-cases/ajax', text: 'AJAX'},
                     {link: '/use-cases/loops', text: 'Using in Loops'},
                     {link: '/use-cases/floating-label', text: 'Floating Label'},
+                    {link: '/use-cases/tag-input', text: 'Tag input'},
                 ],
             },
             {
@@ -94,7 +95,7 @@ export default defaultTheme({
                 ],
             },
             {
-                text: 'Варианты применения',
+                text: 'Примеры',
                 collapsable: false,
                 children: [
                     {link: '/ru/use-cases/validation', text: 'Проверки'},
@@ -105,6 +106,7 @@ export default defaultTheme({
                     {link: '/ru/use-cases/ajax', text: 'AJAX'},
                     {link: '/ru/use-cases/loops', text: 'Применение в циклах'},
                     {link: '/ru/use-cases/floating-label', text: 'Плавающая метка'},
+                    {link: '/ru/use-cases/tag-input', text: 'Ввод тегов'},
                 ],
             },
             {

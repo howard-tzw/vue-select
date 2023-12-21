@@ -1,11 +1,13 @@
 ---
+title: Плавающая метка
+description: Пример создания плавающий метки для поля select
 sidebarDepth: 0
 prev:
   text: Применение в циклах
   link: /ru/use-cases/loops
 next:
-  text: События клавиатуры
-  link: /ru/customizing/keydown
+  text: Ввод тегов
+  link: /ru/use-cases/tag-input
 ---
 # Плавающая метка
 

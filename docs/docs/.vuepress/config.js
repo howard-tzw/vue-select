@@ -10,12 +10,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineUserConfig({
-    title: 'Vs Vue3 Select 1',
+    title: 'Vs Vue3 Select',
     lang: 'en-US',
     theme,
-    head,
     locales,
     plugins,
+    head,
     alias: {
         '@': resolve(__dirname, '../../../src')
     }
