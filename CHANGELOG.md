@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/voral/vs-vue3-select/compare/v1.2.1...v1.2.2) (2023-12-23)
+
+
+### Bug Fixes
+
+* search text should clear on blur when component in multiple mode ([2bfeba1](https://github.com/voral/vs-vue3-select/commit/2bfeba1aacb4e475dee8f82ca538cfa40a878cd5))
+
 ### [1.2.1](https://github.com/voral/vs-vue3-select/compare/v1.2.0...v1.2.1) (2023-12-18)
 
 
