@@ -15,6 +15,7 @@ const baseSelectOptions = ref(
     }))
 )
 const selectedOption = ref()
+const selectedOptions = ref()
 
 setTimeout(() => {
   selectedOption.value = baseSelectOptions.value[0]
@@ -31,6 +32,16 @@ const links = computed(() => {
 
 <template>
   <div>
+    <div class="section">
+      <h2 class="title">Autocomplete search text, multiple</h2>
+      <v-select
+          v-model="selectedOptions"
+          :auto-select="true"
+          :options="options"
+          :multiple="true"
+      />
+    </div>
+
     <div class="section">
       <h2 class="title">Autocomplete search text</h2>
       <v-select v-model="selected" :options="options" :auto-select="true" :complete-search="true"/>

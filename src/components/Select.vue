@@ -575,7 +575,7 @@ export default {
     clearSearchOnBlur: {
       type: Function,
       default: function ({clearSearchOnSelect, multiple}) {
-        return clearSearchOnSelect && !multiple
+        return clearSearchOnSelect;
       },
     },
 

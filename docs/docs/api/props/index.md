@@ -122,7 +122,7 @@ Enables/disables clearing the search text when the search input is blurred.
 clearSearchOnBlur: {
     type: Function,
     default: function ({ clearSearchOnSelect, multiple }) {
-      return clearSearchOnSelect && !multiple
+      return clearSearchOnSelect;
     }
 },
 ```

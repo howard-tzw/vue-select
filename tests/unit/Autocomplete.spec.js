@@ -1,6 +1,8 @@
 import {afterEach, describe, expect, it, vi} from 'vitest'
 import {selectWithProps} from "#/helpers";
 import typeAheadPointer from "@/mixins/typeAheadPointer";
+import {shallowMount} from "@vue/test-utils";
+import VueSelect from "@/components/Select.vue";
 
 describe('Autocomplete', () => {
     let spy
