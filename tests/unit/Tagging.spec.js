@@ -1,10 +1,6 @@
-import {it, describe, expect, vi} from 'vitest'
-import {
-    mountDefault,
-    searchSubmit,
-    selectTag,
-    selectWithProps,
-} from '#/helpers.js'
+import {describe, expect, it, vi} from 'vitest'
+
+import {mountDefault, searchSubmit, selectTag, selectWithProps,} from '#/helpers.js'
 import VueSelect from '@/components/Select.vue'
 
 describe('When Tagging Is Enabled', () => {
