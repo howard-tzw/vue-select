@@ -1,4 +1,5 @@
 ---
+description: Vs Vue3 Select Component properties description 
 prev:
   text: Option Filtering
   link: /api/filtering
@@ -463,6 +464,36 @@ const optgroups = [
     ],
   },
 ]
+```
+
+## pasteSeparator <Badge type="tip" text="v1.3.0+" vertical="top" />
+
+Specifies the separator string for pasting multiple values from the clipboard. When this property is set, the pasted 
+string will be split into individual options using the specified separator.
+
+This option is used when the component is in multiple selection mode.
+
+```js
+pasteSeparator: {
+   type: String,
+   default: ''
+},
+```
+
+## pasteTrim <Badge type="tip" text="v1.3.0+" vertical="top" />
+
+When set to true, each option obtained after splitting during paste will undergo trimming using the 
+[String.prototype.trim()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/trim) 
+method. This includes removing leading and trailing whitespace, line breaks, and other white spaces around the pasted 
+values.
+
+This option is used when the component is in multiple selection mode.
+
+```js
+pasteTrim: {
+  type: Boolean,
+  default: true
+},
 ```
 
 ## placeholder
