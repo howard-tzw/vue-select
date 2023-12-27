@@ -37,7 +37,7 @@ const head = [
     ['meta', {property: 'og:image', content: meta.icon}],
     ['meta', {property: 'twitter:image', content: meta.icon}],
     ['meta', {name: 'description', content: meta.description}],
-    ['meta', {property: 'og:description', content: ''}],
+    ['meta', {property: 'og:description', content: meta.description}],
     ['meta', {property: 'twitter:description', content: meta.description}],
     ['meta', {property: 'twitter:title', content: meta.title}],
     ['meta', {property: 'og:title', content: meta.title}],

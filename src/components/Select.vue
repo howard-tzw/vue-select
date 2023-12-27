@@ -459,7 +459,6 @@ export default {
         if (typeof option !== 'object') {
           return option
         }
-
         try {
           return option.hasOwnProperty('id')
               ? option.id

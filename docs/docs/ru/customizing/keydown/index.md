@@ -1,8 +1,9 @@
 ---
+title: События клавиатуры 
 sidebarDepth: 0
 prev:
-  text: Плавающая метка
-  link: /ru/use-cases/floating-label
+  text: Поле ввода тегов
+  link: /ru/use-cases/tag-input
 next:
   text: Позиционирование списка
   link: /ru/customizing/positioning

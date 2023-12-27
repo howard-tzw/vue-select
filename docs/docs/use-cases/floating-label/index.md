@@ -1,11 +1,12 @@
 ---
+title: Floating Label
 sidebarDepth: 0
 prev:
   text: Using in Loops
   link: /use-cases/loops
 next:
-  text: Keydown Events
-  link: /customizing/keydown
+  text: Tag Input Field
+  link: /use-cases/tag-input
 ---
 
 # Floating Label  

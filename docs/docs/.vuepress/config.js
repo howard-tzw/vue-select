@@ -8,12 +8,12 @@ import { getDirname, path } from "@vuepress/utils";
 const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
-    title: 'Vs Vue3 Select 1',
+    title: 'Vs Vue3 Select',
     lang: 'en-US',
     theme,
-    head,
     locales,
     plugins,
+    head,
     alias: {
         '@': path.resolve(__dirname, '../../../src')
     }

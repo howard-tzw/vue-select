@@ -1,8 +1,9 @@
 ---
+title: Keydown Events
 sidebarDepth: 0
 prev:
-  text: Floating Label
-  link: /use-cases/floating-label
+  text: Tag Input Field
+  link: /use-cases/tag-input
 next:
   text: Dropdown Position
   link: /customizing/positioning
