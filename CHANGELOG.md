@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/voral/vs-vue3-select/compare/v1.2.2...v1.2.3) (2023-12-27)
+
+
+### Bug Fixes
+
+* Move vuepress dependencies from module to docs ([601a137](https://github.com/voral/vs-vue3-select/commit/601a1375b8af4484b788ec395e55eb5b353a1f07))
+
 ### [1.2.2](https://github.com/voral/vs-vue3-select/compare/v1.2.1...v1.2.2) (2023-12-23)
 
 
