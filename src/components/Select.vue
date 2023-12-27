@@ -456,21 +456,10 @@ export default {
     getOptionKey: {
       type: Function,
       default(option) {
-        if (typeof option !== 'object') {
+        if (option === null || typeof option !== 'object') {
           return option
         }
-        try {
-          return option.hasOwnProperty('id')
-              ? option.id
-              : sortAndStringify(option)
-        } catch (e) {
-          const warning =
-              `[vs-vue3-select warn]: Could not stringify this option ` +
-              `to generate unique key. Please provide 'getOptionKey' prop ` +
-              `to return a unique key for each option.\n` +
-              'https://vue3-select.va-soft.ru/api/props/#getoptionkey'
-          return console.warn(warning, option, e)
-        }
+        return option.hasOwnProperty('id') ? option.id : sortAndStringify(option)
       },
     },
 
