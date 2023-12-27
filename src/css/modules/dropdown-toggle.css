@@ -31,8 +31,9 @@
     flex-wrap: nowrap;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 0 0 10px;
+    padding: var(--vs-selected-options-padding);
     position: relative;
+    gap: var(--vs-selected-options-gap);
 }
 
 .vs__actions {

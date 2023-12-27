@@ -48,6 +48,9 @@
     --vs-selected-border-color: var(--vs-border-color);
     --vs-selected-border-style: var(--vs-border-style);
     --vs-selected-border-width: var(--vs-border-width);
+    --vs-selected-options-padding: 2px 0 2px 10px;
+    --vs-selected-options-gap: 2px;
+    --vs-selected-multiple-padding: 0 0 0 4px;
 
     /* Dropdown Menu */
     --vs-dropdown-bg: #fff;
@@ -60,7 +63,7 @@
     --vs-dropdown-overflow-y: auto;
     --vs-dropdown-border-radius: 4px;
     --vs-dropdown-options-gap: 2px;
-    --vs-dropdown-padding: 5px 0px;
+    --vs-dropdown-padding: 5px 0;
 
     /* Dropdown Option */
     --vs-dropdown-option-color: var(--vs-dropdown-color);

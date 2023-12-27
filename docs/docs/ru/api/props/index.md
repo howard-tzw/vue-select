@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 0
+description: Описание параметров компонента Vs Vue3 Select Component
 prev:
   text: Фильтрация опций
   link: /ru/customizing/filtering
@@ -453,6 +453,35 @@ const optgroups = [
     ],
   },
 ]
+```
+## pasteSeparator <Badge type="tip" text="v1.3.0+" vertical="top" />
+
+Указывает разделитель для вставки нескольких значений из буфера обмена. Когда это свойство установлено, вставляемая
+строка будет разделена на отдельные опции с использованием указанного разделителя.
+
+Эта опция используется, когда компонент находится в режиме множественного выбора.
+
+```js
+pasteSeparator: {
+   type: String,
+   default: ''
+},
+```
+
+## pasteTrim <Badge type="tip" text="v1.3.0+" vertical="top" />
+
+Если установлено значение true, каждый параметр, полученный после разделения во время вставки, будет подвергнут обрезке
+с использованием метода
+[String.prototype.trim()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/trim).
+Это включает в себя удаление начальных и конечных пробелов, разрывов строк и т.п.
+
+Эта опция используется, когда компонент находится в режиме множественного выбора.
+
+```js
+pasteTrim: {
+  type: Boolean,
+  default: true
+},
 ```
 
 ## placeholder

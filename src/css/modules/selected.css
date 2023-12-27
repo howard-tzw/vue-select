@@ -5,7 +5,6 @@
     flex-wrap: nowrap;
     align-items: center;
     margin: 0;
-    padding: 0;
     z-index: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -15,6 +14,7 @@
     border-radius: var(--vs-border-radius);
     color: var(--vs-selected-color);
     line-height: var(--vs-line-height);
+    padding: var(--vs-selected-multiple-padding);
 }
 
 .vs__deselect {
@@ -35,6 +35,7 @@
     background-color: transparent;
     border-color: transparent;
     flex: none;
+    padding: 0;
 }
 
 .vs--single.vs--open .vs__selected,

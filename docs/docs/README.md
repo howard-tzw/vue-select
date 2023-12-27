@@ -12,7 +12,8 @@ default template that fits most use cases for a filterable select dropdown. The
 component is designed to be as lightweight as possible, while maintaining high
 standards for accessibility.
 
-This is a fork of a popular component that has not been maintained for a long time
+This is a fork of a popular component that has not been maintained for a long time. The component has been enhanced with
+additional functionality and will continue to evolve and receive updates.
 
 Fork history:
 
@@ -30,7 +31,7 @@ who created such a component!
 
 ## Features
 
-- Tagging
+- Tags input
 - Filtering / Searching
 - Vuex/Pinia Support
 - AJAX Support

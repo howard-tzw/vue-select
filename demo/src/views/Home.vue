@@ -1,5 +1,5 @@
 <script setup>
-import {ref, computed} from 'vue'
+import {computed, ref} from 'vue'
 import countries from '../mocks/countryCodes.js'
 import {useRouter} from 'vue-router'
 

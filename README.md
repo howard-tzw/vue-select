@@ -13,12 +13,26 @@ default template that fits most use cases for a filterable select dropdown. The
 component is designed to be as lightweight as possible, while maintaining high
 standards for accessibility.
 
-This is a fork of a popular component that has not been maintained for a long time
+This is a fork of a popular component that has not been maintained for a long time. The component has been enhanced with
+additional functionality and will continue to evolve and receive updates.
 
 Fork history:
 
 - [sagalbot/vue-select](https://github.com/sagalbot/vue-select) v4.0.0-beta.6
 - [howard-tzw/vue3-select](https://github.com/howard-tzw/vue3-select) v0.1.2
+
+## Features
+
+- Tags input
+- Filtering / Searching
+- Vuex/Pinia Support
+- AJAX Support
+- SSR Support
+- Accessible
+- ~20kb Total / ~5kb CSS / ~15kb JS
+- Select Single/Multiple Options
+- Customizable with slots and CSS variables
+- Zero dependencies
 
 ### Documentation and examples
 

@@ -206,10 +206,29 @@ export default {
     modelValue: {},
 
     /**
+     * Trim options on paste from clipboard in multiple mode
+     * @type  Boolean
+     * @since v1.3
+     */
+    pasteTrim: {
+      type: Boolean,
+      default: true
+    },
+
+    /**
+     * String separator for paste from clipboard in multiple mode
+     * @type  String
+     * @since v1.3
+     */
+    pasteSeparator: {
+      type: String,
+      default: ''
+    },
+    /**
      * An object with any custom components that you'd like to overwrite
      * the default implementation of in your app. The keys in this object
      * will be merged with the defaults.
-     * @see https://vue3-select.va-soft.ru/guide/components.html
+     * @see https://vue3-select.va-soft.ru/styling/components
      * @type {Function}
      */
     components: {
@@ -409,7 +428,7 @@ export default {
             return console.warn(
                 `[vs-vue3-select warn]: Label key "option.${this.label}" does not` +
                 ` exist in options object ${JSON.stringify(option)}.\n` +
-                'https://vue3-select.va-soft.ru/api/props.html#getoptionlabel'
+                'https://vue3-select.va-soft.ru/api/props/#getoptionlabel'
             )
           }
           return option[this.label]
@@ -450,7 +469,7 @@ export default {
               `[vs-vue3-select warn]: Could not stringify this option ` +
               `to generate unique key. Please provide 'getOptionKey' prop ` +
               `to return a unique key for each option.\n` +
-              'https://vue3-select.va-soft.ru/api/props.html#getoptionkey'
+              'https://vue3-select.va-soft.ru/api/props/#getoptionkey'
           return console.warn(warning, option, e)
         }
       },
@@ -718,6 +737,8 @@ export default {
       // eslint-disable-next-line vue/no-reserved-keys
       _value: [], // Internal value managed by Vue Select if no `value` prop is passed
       deselectButtons: [],
+      pasteProcessed: false,
+      pasteBuffer: []
     }
   },
 
@@ -840,7 +861,8 @@ export default {
             keydown: this.onSearchKeyDown,
             blur: this.onSearchBlur,
             focus: this.onSearchFocus,
-            input: (e) => (this.search = e.target.value),
+            input: event => this.search = event.target.value,
+            paste: this.onPaste
           },
         },
         spinner: {
@@ -1039,6 +1061,25 @@ export default {
   },
 
   methods: {
+    onPaste(event) {
+      if (this.pasteSeparator === '' || !this.multiple) {
+        return;
+      }
+      let paste = (event.clipboardData || window.clipboardData).getData("text");
+      const tags = paste.split(this.pasteSeparator);
+      this.pasteProcessed = true;
+      tags.forEach(tag => {
+        if (tag !== null && tag !== '') {
+          const created = this.createOption(this.pasteTrim ? tag.trim() : tag);
+          this.select(created);
+        }
+      });
+      this.pasteProcessed = false;
+      let option = this.selectedValue.concat(this.pasteBuffer)
+      this.updateValue(option)
+      this.pasteBuffer = [];
+      event.preventDefault();
+    },
     clickOutside() {
       if (this.open) {
         this.open = false
@@ -1079,11 +1120,18 @@ export default {
           this.$emit('option:created', option)
           this.pushTag(option)
         }
-        if (this.multiple) {
-          option = this.selectedValue.concat(option)
+        if (!this.pasteProcessed) {
+          if (this.multiple) {
+            option = this.selectedValue.concat(option)
+          }
+          this.updateValue(option)
+        } else {
+          this.pasteBuffer = this.pasteBuffer.filter((val) => {
+            return !this.optionComparator(val, option)
+          })
+          this.pasteBuffer.push(option)
+          this.$emit('option:selected', option)
         }
-        this.updateValue(option)
-        this.$emit('option:selected', option)
       } else if (
           this.deselectFromDropdown &&
           (this.clearable || (this.multiple && this.selectedValue.length > 1))
