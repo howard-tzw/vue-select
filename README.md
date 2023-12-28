@@ -1,17 +1,17 @@
 # vue3-select
 
+
+**Notes**: This repository is no longer maintained. I recommend using [Voral/vs-vue3-select](https://github.com/Voral/vs-vue3-select).
+
+
+
+## Documentation (legacy)
+
 This is a forked and maintained version of
 [sagalbot/vue-select](https://github.com/sagalbot/vue-select), which is no
 longer maintained. As the name suggests, this project is specifically designed
 to work with the Vue 3.
 
-**Notes**: At the moment, most of the features of vue3-select are the same as
-the original vue-select project. As such, users can refer to the original
-documentation for usage instructions.
-
-## Documentation
-
-New documentation specific to vue3-select will be available soon...
 
 ### New in vue3-select
 
