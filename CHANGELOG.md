@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/voral/vs-vue3-select/compare/v1.2.3...v1.3.0) (2023-12-28)
+
+
+### Features
+
+* **clipboard:** Paste from clipboard with separate in multiple mode ([a1477c9](https://github.com/voral/vs-vue3-select/commit/a1477c9ea1be85e500b4e7464e243c08aeb1725b))
+
+
+### Style Updates
+
+* Added --vs-selected-options-padding, --vs-selected-options-gap, --vs-selected-multiple-padding ([a86e1de](https://github.com/voral/vs-vue3-select/commit/a86e1de07409082091b0e65d8af1dca745a3ad83))
+
 ### [1.2.3](https://github.com/voral/vs-vue3-select/compare/v1.2.2...v1.2.3) (2023-12-27)
 
 
